@@ -1,0 +1,66 @@
+
+body {
+    font-family: "Verdana", "Geneva";
+    padding-top: 50px;
+    /* Whatever the height of your navbar is; the default is 50px */
+    padding-bottom: 50px;
+}
+
+/* die ganze Nav-Bar */
+.navbar-default {
+    font-family: "Verdana", "Geneva";
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    margin-bottom: 0;
+}
+
+/* Position des Bildes */
+.navbar-brand > img {
+    max-height: 45px;
+    width: auto;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+
+/* Der Text innerhalb der Nav-Bar */
+.navbar-default .navbar-nav > li > a {
+    color: black;
+    font-family: "Verdana", "Geneva";
+    font-family: sans-serif;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-size: 18px;
+}
+
+/* den Text innerhalb der Nav-Bar beim Mauszeiger ändern */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #f3c48f;
+}
+
+.verticalLine {
+    border-right: solid #9799a7;
+}
+
+/* Design der anpassenden Nav-Bar */
+
+nav.navbar.shrink {
+    min-height: 25px;
+}
+
+nav.navbar.shrink a {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+/* Position des Bildes nach dem Scrollen */
+nav.shrink .navbar-brand > img {
+    font-size: 10px;
+    max-height: 25px;
+}

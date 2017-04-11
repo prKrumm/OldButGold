@@ -1,0 +1,28 @@
+/* Design der Beschriftung des Eingabefeldes */
+.left {
+    text-align: center;
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.inputHeight {
+    height: 200px;
+}
+
+h2 {
+    padding: 40px;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* Adobe Farbschema
+#9799a7 grau
+#f3c48f mokka
+#ececf2 silber
+#a8897c braun
+*/

@@ -1,0 +1,33 @@
+/* Design des Footers */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:  #9799a7;
+    text-align: center;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    min-height: 25px;
+}
+
+footer a {
+    color: white;
+    font-family: "Verdana", "Geneva";
+    font-family: sans-serif;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    font-size: 12px;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #f3c48f;
+    text-decoration: none;
+}

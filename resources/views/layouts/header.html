@@ -10,8 +10,15 @@
 
     <!-- Style Sheet -->
     <style type="text/css">
-        
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
         body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
             font-family: "Verdana", "Geneva";
             padding-top: 80px;
         }
@@ -33,6 +40,7 @@
             transform: translateX(-50%);
             left: 50%;
             position: absolute;
+            padding: 30px;
         }
 
         /* Der Text innerhalb der Nav-Bar */
@@ -76,16 +84,6 @@
         
                 
         /* Design des Footers */
-        html {
-          position: relative;
-          min-height: 100%;
-        }
-        
-        body {
-          /* Margin bottom by footer height */
-          margin-bottom: 60px;
-        }
-        
         .footer {
             position: absolute;
             bottom: 0;
