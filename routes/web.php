@@ -26,3 +26,7 @@ Route::get('/treffpunkt', 'TreffpunktController@index');
 Route::get('/ersatzteil', 'ErsatzteilController@index');
 
 Route::get('/profil', 'ProfilController@index');
+
+Route::get('/registrierung', 'RegistrierungController@index');
+
+Route::get('/tour', 'TourController@index');
