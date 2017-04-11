@@ -1,3 +1,17 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Verdana", "Geneva";
+    background-color: white;
+    color: black;
+    padding-top: 50px;
+    /* Whatever the height of your navbar is; the default is 50px */
+    padding-bottom: 50px;
+}
+
 /* Design der Beschriftung des Eingabefeldes */
 .left {
     text-align: center;
@@ -12,11 +26,20 @@
 }
 
 h2 {
-    padding: 40px;
+    padding-top: 30px;
+    paddingt-bottom: 20px;
 }
 
 img {
     width: 100%;
+}
+
+div {
+    padding: 5px;
+}
+
+footer > div {
+    padding: 0px;
 }
 
 
