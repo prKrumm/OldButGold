@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/experten', 'ExpertenController@index');
+
+Route::get('/treffpunkt', 'TreffpunktController@index');
+
+Route::get('/ersatzteil', 'ErsatzteilController@index');
+
+Route::get('/profil', 'ProfilController@index');
