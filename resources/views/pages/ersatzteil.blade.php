@@ -1,6 +1,5 @@
-@extends('layouts.master')
+@extends('layouts.masterFahrzeug')
 
 @section('content')
 
-    <h1>some content</h1>
 @endsection
