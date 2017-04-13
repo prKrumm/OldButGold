@@ -6,7 +6,7 @@
 
     <div id="qlist-wrapper">
         <div class="container">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-3">
                 <div class="question-summary narrow"
                      id="question-summary-42972375">
 
@@ -21,10 +21,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 col-sm-9">
                 <div class="summary">
 
-                    <h3><a href="/questions/42972375/parse-integer-and-show-in-timeline-in-kibana"
+                    <h3><a href="/ersatzteil/42972375"
                            class="question-hyperlink">Parse integer and show in timeline in Kibana</a></h3>
                     <div class="tags t-kibana t-kibana-5">
                         <a href="/questions/tagged/kibana" class="post-tag"
@@ -37,6 +37,6 @@
         </div>
     </div>
 
-    
+
 
 @endsection

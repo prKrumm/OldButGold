@@ -6,7 +6,7 @@
                     <section class="car-select" id="car-select">
                         <div class="flex-parent">
 
-                            <div class="col-lg-3 col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-12">
                                 <div class="center-content text-center">
                                     <i class="icon-car-select"></i>
                                     <strong>Bitte Ihr Fahrzeug ausw&#228;hlen!</strong>
@@ -20,7 +20,7 @@
                             </div>
 
                             <!-- waterfall-style vehicle selector -->
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
                                 <h3 style="display: none;">
                                     <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>Bitte Fahrzeug ausw&#228;hlen,
                                     damit der gekaufte Artikel auch zu Ihrem Auto passt</h3>
@@ -74,7 +74,7 @@
 
 
 
-                            <div class="col-lg-3 col-md-3">
+                            <div class="col-lg-3 col-md-3 col-sm-12">
 
                                 <div class="arrow-wrapper-right">
                                     <svg>
