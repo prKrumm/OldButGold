@@ -7,25 +7,26 @@ html {
 footer {
     position: absolute;
     width: 100%;
+    bottom: 0;
     background-color: #48474F;
     text-align: center;
     display: inherit;
     align-items: center;
     justify-content: center;
-    padding-top: 15px;
+    padding-top: 5px;
     min-height: 10px;
 }
 
 footer a {
     color: white;
     font-family: "Verdana", "Geneva", "serif";
-    padding-top: 15px !important;
-    padding-bottom: 15px !important;
-    font-size: 12px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 10px;
 }
 
 footer a:hover,
 footer a:focus {
-    color: #f3c48f;
+    color: #A6151A;
     text-decoration: none;
 }

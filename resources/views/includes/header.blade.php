@@ -8,17 +8,17 @@
                 <li><a href="/experten">Experten</a></li>
             </ul>
 
-            <div class="navbar-header">
+ <!--           <div class="navbar-header">
                 <a class="navbar-brand" href="#">
                     <img class="image-responsive" alt="Responsive image" src="../images/Logo.jpg">
                 </a>
             </div>
-
+-->
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span>
+                    <li><a href="{{ route('login') }}" class="verticalLine"><span class="glyphicon glyphicon-log-in"></span>
                             Login</a></li>
                     <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span>
                             Registrieren</a></li>

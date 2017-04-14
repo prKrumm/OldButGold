@@ -9,9 +9,9 @@ body {
     font-family: "Lobster", "Geneva";
     background-color: white;
     color: black;
-    padding-top: 50px;
+    padding-top: 100px;
     /* Whatever the height of your navbar is; the default is 50px */
-    padding-bottom: 50px;
+    padding-bottom: 80px;
 }
 
 div {

@@ -1,3 +1,6 @@
+
+<link href="{{ asset('css/question.css') }}" rel="stylesheet">
+
 @extends('layouts.master')
 @section('content')
     <div class="container">

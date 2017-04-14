@@ -1,8 +1,14 @@
-
 body {
     padding-top: 50px;
     /* Whatever the height of your navbar is; the default is 50px */
     padding-bottom: 50px;
+}
+
+h3 {
+    text-align: center;
+    color: #926B4E;
+    font-weight: bold;
+    border-bottom: 4px solid #A6151A;
 }
 
 /* die ganze Nav-Bar */
@@ -12,6 +18,7 @@ body {
     font-weight: bold;
     background-color: white;
     margin-bottom: 0;
+    border-bottom: 12px solid #A6151A;
 }
 
 /* Position des Bildes */
@@ -39,20 +46,20 @@ body {
 }
 
 .verticalLine {
-    border-right: solid #9799a7;
+    border-right: solid #A6151A;
 }
 
 /* Design der anpassenden Nav-Bar */
-
 nav.navbar.shrink {
-    min-height: 25px;
+    min-height: 10px;
+    border-bottom: 8px solid #A6151A;
 }
 
 nav.navbar.shrink a {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
     font-size: 12px;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 /* Position des Bildes nach dem Scrollen */
