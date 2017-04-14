@@ -1,7 +1,17 @@
 @extends('layouts.masterFahrzeug')
 
 @section('content')
-    <h1>Ersatzteil Anfragen</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <h2>Alle Gesuche</h2>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <a class="btn btn-default" href="ersatzteil/frage">Teil anfragen</a>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
     <div id="qlist-wrapper">
@@ -24,7 +34,7 @@
             <div class="col-md-9 col-sm-9">
                 <div class="summary">
 
-                    <h3><a href="/ersatzteil/42972375"
+                    <h3><a href="/ersatzteil/id/42972375"
                            class="question-hyperlink">Parse integer and show in timeline in Kibana</a></h3>
                     <div class="tags t-kibana t-kibana-5">
                         <a href="/questions/tagged/kibana" class="post-tag"

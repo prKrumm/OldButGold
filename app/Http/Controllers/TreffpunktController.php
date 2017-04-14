@@ -16,6 +16,7 @@ class TreffpunktController extends Controller
         return view('pages.treffpunkt');
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -45,7 +46,18 @@ class TreffpunktController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.treffpunkt_detail');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function frage()
+    {
+        return view('pages.treffpunkt_frage');
     }
 
     /**
