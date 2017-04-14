@@ -1,7 +1,7 @@
 @extends('layouts.masterFahrzeug')
 @section('content')
     <div class="container">
-        <h1 class="left">Frage stellen</h1>
+        <h1 class="left">Teil Anfrage</h1>
         <form class="form-horizontal">
             <div class="col-md-9 col-sm-12">
                 <div class="form-group">
@@ -33,9 +33,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div>
-                    <img alt="Image" class="img-thumbnail" src="../images/Frage.jpg">
-                </div>
+                <img alt="Image" class="img-thumbnail" src="../images/Frage.jpg">
             </div>
         </form>
     </div>
