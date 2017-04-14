@@ -1,40 +1,52 @@
 @extends('layouts.masterFahrzeug')
+
 @section('content')
     <div class="container">
-        <h1 class="left">Frage stellen</h1>
-        <form class="form-horizontal">
-            <div class="col-md-9 col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Betreff</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="focusedInput" type="text"
-                               placeholder="Bitte geben Sie hier Ihren Betreff ein">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Beschreibung</label>
-                    <div class="col-sm-10">
-                        <input class="form-control inputHeight" type="text"
-                               placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Themen</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text"
-                               placeholder="Wählen Sie hier die relevanten die Themengebiete">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2"></label>
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-default">Frage senden</button>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-md-9 col-sm-9">
+                <h2>Alle Fragen</h2>
             </div>
-            <div class="col-md-3">
-                <img alt="Image" class="img-thumbnail" src="../images/Frage.jpg">
+            <div class="col-md-3 col-sm-3">
+                <a class="btn btn-default" href="treffpunkt/frage">Frage stellen</a>
             </div>
-        </form>
+        </div>
     </div>
+    </div>
+
+
+    <div id="qlist-wrapper">
+        <div class="container">
+            <div class="col-md-3 col-sm-3">
+                <div class="question-summary narrow"
+                     id="question-summary-42972375">
+
+                    <div class="votes">
+                        <div class="mini-counts"><span title="0 votes">0</span></div>
+                        <div>votes</div>
+                    </div>
+
+                    <div class="status unanswered">
+                        <div class="mini-counts"><span title="0 answers">0</span></div>
+                        <div>answers</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9">
+                <div class="summary">
+
+                    <h3><a href="/treffpunkt/id/42972375"
+                           class="question-hyperlink">Parse integer and show in timeline in Kibana</a></h3>
+                    <div class="tags t-kibana t-kibana-5">
+                        <a href="/questions/tagged/kibana" class="post-tag"
+                           title="show questions tagged &#39;kibana&#39;" rel="tag">kibana</a> <a
+                                href="/questions/tagged/kibana-5" class="post-tag"
+                                title="show questions tagged &#39;kibana-5&#39;" rel="tag">kibana-5</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 @endsection

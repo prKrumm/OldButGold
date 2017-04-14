@@ -23,7 +23,15 @@ Route::get('/experten', 'ExpertenController@index');
 
 Route::get('/treffpunkt', 'TreffpunktController@index');
 
+Route::get('/treffpunkt/frage', 'TreffpunktController@frage');
+
+Route::get('/treffpunkt/id/{id}', 'TreffpunktController@show');
+
 Route::get('/ersatzteil', 'ErsatzteilController@index');
+
+Route::get('/ersatzteil/frage', 'ErsatzteilController@frage');
+
+Route::get('/ersatzteil/id/{id}', 'ErsatzteilController@show');
 
 Route::get('/profil', 'ProfilController@index');
 
