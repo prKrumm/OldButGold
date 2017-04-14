@@ -2,14 +2,13 @@
 @section('content')
 
     <div class="container">
-        <br>ICH WERDE ÜBERDECKT
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <img alt="Image" class="img-thumbnail" src="../images/landingpage.jpg">
+            <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+                <img alt="Image" class="img-thumbnail" src="../images/landing.jpg">
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2" >
                 <div class="text-muted">
                     Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte.
                     Abgeschieden wohnen Sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein

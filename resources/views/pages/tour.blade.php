@@ -60,13 +60,13 @@
                     gut für den Ausdruck oder
                 </span>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5 ">
                 <img alt="Image" class="img-thumbnail" src="../images/ersatzteile.jpg">
             </div>
         </div>
 
         <div class="row">
-            <h3>Experten: Finde Experten in deiner Nähe</h3>
+            <h3>Experten: Experten in deiner Nähe auf einen Blick</h3>
             <div class="col-md-7">
                 <span>
                      Ein wichtiges aber
