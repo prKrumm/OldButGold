@@ -8,9 +8,9 @@
 
 <body>
 
-<header>
+
     @include('includes.header')
-</header>
+
 
 <div class="container">
 <div class ="col-lg-12 col-md-12">
@@ -28,9 +28,9 @@
 
 
 
-<footer class="footer">
+
     @include('includes.footer')
-</footer>
+
 
 
 

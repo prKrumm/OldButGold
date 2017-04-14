@@ -8,21 +8,18 @@
 
 <body>
 
-    <header>
        @include('includes.header')
-    </header>
 
 
-    <div class="row">
+
+
     @yield('content')
-    </div>
 
 
 
 
-    <footer class="footer">
-        @include('includes.footer')
-    </footer>
+       @include('includes.footer')
+
 
 
 

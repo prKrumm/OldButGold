@@ -6,10 +6,18 @@ html {
 }
 
 body {
-    font-family: "Verdana", "Geneva";
+    font-family: "Lobster", "Geneva";
     background-color: white;
     color: black;
     padding-top: 50px;
     /* Whatever the height of your navbar is; the default is 50px */
     padding-bottom: 50px;
+}
+
+div {
+    padding: 5px;
+}
+
+footer > div {
+    padding: 0px;
 }

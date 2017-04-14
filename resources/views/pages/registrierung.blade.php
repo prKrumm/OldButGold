@@ -1,14 +1,12 @@
---@extends('layouts.master')
+@extends('layouts.master')
 @section('content')
-
-
     <div>
         <span>Willkommen bei Old-but-Gold.de - Das Oldtimer Portal</span>
         <hr>
     </div>
 
     <!--http://stackoverflow.com/questions/18470682/html-form-make-inputs-appear-on-the-same-line#18470972-->
-    <div class=container>
+    <div class="container">
         <!--
         -   Registrierungs-Formular: 6-7 columns
         -   Bild: 4 columns
@@ -160,4 +158,3 @@
             </div>
         </form>
     </div>
-@endsection

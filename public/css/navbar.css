@@ -1,6 +1,5 @@
 
 body {
-    font-family: "Verdana", "Geneva";
     padding-top: 50px;
     /* Whatever the height of your navbar is; the default is 50px */
     padding-bottom: 50px;
@@ -8,8 +7,7 @@ body {
 
 /* die ganze Nav-Bar */
 .navbar-default {
-    font-family: "Verdana", "Geneva";
-    font-family: sans-serif;
+    font-family: "Lobster";
     font-size: 15px;
     font-weight: bold;
     background-color: white;
@@ -29,8 +27,6 @@ body {
 /* Der Text innerhalb der Nav-Bar */
 .navbar-default .navbar-nav > li > a {
     color: black;
-    font-family: "Verdana", "Geneva";
-    font-family: sans-serif;
     padding-top: 25px !important;
     padding-bottom: 25px !important;
     font-size: 18px;
@@ -39,7 +35,7 @@ body {
 /* den Text innerhalb der Nav-Bar beim Mauszeiger ändern */
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #f3c48f;
+    color: #375D38;
 }
 
 .verticalLine {

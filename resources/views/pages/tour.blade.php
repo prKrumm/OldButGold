@@ -1,7 +1,5 @@
-<!--@extends('layouts.master')
+@extends('layouts.master')
 @section('content')
-    TODO: <body> wird von Header überdeckt! Dieses Layout in blade Landingpage übertragen
-    -->
 
     <div class="container">
        ICH WERDE VON HEADER ÜBERDECKT

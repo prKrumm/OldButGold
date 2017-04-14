@@ -4,23 +4,21 @@ html {
     min-height: 100%;
 }
 
-
 footer {
     position: absolute;
     width: 100%;
-    background-color: #9799a7;
+    background-color: #48474F;
     text-align: center;
     display: inherit;
     align-items: center;
     justify-content: center;
     padding-top: 15px;
-    min-height: 20px;
+    min-height: 10px;
 }
 
 footer a {
     color: white;
-    font-family: "Verdana", "Geneva";
-    font-family: sans-serif;
+    font-family: "Verdana", "Geneva", "serif";
     padding-top: 15px !important;
     padding-bottom: 15px !important;
     font-size: 12px;
