@@ -1,10 +1,7 @@
-
-<link href="{{ asset('css/question.css') }}" rel="stylesheet">
-
-@extends('layouts.master')
+@extends('layouts.masterFahrzeug')
 @section('content')
     <div class="container">
-        <h2 class="left">Frage stellen</h2>
+        <h1 class="left">Frage stellen</h1>
         <form class="form-horizontal">
             <div class="col-md-9 col-sm-12">
                 <div class="form-group">
@@ -40,37 +37,4 @@
             </div>
         </form>
     </div>
-
-    <div class="container">
-        <div class="col-md-9">
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-        </div>
-
-        <div class="col-md-3">
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-            <div>
-                <p> Lorem IPSUM</p>
-            </div>
-        </div>
-    </div>
-    </div>
-
+@endsection

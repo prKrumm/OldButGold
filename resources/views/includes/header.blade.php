@@ -1,6 +1,24 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <div>
+        <!-- Definiert den Button mit dem eingeklappten Menü-->
+        <div class="navbar-header">
+
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="button-label">Menu</span>
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="/">
+                <img class="image-responsive" alt="Responsive image" src="../images/Logo.jpg">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li><a class="verticalLine" href="/treffpunkt">Treffpunkt</a></li>
@@ -8,12 +26,6 @@
                 <li><a href="/experten">Experten</a></li>
             </ul>
 
- <!--           <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img class="image-responsive" alt="Responsive image" src="../images/Logo.jpg">
-                </a>
-            </div>
--->
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->

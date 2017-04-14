@@ -65,5 +65,19 @@ nav.navbar.shrink a {
 /* Position des Bildes nach dem Scrollen */
 nav.shrink .navbar-brand > img {
     font-size: 10px;
-    max-height: 25px;
+    max-height: 35px;
+}
+
+div#myNavbar.navbar-collapse.collapse.in {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-size: 2px;
+    font-weight: bold;
+}
+
+.sr-only {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-size: 2px;
+    font-weight: bold;
 }

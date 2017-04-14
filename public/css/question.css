@@ -11,7 +11,7 @@
     height: 200px;
 }
 
-h2 {
+h1 {
     paddingt-bottom: 20px;
 }
 
@@ -21,8 +21,4 @@ img {
 
 div {
     padding: 5px;
-}
-
-footer > div {
-    padding: 0px;
 }

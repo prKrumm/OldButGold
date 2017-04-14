@@ -12,25 +12,13 @@
     @include('includes.header')
 
 
-<div class="container">
-<div class ="col-lg-12 col-md-12">
-@include('includes.fahrzeug')
-</div>
-</div>
+    @include('includes.fahrzeug')
 
-<div class="container">
 
-<div class="col-lg-12 col-md-12">
     @yield('content')
-</div>
-</div>
-
-
-
 
 
     @include('includes.footer')
-
 
 
 
