@@ -1,7 +1,7 @@
 @extends('layouts.masterFahrzeug')
 @section('content')
     <div class="container">
-        <h1 class="left">Frage stellen</h1>
+        <h2 class="left">Frage stellen</h2>
         <form class="form-horizontal">
             <div class="col-md-9 col-sm-12">
                 <div class="form-group">

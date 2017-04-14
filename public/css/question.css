@@ -1,6 +1,7 @@
 /* Design der Beschriftung des Eingabefeldes */
 .left {
-    text-align: center;
+    text-align: left;
+    border-bottom: 1px solid #A6151A;
 }
 
 .form-horizontal .control-label {
@@ -11,8 +12,8 @@
     height: 200px;
 }
 
-h1 {
-    paddingt-bottom: 20px;
+h2 {
+    padding-bottom: 20px;
 }
 
 img {
