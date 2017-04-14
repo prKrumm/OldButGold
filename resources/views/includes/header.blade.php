@@ -21,8 +21,8 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a class="verticalLine" href="/treffpunkt">Treffpunkt</a></li>
-                <li><a class="verticalLine" href="/ersatzteil">Ersatzteile</a></li>
+                <li><a href="/treffpunkt">Treffpunkt</a></li>
+                <li><a href="/ersatzteil">Ersatzteile</a></li>
                 <li><a href="/experten">Experten</a></li>
             </ul>
 
@@ -30,7 +30,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}" class="verticalLine"><span class="glyphicon glyphicon-log-in"></span>
+                    <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span>
                             Login</a></li>
                     <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span>
                             Registrieren</a></li>

@@ -18,7 +18,7 @@ h3 {
     font-weight: bold;
     background-color: white;
     margin-bottom: 0;
-    border-bottom: 12px solid #A6151A;
+    border-bottom: 3px solid #A6151A;
 }
 
 /* Position des Bildes */
@@ -41,8 +41,9 @@ h3 {
 
 /* den Text innerhalb der Nav-Bar beim Mauszeiger ändern */
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: #375D38;
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active {
+    color: #A6151A;
 }
 
 .verticalLine {
@@ -52,7 +53,7 @@ h3 {
 /* Design der anpassenden Nav-Bar */
 nav.navbar.shrink {
     min-height: 10px;
-    border-bottom: 8px solid #A6151A;
+    border-bottom: 3px solid #A6151A;
 }
 
 nav.navbar.shrink a {
@@ -65,13 +66,13 @@ nav.navbar.shrink a {
 /* Position des Bildes nach dem Scrollen */
 nav.shrink .navbar-brand > img {
     font-size: 10px;
-    max-height: 35px;
+    max-height: 30px;
 }
 
 div#myNavbar.navbar-collapse.collapse.in {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    font-size: 2px;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 8px;
     font-weight: bold;
 }
 

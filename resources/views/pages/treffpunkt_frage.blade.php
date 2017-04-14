@@ -33,7 +33,9 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <img alt="Image" class="img-thumbnail" src="../images/Frage.jpg">
+                <div>
+                    <img alt="Image" class="img-thumbnail" src="../images/Frage.jpg">
+                </div>
             </div>
         </form>
     </div>
