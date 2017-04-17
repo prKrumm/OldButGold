@@ -1,4 +1,4 @@
-@extends('layouts.masterFahrzeug')
+@extends('layouts.masterFahrzeugFrage')
 @section('content')
     <div class="container">
         <h2 class="left">Frage stellen</h2>
