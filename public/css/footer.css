@@ -20,6 +20,7 @@ footer a {
 }
 
 footer a:hover,
+footer a:active,
 footer a:focus {
     color: #A6151A;
     text-decoration: none;

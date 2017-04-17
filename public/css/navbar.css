@@ -44,6 +44,7 @@ h3 {
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:active {
     color: #A6151A;
+    text-decoration: none;
 }
 
 .verticalLine {
@@ -52,28 +53,47 @@ h3 {
 
 /* Design der anpassenden Nav-Bar */
 nav.navbar.shrink {
-    min-height: 10px;
+    min-height: 6px;
     border-bottom: 3px solid #A6151A;
+    max-height: 85px;
 }
 
 nav.navbar.shrink a {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    font-size: 12px;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    bottom: 0;
+    margin: 0;
+    font-size: 14px;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Position des Bildes nach dem Scrollen */
 nav.shrink .navbar-brand > img {
-    font-size: 10px;
-    max-height: 30px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    max-height: 45px;
+    width: auto;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
 }
 
-div#myNavbar.navbar-collapse.collapse.in {
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-    font-size: 8px;
+div#myNavbar.navbar-collapse.collapsing > ul > li > a{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-size: 10px;
     font-weight: bold;
+    text-align: center;
+}
+
+div#myNavbar.navbar-collapse.collapse.in > ul > li > a{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .sr-only {
@@ -81,4 +101,14 @@ div#myNavbar.navbar-collapse.collapse.in {
     padding-bottom: 10px !important;
     font-size: 2px;
     font-weight: bold;
+}
+
+#myNavbar > li > a:active,
+#myNavbar > li > a:hover {
+    color: #A6151A;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #A6151A
 }
