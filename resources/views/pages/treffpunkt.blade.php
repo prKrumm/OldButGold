@@ -13,7 +13,6 @@
         <div class="col-md-3 col-sm-2">
             <div class="question-summary narrow"
                  id="question-summary-42972375">
-
                 <div class="votes">
                     <div class="mini-counts"><span title="0 votes">0</span></div>
                     <div>votes</div>
@@ -27,16 +26,13 @@
         </div>
         <div class="col-md-9 col-sm-10">
             <div class="summary">
-
-                <h3><a href="/ersatzteil/id/42972375"
+                <h3><a href="/treffpunkt/id/42972375"
                        class="question-hyperlink">Frage zu Einbau eines neuen Motors. Lorem Ipsum.Lorem
                         Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.</a>
                 </h3>
-                <div class="tags t-kibana t-kibana-5">
-                    <a href="/questions/tagged/kibana" class="post-tag"
-                       title="show questions tagged &#39;kibana&#39;" rel="tag">Motor</a> <a
-                            href="/questions/tagged/kibana-5" class="post-tag"
-                            title="show questions tagged &#39;kibana-5&#39;" rel="tag">1,9l</a>
+                <div class="tags">
+                <a href="/treffpunkt" class="post-tag" rel="tag">Motor</a>
+                <a href="/treffpunkt" class="post-tag" rel="tag">1,9l</a>
                 </div>
             </div>
         </div>
@@ -62,11 +58,9 @@
 
                 <h3><a href="/ersatzteil/id/42972375"
                        class="question-hyperlink">Welches Öl für mein Ford Getriebe</a></h3>
-                <div class="tags t-kibana t-kibana-5">
-                    <a href="/questions/tagged/kibana" class="post-tag"
-                       title="show questions tagged &#39;kibana&#39;" rel="tag">Getriebe</a> <a
-                            href="/questions/tagged/kibana-5" class="post-tag"
-                            title="show questions tagged &#39;kibana-5&#39;" rel="tag">Öl</a>
+                <div class="tags">
+                    <a href="/treffpunkt" rel="tag">Getriebe</a>
+                    <a href="/treffpunkt" rel="tag">Öl</a>
                 </div>
             </div>
         </div>
