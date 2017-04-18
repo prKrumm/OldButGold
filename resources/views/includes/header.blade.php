@@ -14,7 +14,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="/">
-                <img class="image-responsive" alt="Responsive image" src="../images/Logo.jpg">
+                <img class="image-responsive" alt="Responsive image" src="/images/LogoRot.jpg">
             </a>
         </div>
 

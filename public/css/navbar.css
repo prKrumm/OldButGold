@@ -6,7 +6,7 @@ body {
 
 /* die ganze Nav-Bar */
 .navbar-default {
-    font-family: "Open Sans";
+    font-family: "Open Sans", "Geneva";
     font-size: 15px;
     font-weight: bold;
     background-color: white;

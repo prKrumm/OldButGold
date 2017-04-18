@@ -1,5 +1,4 @@
 @extends('layouts.masterFahrzeug')
-
 @section('content')
    <div class="row">
       <div class="col-md-12 col-sm-12">
@@ -31,7 +30,4 @@
             Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,</p>
       </div>
    </div>
-
-
-
 @endsection
