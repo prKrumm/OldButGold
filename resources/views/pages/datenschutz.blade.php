@@ -4,7 +4,7 @@
     <div class="container">
         <h2 class="left">Datenschutzerkl&auml;rung</h2>
         <div>
-            <h2>Datenschutz</h2>
+            <h4>Datenschutz</h4>
             <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer pers&ouml;nlichen Daten sehr ernst. Wir behandeln
                 Ihre
                 personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie
@@ -21,7 +21,7 @@
                 Dritte
                 ist nicht m&ouml;glich.</p>
             <p>&nbsp;</p>
-            <h2>Cookies</h2>
+            <h4>Cookies</h4>
             <p>Die Internetseiten verwenden teilweise so genannte Cookies. Cookies richten auf Ihrem Rechner keinen
                 Schaden
                 an und enthalten keine Viren. Cookies dienen dazu, unser Angebot nutzerfreundlicher, effektiver und
@@ -42,7 +42,7 @@
                 aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalit&auml;t dieser Website eingeschr&auml;nkt
                 sein.</p>
             <p>&nbsp;</p>
-            <h2>Server-Log-Files</h2>
+            <h4>Server-Log-Files</h4>
             <p>Der Provider der Seiten erhebt und speichert
                 automatisch Informationen in so genannten Server-Log Files, die Ihr Browser automatisch an uns
                 &uuml;bermittelt. Dies sind:</p>
@@ -61,14 +61,14 @@
                 rechtswidrige
                 Nutzung bekannt werden.</p>
             <p>&nbsp;</p>
-            <h2>Kontaktformular</h2>
+            <h4>Kontaktformular</h4>
             <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular
                 inklusive der von Ihnen dort
                 angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und f&uuml;r den Fall von Anschlussfragen bei
                 uns
                 gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
             <p>&nbsp;</p>
-            <h2>Datenschutzerkl&auml;rung f&uuml;r die Nutzung von etracker</h2>
+            <h4>Datenschutzerkl&auml;rung f&uuml;r die Nutzung von etracker</h4>
             <p>Unsere Webseite nutzt den
                 Analysedienst etracker. Anbieter ist die etracker GmbH, Erste Brunnenstra&szlig;e 1, 20459 Hamburg
                 Germany.
@@ -94,7 +94,7 @@
                         href="http://www.etracker.com/de/datenschutz.html">http://www.etracker.com/de/datenschutz.html</a>
             </p>
             <p>&nbsp;</p
-            <h2>Datenschutzerkl&auml;rung f&uuml;r die Nutzung von Facebook-Plugins (Like-Button)</h2>
+            <h4>Datenschutzerkl&auml;rung f&uuml;r die Nutzung von Facebook-Plugins (Like-Button)</h4>
             <p>Auf
                 unseren Seiten sind Plugins des sozialen Netzwerks Facebook, Anbieter Facebook Inc., 1 Hacker Way, Menlo
                 Park, California 94025, USA, integriert. Die Facebook-Plugins erkennen Sie an dem Facebook-Logo oder dem
@@ -119,7 +119,7 @@
                 Seiten Ihrem Facebook-Nutzerkonto zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-Benutzerkonto
                 aus.</p>
             <p>&nbsp;</p>
-            <h2>Datenschutzerkl&auml;rung f&uuml;r die Nutzung von YouTube</h2>
+            <h4>Datenschutzerkl&auml;rung f&uuml;r die Nutzung von YouTube</h4>
             <p>Unsere Webseite nutzt Plugins der von Google betriebenen Seite YouTube. Betreiber der Seiten ist die
                 YouTube,
                 LLC,
@@ -133,7 +133,7 @@
                 YouTube unter: <a href="https://www.google.de/intl/de/policies/privacy">https://www.google.de/intl/de/policies/privacy</a>
             </p>
             <p>&nbsp;</p
-            <h2>Kommentarfunktion auf dieser Webseite</h2>
+            <h4>Kommentarfunktion auf dieser Webseite</h4>
             <p>F&uuml;r die Kommentarfunktion auf dieser Seite
                 werden neben Ihrem Kommentar auch Angaben zum Zeitpunkt der Erstellung des Kommentars, Ihre E-Mail-
                 Adresse
@@ -150,7 +150,7 @@
                 Funktion
                 jederzeit &uuml;ber einen Link in den Info-Mails abbestellen.</p>
             <p>&nbsp;</p>
-            <h2>SSL-Verschl&uuml;sselung</h2>
+            <h4>SSL-Verschl&uuml;sselung</h4>
             <p>Diese Seite nutzt aus Gr&uuml;nden der Sicherheit und zum Schutz der &Uuml;bertragung vertraulicher
                 Inhalte,
                 wie zum Beispiel der Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL-Verschl&uuml;sselung.
@@ -160,7 +160,7 @@
             <p>Wenn die SSL Verschl&uuml;sselung aktiviert ist, k&ouml;nnen die Daten, die Sie an uns &uuml;bermitteln,
                 nicht von Dritten mitgelesen werden.</p>
             <p>&nbsp;</p>
-            <h2>Auskunft, L&ouml;schung, Sperrung</h2>
+            <h4>Auskunft, L&ouml;schung, Sperrung</h4>
             <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft &uuml;ber Ihre gespeicherten personenbezogenen
                 Daten, deren Herkunft und Empf&auml;nger und den Zweck der Datenverarbeitung sowie ein Recht auf
                 Berichtigung, Sperrung oder L&ouml;schung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema

@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-9 col-sm-9">
-            <h2>Alle Gesuche</h2>
+            <h2 class="left">Alle Gesuche</h2>
         </div>
         <div class="col-md-3 col-sm-3">
             <a class="btn btn-default" href="ersatzteil/frage">Teil anfragen</a>

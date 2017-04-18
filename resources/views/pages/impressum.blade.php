@@ -4,9 +4,9 @@
     <div class="container">
         <h2 class="left">Impressum</h2>
         <div>
-            <h2>Angaben gem&auml;&szlig; &sect; 5 TMG:</h2>
+            <h4>Angaben gem&auml;&szlig; &sect; 5 TMG:</h4>
             <p>Florian Kaiser<br/> Markgrafenstra&szlig;e 48<br/> 78467 Konstanz </p>
-            <h2>Kontakt:</h2>
+            <h4>Kontakt:</h4>
             <table>
                 <tr>
                     <td>Telefon:</td>
@@ -25,7 +25,7 @@
     <div class="container">
         <h2 class="left">Haftungsausschluss (Disclaimer)</h2>
         <div>
-            <h2>Haftung f&uuml;r Inhalte</h2>
+            <h4>Haftung f&uuml;r Inhalte</h4>
             <p>Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs.1 TMG f&uuml;r eigene Inhalte auf diesen
                 Seiten
                 nach den allgemeinen Gesetzen verantwortlich. Nach &sect;&sect; 8 bis 10 TMG sind wir als
@@ -37,7 +37,7 @@
                 bleiben hiervon unber&uuml;hrt. Eine diesbez&uuml;gliche Haftung ist jedoch erst ab dem Zeitpunkt der
                 Kenntnis einer konkreten Rechtsverletzung m&ouml;glich. Bei Bekanntwerden von entsprechenden
                 Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
-            <h2>Haftung f&uuml;r Links</h2>
+            <h4>Haftung f&uuml;r Links</h4>
             <p>Unser Angebot enth&auml;lt Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss
                 haben.
                 Deshalb k&ouml;nnen wir f&uuml;r diese fremden Inhalte auch keine Gew&auml;hr &uuml;bernehmen. F&uuml;r
@@ -51,7 +51,7 @@
             <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
                 Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links
                 umgehend entfernen.</p>
-            <h2>Urheberrecht</h2>
+            <h4>Urheberrecht</h4>
             <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
                 Urheberrecht. Die Vervielf&auml;ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au&szlig;erhalb
                 der Grenzen des Urheberrechtes bed&uuml;rfen der schriftlichen Zustimmung des jeweiligen Autors bzw.
