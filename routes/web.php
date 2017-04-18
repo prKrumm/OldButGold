@@ -35,7 +35,7 @@ Route::get('/profil', 'ProfilController@index');
 
 Route::get('/registrierung', 'RegistrierungController@index');
 
-Route::get('/home', 'StaticController@index');
+Route::get('/tour', 'StaticController@tour');
 
 Route::get('/kontakt', 'StaticController@kontakt');
 
