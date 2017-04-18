@@ -2,19 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6">
-                <p><a href="Impressum">Impressum</a></p>
+                <p><a href="/impressum">Impressum</a></p>
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-6">
-                <p><a href="Kontakt">Kontakt</a></p>
+                <p><a href="/kontakt">Kontakt</a></p>
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-6">
-                <p><a href="UeberUns">Über uns</a></p>
+                <p><a href="/ueberuns">Über uns</a></p>
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-6">
-                <p><a href="Datenschutz">Datenschutz</a></p>
+                <p><a href="/datenschutz">Datenschutz</a></p>
             </div>
         </div>
     </div>

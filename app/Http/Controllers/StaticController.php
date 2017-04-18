@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TourController extends Controller
+class StaticController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,32 @@ class TourController extends Controller
      */
     public function index()
     {
+        return view('home');
+    }
+
+    public function tour()
+    {
         return view('pages.tour');
+    }
+
+    public function impressum()
+    {
+        return view('pages.impressum');
+    }
+
+    public function kontakt()
+    {
+        return view('pages.kontakt');
+    }
+
+    public function ueberuns()
+    {
+        return view('pages.ueberuns');
+    }
+
+    public function datenschutz()
+    {
+        return view('pages.datenschutz');
     }
 
     /**

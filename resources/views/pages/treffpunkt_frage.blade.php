@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Betreff</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="focusedInput" type="text"
+                        <input class="form-control" type="text"
                                placeholder="Bitte geben Sie hier Ihren Betreff ein">
                     </div>
                 </div>

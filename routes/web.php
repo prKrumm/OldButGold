@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
 Route::get('/experten', 'ExpertenController@index');
 
 Route::get('/treffpunkt', 'TreffpunktController@index');
@@ -37,4 +35,12 @@ Route::get('/profil', 'ProfilController@index');
 
 Route::get('/registrierung', 'RegistrierungController@index');
 
-Route::get('/tour', 'TourController@index');
+Route::get('/home', 'StaticController@index');
+
+Route::get('/kontakt', 'StaticController@kontakt');
+
+Route::get('/ueberuns', 'StaticController@ueberuns');
+
+Route::get('/datenschutz', 'StaticController@datenschutz');
+
+Route::get('/impressum', 'StaticController@impressum');

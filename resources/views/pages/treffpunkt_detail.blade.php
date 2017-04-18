@@ -31,7 +31,4 @@
                 Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,Lorem Ipsum,</p>
         </div>
     </div>
-
-
-
 @endsection

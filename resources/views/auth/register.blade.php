@@ -5,8 +5,7 @@
     <div class="container">
         <div class="panel">
             <div class="panel-heading">
-                <h3>Registrierung
-                </h3>
+                <h2 class="left">Registrierung</h2>
             </div>
             <div class="row">
                 <div class="col-md-8">

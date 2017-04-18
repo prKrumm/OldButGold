@@ -55,7 +55,6 @@ h3 {
 nav.navbar.shrink {
     min-height: 6px;
     border-bottom: 3px solid #A6151A;
-    max-height: 85px;
 }
 
 nav.navbar.shrink a {
