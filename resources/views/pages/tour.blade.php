@@ -7,12 +7,12 @@
             <span>Willkommen auf dem Oldtimer - Portal</span>
             <hr>
         </div>
-        <h3>Treffpunkt: Stelle Fragen, erhalten Antworten - simpel und effektiv</h3>
+        <h2 class="center">Treffpunkt: Stelle Fragen, erhalten Antworten - simpel und effektiv</h2>
         <br>
         <div class="row">
             <div class="col-md-7">
 
-                <span>Dies ist ein Typoblindtext. An ihm kann man sehen,
+                <section>Dies ist ein Typoblindtext. An ihm kann man sehen,
                     ob alle Buchstaben da sind und wie sie aussehen. Manchmal
                     benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves,
                     um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des
@@ -31,16 +31,16 @@
                     Je nach Software und Voreinstellungen können eingebaute Kapitälchen,
                     Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt
                     werden.Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle
-                    Buchstaben da sind und wie sie aussehen.  </span>
+                    Buchstaben da sind und wie sie aussehen.  </section>
             </div>
             <div class="col-md-5">
                 <img alt="Image" class="img-thumbnail" src="../images/Cadillac.jpg">
             </div>
         </div>
         <div class="row">
-            <h3>Ersatzteile: Wer suchet der findet</h3>
+            <h2 class="center">Ersatzteile: Wer suchet der findet</h2>
             <div class="col-md-7">
-                <span>
+                <section>
                     auf sich warten. Damit das Layout nun nicht nackt im Raume steht und
                     sich klein und leer vorkommt, springe ich ein: der Blindtext. Genau zu
                     diesem Zwecke erschaffen, immer im Schatten meines großen Bruders
@@ -58,7 +58,7 @@
                     und einen anderen Browser programmieren. Es reicht eine Seite, die - richtig
                     angelegt - sowohl auf verschiedenen Browsern im Netz funktioniert, aber ebenso
                     gut für den Ausdruck oder
-                </span>
+                </section>
             </div>
             <div class="col-md-5 ">
                 <img alt="Image" class="img-thumbnail" src="../images/ersatzteile.jpg">
@@ -66,15 +66,15 @@
         </div>
 
         <div class="row">
-            <h3>Experten: Experten in deiner Nähe auf einen Blick</h3>
+            <h2 class="center">Experten: Experten in deiner Nähe auf einen Blick</h2>
             <div class="col-md-7">
-                <span>
+                <section>
                      Ein wichtiges aber
                     schwierig zu integrierendes Feld sind OpenType-Funktionalitäten.
                     Je nach Software und Voreinstellungen können eingebaute Kapitälchen,
                     Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt
                     werden.Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle
-                    Buchstaben da sind und wie sie aussehen. </span>
+                    Buchstaben da sind und wie sie aussehen. </section>
 
             </div>
         </div>
