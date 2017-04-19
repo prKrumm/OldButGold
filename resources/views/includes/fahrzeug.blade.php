@@ -1,8 +1,8 @@
 <section class="fahrzeugAuswahl">
-
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12">
+            <div class="fahrzeugAuswahl">
                 <div class="row">
                     <div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">
                         <div class="fahrzeugAuswahlText">
@@ -51,9 +51,10 @@
                         </form>
                     </div>
                 </div>
+                <div/>
+            </div>
         </div>
     </div>
-</div>
 </div>
 </section>
 

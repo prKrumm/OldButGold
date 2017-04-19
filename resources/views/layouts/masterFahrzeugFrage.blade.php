@@ -11,7 +11,7 @@
 @include('includes.header')
 
 
-@include('includes.fahrzeug')
+@include('includes.fahrzGewählt')
 
 
 @yield('content')
