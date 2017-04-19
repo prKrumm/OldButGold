@@ -1,9 +1,3 @@
-body {
-    padding-top: 50px;
-    /* Whatever the height of your navbar is; the default is 50px */
-    padding-bottom: 50px;
-}
-
 /* die ganze Nav-Bar */
 .navbar-default {
     font-family: "Open Sans", "Geneva";
@@ -12,6 +6,7 @@ body {
     background-color: white;
     margin-bottom: 0;
     border-bottom: 3px solid #A6151A;
+    min-height: 85px;
 }
 
 /* Position des Bildes */
@@ -46,7 +41,7 @@ body {
 
 /* Design der anpassenden Nav-Bar */
 nav.navbar.shrink {
-    min-height: 6px;
+    min-height: 85px;
     border-bottom: 3px solid #A6151A;
 }
 
@@ -62,14 +57,13 @@ nav.navbar.shrink a {
 
 /* Position des Bildes nach dem Scrollen */
 nav.shrink .navbar-brand > img {
-    padding-bottom: 20px;
-    font-size: 14px;
     max-height: 45px;
     width: auto;
     margin: 0 auto;
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
+    padding-bottom: 10px;
 }
 
 div#myNavbar.navbar-collapse.collapsing > ul > li > a{
@@ -88,12 +82,6 @@ div#myNavbar.navbar-collapse.collapse.in > ul > li > a{
     text-align: center;
 }
 
-.sr-only {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    font-size: 2px;
-    font-weight: bold;
-}
 
 #myNavbar > li > a:active,
 #myNavbar > li > a:hover {
