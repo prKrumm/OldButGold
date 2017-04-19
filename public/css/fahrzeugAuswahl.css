@@ -12,3 +12,11 @@ background-color: oldlace;
 #ausgewFahrzeug {
     padding-top: 30px;
 }
+
+#strongTextFz {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+    border: 1px solid red;
+    border-radius: 5px;
+}
