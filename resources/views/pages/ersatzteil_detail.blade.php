@@ -25,6 +25,9 @@
                         <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                     </button>
                 </div>
+                <div class="detailAntwortenCount">
+                    <p>3</p>
+                </div>
                 <div>
                     <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
                         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
@@ -54,6 +57,9 @@
                     <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
                         <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                     </button>
+                </div>
+                <div class="detailAntwortenCount">
+                    <p>-2</p>
                 </div>
                 <div>
                     <button type="button" class="btn btn-custom" aria-label="Left Align" href="">

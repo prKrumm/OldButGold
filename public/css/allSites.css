@@ -18,6 +18,12 @@
     border-bottom: 1px solid #375D38;
 }
 
+.detailAntwortenCount {
+    font-size: 18px;
+    text-align: center;
+
+}
+
 .themen {
     padding-top: 10px;
     padding-bottom: 10px;
