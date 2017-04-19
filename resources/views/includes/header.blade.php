@@ -5,7 +5,7 @@
 
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="button-label">Menu</span>
+                <!-- <span class="button-label">Menu</span> -->
                 <span class="sr-only">Toggle Navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -14,7 +14,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="/">
-                <img class="image-responsive" alt="Responsive image" src="/images/LogoRot.jpg">
+                <img class="image-responsive" alt="OldButGold" src="/images/LogoRot.jpg">
             </a>
         </div>
 
