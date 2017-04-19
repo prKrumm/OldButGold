@@ -57,7 +57,7 @@ nav.navbar.shrink a {
 
 /* Position des Bildes nach dem Scrollen */
 nav.shrink .navbar-brand > img {
-    max-height: 25px;
+    max-height: 45px;
     width: auto;
     margin: 0 auto;
     transform: translateX(-50%);
