@@ -20,7 +20,6 @@
         </div>
         <div class="col-3 col-md-3 col-sm-3">
             @include('includes.sidebar')
-
         </div>
     </div>
 </div>

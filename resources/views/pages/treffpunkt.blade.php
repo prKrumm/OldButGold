@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 col-sm-2">
+        <div class="col-md-3 col-sm-2 col-xs-3">
             <div class="question-summary narrow"
                  id="question-summary-42972375">
                 <div class="votes">
@@ -24,7 +24,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-sm-10">
+        <div class="col-md-9 col-sm-10 col-xs-9">
             <div class="summary">
                 <h3><a href="/treffpunkt/id/42972375"
                        class="question-hyperlink">Frage zu Einbau eines neuen Motors. Lorem Ipsum.Lorem
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 col-sm-2">
+        <div class="col-md-3 col-sm-2 col-xs-3">
             <div class="question-summary narrow"
                  id="question-summary-42972375">
 
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-sm-10">
+        <div class="col-md-9 col-sm-10 col-xs-9">
             <div class="summary">
 
                 <h3><a href="/ersatzteil/id/42972375"

@@ -10,23 +10,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 col-sm-2">
+        <div class="col-md-3 col-sm-2 col-xs-3">
             <div class="question-summary narrow"
                  id="question-summary-42972375">
                 <div class="votes">
                     <div class="mini-counts"><span title="0 votes">0</span></div>
                     <div>votes</div>
                 </div>
-
                 <div class="status unanswered">
                     <div class="mini-counts"><span title="0 answers">0</span></div>
                     <div>answers</div>
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-sm-10">
+        <div class="col-md-9 col-sm-10 col-xs-9">
             <div class="summary">
-
                 <h3><a href="/ersatzteil/id/42972375"
                        class="question-hyperlink">Suche Krümmer für meinen P2. Lorem Ipsum.Lorem
                         Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.Lorem Ipsum.</a>
@@ -39,7 +37,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3 col-sm-2">
+        <div class="col-md-3 col-sm-2 col-xs-3">
             <div class="question-summary narrow"
                  id="question-summary-42972375">
                 <div class="votes">
@@ -53,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-9 col-sm-10">
+        <div class="col-md-9 col-sm-10 col-xs-9">
             <div class="summary">
                 <h3><a href="/ersatzteil/id/42972375"
                        class="question-hyperlink">Suche Vergaser für Opel Blitz</a></h3>
@@ -64,5 +62,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

@@ -9,9 +9,47 @@
     border-bottom: 1px solid #A6151A;
 }
 
+
 .answer {
     text-align: left;
     border-bottom: 1px solid #375D38;
+}
+.detailAntworten {
+    border-bottom: 1px solid #375D38;
+}
+
+.themen {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.question-hyperlink {
+    font-size: 18px;
+}
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+    text-align: center;
+
+}
+
+.material-icons.md-90 {
+    font-size: 90px;
 }
 
 html {
@@ -38,6 +76,7 @@ div {
     color: white;
     height: 100%;
 }
+
 .btn.btn-custom {
     width: 100%;
     background-color: #375D38;
