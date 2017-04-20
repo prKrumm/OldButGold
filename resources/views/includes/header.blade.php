@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="topheader">
-        Willkommen bei OldButGold.com - Ihrem Portal für Oldtimer!
+        OldButGold.com - Ihr Portal für Oldtimer!
     </div>
     <div class="container-fluid">
         <!-- Definiert den Button mit dem eingeklappten Menü-->
