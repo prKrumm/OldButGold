@@ -11,7 +11,7 @@
 
 /* Position des Bildes */
 .navbar-brand > img {
-    max-height: 45px;
+    max-height: 40px;
     width: auto;
     margin: 0 auto;
     transform: translateX(-50%);
@@ -41,7 +41,7 @@
 
 /* Design der anpassenden Nav-Bar */
 nav.navbar.shrink {
-    min-height: 110px;
+    min-height: 80px;
     border-bottom: 1px solid #A6151A;
 }
 
@@ -57,7 +57,7 @@ nav.navbar.shrink a {
 
 /* Position des Bildes nach dem Scrollen */
 nav.shrink .navbar-brand > img {
-    max-height: 45px;
+    max-height: 35px;
     width: auto;
     margin: 0 auto;
     transform: translateX(-50%);
@@ -89,7 +89,7 @@ div#myNavbar.navbar-collapse.collapse.in > ul > li > a{
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: white;
+    border-color: #A6151A;
 }
 
 .topheader {
