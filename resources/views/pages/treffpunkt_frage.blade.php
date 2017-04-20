@@ -22,7 +22,7 @@
                     <label class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text"
-                               placeholder="Wählen Sie hier die relevanten die Themengebiete">
+                               placeholder="Wählen Sie hier die relevanten Themengebiete">
                     </div>
                 </div>
                 <div class="form-group">
