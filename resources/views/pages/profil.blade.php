@@ -6,6 +6,7 @@
         <h2>Hallo, Hubert53!</h2>
         <hr>
         <div class="row">
+
             <div class="col-md-6">
                 <h3>Profildaten</h3>
                 <address>
@@ -22,7 +23,9 @@
                     Profil ändern
                 </button>
             </div>
-            <div class="col-md-6">
+
+
+            <div class="col-md-6 ">
                 <h3>Aktivität</h3>
                 <div class="row">
                     <div class="col-md-8">
@@ -59,9 +62,21 @@
                     </div>
                 </div>
             </div>
+            <hr>
             <div class="col-md-6">
+                <hr>
                 <h3>Meine Gesuche</h3>
+                <div class="row">
+                    <div class="col-md-8">
+                        <!--Link zur ursprünglichen Gesuche-Seite-->
+                        <a> Ich suche einen Krümmer </a>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
 @endsection

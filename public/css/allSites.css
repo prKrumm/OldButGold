@@ -87,3 +87,8 @@ div {
     background-color: #375D38;
     color: white;
 }
+.registerPanel{
+    padding-bottom: 0%;
+    padding-top: 0%;
+    margin:0%
+}

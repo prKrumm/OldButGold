@@ -14,25 +14,22 @@
                         {{ csrf_field() }}
 
                         <!--Benutzer-Rolle-->
-                            <div class="form-group{{ $errors->has('user-role') ? ' has-error' : '' }}">
+                            <div class=" registerPanel form-group{{ $errors->has('user-role') ? ' has-error' : '' }} ">
                                 <div class="row">
                                     <label for="user-role" class="col-md-4 control-label">Ich bin</label>
 
                                     <div class="col-md-6">
-                                        <input id="user-role" type="text" class="form-control" name="user-role"
-                                               value="{{ old('user-role') }}" placeholder="Wähle aus zwischen Händler und Oldtimer-Besitzer" required autofocus>
-
-                                        @if ($errors->has('user-role'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                        @endif
+                                        <select class="form-control" id="user-role" required>
+                                            <option value="">Händler/Besitzer</option>
+                                            <option value="haendler">Händler</option>
+                                            <option  value="besitzer">Oldtimer-Besitzer</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
-                        <!--Name-->
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <!--Name-->
+                            <div class=" registerPanel form-group{{ $errors->has('name') ? ' has-error' : '' }} ">
                                 <div class="row">
                                     <label for="name" class="col-md-4 control-label">Name</label>
 
@@ -50,7 +47,7 @@
                             </div>
 
                             <!--Vorname-->
-                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <div class=" registerPanel form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="first_name" class="col-md-4 control-label">Vorname</label>
 
@@ -68,7 +65,7 @@
                             </div>
 
                             <!--Straße, HausNr.-->
-                            <div class="form-group{{ $errors->has('street') ? ' has-error' : '' }}">
+                            <div class="registerPanel form-group{{ $errors->has('street') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="street" class="col-md-4 control-label">Straße</label>
                                     <div class="col-md-6">
@@ -85,7 +82,7 @@
                             </div>
 
                             <!--PLZ, Ort-->
-                            <div class="form-group{{ $errors->has('plz') ? ' has-error' : '' }}">
+                            <div class=" registerPanel form-group{{ $errors->has('plz') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="plz" class="col-md-4 control-label">PLZ</label>
                                     <div class="col-md-2">
@@ -113,7 +110,7 @@
 
 
                             <!--Email-->
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class=" registerPanel form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="email" class="col-md-4 control-label">E-Mail</label>
 
@@ -131,7 +128,7 @@
                             </div>
 
                             <!--Benutzername-->
-                            <div class="form-group{{ $errors->has('user_name') ? ' has-error' : '' }}">
+                            <div class=" registerPanel form-group{{ $errors->has('user_name') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="user_name" class="col-md-4 control-label">Benutzername</label>
 
@@ -149,7 +146,7 @@
                             </div>
 
                             <!--Passwort-->
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div class=" registerPanel form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="password" class="col-md-4 control-label">gewünschtes Passwort</label>
 
@@ -167,7 +164,7 @@
                             </div>
 
                             <!--Passwort bestätigen-->
-                            <div class="form-group">
+                            <div class=" registerPanel form-group">
                                 <div class="row">
                                     <label for="password-confirm" class="col-md-4 control-label">Passwort
                                         bestätigen</label>
@@ -178,7 +175,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="registerPanel form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-default">
                                             Registrieren
@@ -190,7 +187,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class=" col-md-4"><br>
                     <img alt="Image" class="img-thumbnail" src="../images/mercedes.jpg">
                 </div>
             </div>
