@@ -5,7 +5,7 @@
         <!--TODO: Add functionality get-Username-->
         <h2>Hallo, Hubert53!</h2>
         <hr>
-        <div class="row">
+        <div class="row border-between">
 
             <div class="col-md-6">
                 <h3>Profildaten</h3>
@@ -18,7 +18,7 @@
                 <h3>Themen</h3>
                 <!--TODO: add functionality-->
                 <span>lackieren, restaurieren</span>
-                <hr>
+                <br><br><br>
                 <button type="submit" class="btn btn-default">
                     Profil ändern
                 </button>

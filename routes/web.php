@@ -33,6 +33,8 @@ Route::get('/ersatzteil/id/{id}', 'ErsatzteilController@show');
 
 Route::get('/profil', 'ProfilController@index');
 
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/registrierung', 'RegistrierungController@index');
 
 Route::get('/tour', 'StaticController@tour');
