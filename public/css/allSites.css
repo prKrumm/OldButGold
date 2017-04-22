@@ -104,6 +104,13 @@ div {
     text-align: center;
 }
 
+.mini-counts {
+    padding-left: 10px;
+}
+.detailBtn {
+    text-align: center;
+}
+
 /*vertical line*/
 @media(min-width:992px) {
     .border-between > [class*='col-']:before {

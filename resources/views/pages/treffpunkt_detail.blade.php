@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-md-2 col-sm-2">
-            <div>
+            <div class="detailBtn">
                 <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
                     <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                 </button>
@@ -28,7 +28,7 @@
             <div class="detailAntwortenCount">
                <p>0</p>
             </div>
-            <div>
+            <div class="detailBtn">
                 <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
                     <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                 </button>
