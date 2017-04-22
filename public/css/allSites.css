@@ -24,7 +24,7 @@
 }
 
 .themen {
-    padding-top: 10px;
+    padding-top: 15px;
     padding-bottom: 10px;
     text-align: center;
     background-color: whitesmoke;
@@ -119,4 +119,8 @@ div {
     .border-between > [class*='col-']:first-child:before {
         display: none;
     }
+}
+
+#sidebarContainer{
+    padding-top: 10px;
 }

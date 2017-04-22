@@ -1,3 +1,4 @@
+<div id="sidebarContainer">
 <aside class="themen">
     <h4 id="h-related-tags">Themen</h4>
     <div>
@@ -15,3 +16,4 @@
                     class="item-multiplier-count">108</span></span>
     </div>
 </aside>
+</div>
