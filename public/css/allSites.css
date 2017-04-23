@@ -40,11 +40,18 @@
     font-size: 18px;
 }
 
+.material-icons.md-20 {
+    font-size: 20px;
+}
 .material-icons.md-24 {
     font-size: 24px;
 }
 
 .material-icons.md-36 {
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 12px;
+    left: 5px;
     font-size: 36px;
 }
 
@@ -126,6 +133,22 @@ div {
     .border-between > [class*='col-']:first-child:before {
         display: none;
     }
+}
+
+#gewähltesFZBtn{
+    margin-top: 5px;
+    padding-top: 10px;
+}
+#gewähltesFZDropdown{
+    border: 1px solid #ccc;
+    overflow: hidden;
+    padding: 10px 12px;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+#ausgewFahrzeugIcon{
+    text-align: center;
 }
 
 #sidebarContainer{
