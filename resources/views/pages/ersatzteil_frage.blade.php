@@ -1,4 +1,5 @@
 @extends('layouts.masterFahrzeugFrage')
+
 @section('content')
     <div class="container">
         <h2 class="left">Teil Anfrage</h2>
