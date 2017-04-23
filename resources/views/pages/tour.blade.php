@@ -7,75 +7,48 @@
             <span>Willkommen auf dem Oldtimer - Portal</span>
             <hr>
         </div>
-        <h2 class="center">Treffpunkt: Stelle Fragen, erhalten Antworten - simpel und effektiv</h2>
+        <h2 class="center">Stellen Sie Fragen und erhalten Sie Antworten</h2>
         <br>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-8">
 
-                <section>Dies ist ein Typoblindtext. An ihm kann man sehen,
-                    ob alle Buchstaben da sind und wie sie aussehen. Manchmal
-                    benutzt man Worte wie Hamburgefonts, Rafgenduks oder Handgloves,
-                    um Schriften zu testen. Manchmal Sätze, die alle Buchstaben des
-                    Alphabets enthalten - man nennt diese Sätze »Pangrams«. Sehr
-                    bekannt ist dieser: The quick brown fox jumps over the lazy old
-                    dog. Oft werden in Typoblindtexte auch fremdsprachige Satzteile
-                    eingebaut (AVAIL® and Wefox™ are testing aussi la Kerning), um
-                    die Wirkung in anderen Sprachen zu testen. In Lateinisch sieht zum
-                    Beispiel fast jede Schrift gut aus. Quod erat demonstrandum. Seit
-                    1975 fehlen in den meisten Testtexten die Zahlen, weswegen nach
-                    TypoGb. 204 § ab dem Jahr 2034 Zahlen in 86 der Texte zur Pflicht
-                    werden. Nichteinhaltung wird mit bis zu 245 € oder 368 $ bestraft.
-                    Genauso wichtig in sind mittlerweile auch Âçcèñtë, die in neueren
-                    Schriften aber fast immer enthalten sind. Ein wichtiges aber
-                    schwierig zu integrierendes Feld sind OpenType-Funktionalitäten.
-                    Je nach Software und Voreinstellungen können eingebaute Kapitälchen,
-                    Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt
-                    werden.Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle
-                    Buchstaben da sind und wie sie aussehen.  </section>
+                <p>Das Portal ermöglicht Besitzern Fragen an die Community zu stellen. Mitglieder des Portals
+                    beantworten diese Fragen. Die Besonderheit von OldButGold liegt darin, dass die gegebenen
+                    Ratschläge und
+                    Antworten bewertet werden. So finden Sie qualifizierte Antworten auf einen Blick, dies erspart den Interessenten
+                    im besten Fall ein mühseeliges Durchblättern der Antworten.</p>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <img alt="Image" class="img-thumbnail" src="../images/Cadillac.jpg">
             </div>
         </div>
         <div class="row">
-            <h2 class="center">Ersatzteile: Wer suchet der findet</h2>
-            <div class="col-md-7">
-                <section>
-                    auf sich warten. Damit das Layout nun nicht nackt im Raume steht und
-                    sich klein und leer vorkommt, springe ich ein: der Blindtext. Genau zu
-                    diesem Zwecke erschaffen, immer im Schatten meines großen Bruders
-                    »Lorem Ipsum«, freue ich mich jedes Mal, wenn Sie ein paar Zeilen lesen.
-                    Denn esse est percipi - Sein ist wahrgenommen werden. Und weil Sie nun
-                    schon die Güte haben, mich ein paar weitere Sätze lang zu begleiten,
-                    möchte ich diese Gelegenheit nutzen, Ihnen nicht nur als Lückenfüller zu
-                    dienen, sondern auf etwas hinzuweisen, das es ebenso verdient wahrgenommen
-                    zu werden: Webstandards nämlich. Sehen Sie, Webstandards sind das Regelwerk,
-                    auf dem Webseiten aufbauen. So gibt es Regeln für HTML, CSS, JavaScript oder
-                    auch XML; Worte, die Sie vielleicht schon einmal von Ihrem Entwickler gehört
-                    haben. Diese Standards sorgen dafür, dass alle Beteiligten aus einer Webseite
-                    den größten Nutzen ziehen. Im Gegensatz zu früheren Webseiten müssen wir zum
-                    Beispiel nicht mehr zwei verschiedene Webseiten für den Internet Explorer
-                    und einen anderen Browser programmieren. Es reicht eine Seite, die - richtig
-                    angelegt - sowohl auf verschiedenen Browsern im Netz funktioniert, aber ebenso
-                    gut für den Ausdruck oder
-                </section>
+            <h2 class="center">Stellen Sie Gesuche für Ersatzteile ein </h2>
+            <div class="col-md-8">
+                <p>Sie können Suchaufträge für seltene bzw. schwer zu beschaffende Ersatzteile einstellen. Jedes
+                    Gesuch muss sich dabei immer auf ein bestimmtes Fahrzeug-Modell beziehen. Die Suche erreicht alle
+                    dort registrierten Händler, welche auf die entsprechende Marke und Modell spezialisiert sind.
+                    Diese können wiederum gezielt auf die Oldtimer-Besitzer zugehen und Ihre Produkte verkaufen.
+                </p>
             </div>
-            <div class="col-md-5 ">
+            <div class="col-md-4 ">
                 <img alt="Image" class="img-thumbnail" src="../images/ersatzteile.jpg">
             </div>
         </div>
 
         <div class="row">
-            <h2 class="center">Experten: Experten in deiner Nähe auf einen Blick</h2>
-            <div class="col-md-7">
-                <section>
-                     Ein wichtiges aber
-                    schwierig zu integrierendes Feld sind OpenType-Funktionalitäten.
-                    Je nach Software und Voreinstellungen können eingebaute Kapitälchen,
-                    Kerning oder Ligaturen (sehr pfiffig) nicht richtig dargestellt
-                    werden.Dies ist ein Typoblindtext. An ihm kann man sehen, ob alle
-                    Buchstaben da sind und wie sie aussehen. </section>
+            <h2 class="center">Finden Sie Experten in ihrer Nähe auf einen Blick</h2>
+            <div class="col-md-8">
+                <p>
+                    Experten können sich bei OldButGold registrieren, um an Diskussionen teilnehmen zu können. Bei der
+                    Registrierung vermerkt der Experte optional seine Adresse. Dadurch willigt der Experte ein, dass
+                    OldButGold in der Rubrik "Experten" dessen Standort mit Hilfe des Dienstes GoolgeMaps darstellt.
+                    Dadurch finden Interessenten auf einen Blick, welche Experten in nächster Nähe erreichbar sind.
+                </p>
 
+            </div>
+            <div class="col-md-4 ">
+                <img alt="Image" class="img-thumbnail" src="../images/werkstatt.jpg">
             </div>
         </div>
     </div>

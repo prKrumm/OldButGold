@@ -13,7 +13,7 @@
                 <div class="text-muted">
                     Faszination Oldtimer – Das Oldtimer Portal Old-But-Gold bringt Oldtimer-Liebhaber, Experten, Restaurateure und Händler zusammen.
                     <br><br>
-                    Finde hier mehr über Old-but-Gold heraus und starte mit der <a href="/tour">Tour</a>.
+                    Finden Sie hier mehr über Old-but-Gold heraus und starten Sie mit der <a href="/tour">Tour</a>.
                 </div>
             </div>
         </div>
