@@ -20,6 +20,13 @@ class CreateFzgModellTable extends Migration
 
             $table->timestamps();
         });
+
+
+        DB::table('fzgModell')->insert([
+                'hersteller' => 'Borgward',
+                'modell' => 'Isabella Coupe'
+            ]
+        );
     }
 
     /**
