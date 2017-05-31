@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'benutzer_name', 'bild_url', 'e_mail'
     ];
 
     /**
@@ -26,4 +26,60 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Name of the Primary key in the database table
+     *
+     * @var string
+     */
+    protected $primaryKey = 'user_id';
+
+
+    /**
+     * 1:1 assiciation between user and adresse
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function adresse()
+    {
+        return $this->hasOne('App\Adresse');
+    }
+
+    /**
+     * N:1 assiciation between user and rolle
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function rolle()
+    {
+        return $this->belongsTo('App\Rolle');
+    }
+
+    /**
+     * The themen that belong to the user.
+     * N zu M Beziehung
+     */
+    public function themen()
+    {
+        return $this->belongsToMany('App\Thema');
+    }
+
+    /**
+     * The user that belong to the fzgModell.
+     * N zu M Beziehung
+     */
+    public function fahrzeuge()
+    {
+        return $this->belongsToMany('App\FzgModell');
+    }
+
+    /**
+     * Get the fragen for the user.
+     */
+    public function fragen()
+    {
+        return $this->hasMany('App\Frage');
+    }
+
+
 }
