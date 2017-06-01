@@ -13,8 +13,8 @@ class CreateFzgModellTable extends Migration
      */
     public function up()
     {
-        Schema::create('fzgModell', function (Blueprint $table) {
-            $table->increments('fzgModellId');
+        Schema::create('fzg_modell', function (Blueprint $table) {
+            $table->increments('fzg_modell_id');
             $table->string('hersteller');
             $table->string('modell');
 
@@ -22,7 +22,7 @@ class CreateFzgModellTable extends Migration
         });
 
 
-        DB::table('fzgModell')->insert([
+        DB::table('fzg_modell')->insert([
                 'hersteller' => 'Borgward',
                 'modell' => 'Isabella Coupe'
             ]
@@ -36,6 +36,6 @@ class CreateFzgModellTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fzgModell');
+        Schema::dropIfExists('fzg_modell');
     }
 }

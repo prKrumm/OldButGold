@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace app\Http\Model;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -70,7 +70,7 @@ class User extends Authenticatable
      */
     public function fahrzeuge()
     {
-        return $this->belongsToMany('App\FzgModell');
+        return $this->belongsToMany('app\Http\Model\FzgModell');
     }
 
     /**
@@ -78,7 +78,23 @@ class User extends Authenticatable
      */
     public function fragen()
     {
-        return $this->hasMany('App\Frage');
+        return $this->hasMany('app\Http\Model\Frage');
+    }
+
+    /**
+     * Get the votes for the user.
+     */
+    public function votes()
+    {
+        return $this->hasMany('app\Http\Model\Vote');
+    }
+
+    /**
+     * Get the antworten for the user.
+     */
+    public function antworten()
+    {
+        return $this->hasMany('app\Http\Model\Antwort');
     }
 
 

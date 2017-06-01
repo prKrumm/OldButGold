@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace app\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,7 +43,7 @@ class Frage extends Model
      */
     public function themen()
     {
-        return $this->belongsToMany('App\Thema');
+        return $this->belongsToMany('app\Http\Model\Thema');
     }
 
     /**
@@ -51,7 +51,7 @@ class Frage extends Model
      */
     public function fzgModell()
     {
-        return $this->belongsTo('App\FzgModell');
+        return $this->belongsTo('app\Http\Model\FzgModell');
     }
 
     /**
@@ -59,6 +59,14 @@ class Frage extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('app\Http\Model\User');
+    }
+
+    /**
+     * Get the antworten for the frage.
+     */
+    public function antworten()
+    {
+        return $this->hasMany('app\Http\Model\Antwort');
     }
 }

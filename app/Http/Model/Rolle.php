@@ -1,25 +1,24 @@
 <?php
 
-namespace App;
+namespace app\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
 
-class FzgModell extends Model
+class Rolle extends Model
 {
     /**
      * Name of the table in the database that the model is mapped to
      *
      * @var string
      */
-    protected $table = 'fzg_modell';
+    protected $table = 'rolle';
 
     /**
      * Name of the Primary key in the database table
      *
      * @var string
      */
-    protected $primaryKey = 'fzg_modell_id';
+    protected $primaryKey = 'rolle_id';
 
     /**
      * Tells the framework that the columns updated_at and created_at don't exist in the table
@@ -34,30 +33,16 @@ class FzgModell extends Model
      * @var array
      */
     protected $fillable = [
-        'hersteller', 'modell',
+        'bezeichnung',
     ];
 
     /**
-     * The user that belong to the fzgModell.
-     * N zu M Beziehung
+     * 1:N assiciation between rolle and user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function user()
     {
-        return $this->belongsToMany('App\User');
+        return $this->hasMany('app\Http\Model\User');
     }
-
-    /**
-     * Get the fragen for the fzgModell.
-     */
-    public function fragen()
-    {
-        return $this->hasMany('App\Frage');
-    }
-
-
-
-
-
-
-
 }

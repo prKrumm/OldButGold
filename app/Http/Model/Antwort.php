@@ -1,25 +1,24 @@
 <?php
 
-namespace App;
+namespace app\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Adresse extends Model
+class Antwort extends Model
 {
-
     /**
      * Name of the table in the database that the model is mapped to
      *
      * @var string
      */
-    protected $table = 'addresse';
+    protected $table = 'antwort';
 
     /**
      * Name of the Primary key in the database table
      *
      * @var string
      */
-    protected $primaryKey = 'addresse_id';
+    protected $primaryKey = 'antwort_id';
 
     /**
      * Tells the framework that the columns updated_at and created_at don't exist in the table
@@ -34,16 +33,31 @@ class Adresse extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'company', 'first_name', 'last_name', 'address_text', 'street', 'house_number', 'post_id', 'zipcode', 'city', 'country_id',
+        'value',
     ];
 
+
     /**
-     * 1:1 assiciation between adresse and user
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * Get the antwort that owns the frage.
+     */
+    public function frage()
+    {
+        return $this->belongsTo('app\Http\Model\Frage');
+    }
+
+    /**
+     * Get the antwort that owns the user.
      */
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('app\Http\Model\User');
+    }
+
+    /**
+     * Get the votes for the Antwort.
+     */
+    public function votes()
+    {
+        return $this->hasMany('app\Http\Model\Vote');
     }
 }

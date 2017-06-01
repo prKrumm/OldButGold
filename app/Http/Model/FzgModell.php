@@ -1,24 +1,25 @@
 <?php
 
-namespace App;
+namespace app\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
-class Thema extends Model
+class FzgModell extends Model
 {
     /**
      * Name of the table in the database that the model is mapped to
      *
      * @var string
      */
-    protected $table = 'thema';
+    protected $table = 'fzg_modell';
 
     /**
      * Name of the Primary key in the database table
      *
      * @var string
      */
-    protected $primaryKey = 'thema_id';
+    protected $primaryKey = 'fzg_modell_id';
 
     /**
      * Tells the framework that the columns updated_at and created_at don't exist in the table
@@ -33,24 +34,30 @@ class Thema extends Model
      * @var array
      */
     protected $fillable = [
-        'bezeichnung',
+        'hersteller', 'modell',
     ];
 
     /**
-     * The user that belong to the thema.
+     * The user that belong to the fzgModell.
      * N zu M Beziehung
      */
     public function user()
     {
-        return $this->belongsToMany('App\Thema');
+        return $this->belongsToMany('app\Http\Model\User');
     }
 
     /**
-     * The fragen that belong to the thema.
-     * N zu M Beziehung
+     * Get the fragen for the fzgModell.
      */
     public function fragen()
     {
-        return $this->belongsToMany('App\Frage');
+        return $this->hasMany('app\Http\Model\Frage');
     }
+
+
+
+
+
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\FzgModell;
 use Illuminate\Http\Request;
 
 class ErsatzteilController extends Controller
