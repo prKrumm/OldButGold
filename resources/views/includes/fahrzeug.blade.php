@@ -37,6 +37,7 @@
                         </div>
                         <div class="vehicle-option-select vehicle-toolbar-model-select">
                             <label class="control-label">Modell:</label>
+
                             <select class="form-control" disabled="disabled">
                                 <option class="fixed" value="">Modell</option>
                             </select>

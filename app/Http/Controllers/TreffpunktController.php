@@ -6,6 +6,17 @@ use Illuminate\Http\Request;
 
 class TreffpunktController extends Controller
 {
+    private $controller;
+
+
+    /**
+     * Controller constructor
+     */
+    public function __construct()
+    {
+        $this->controller = new ErsatzteilTreffpunktController();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,8 @@ class TreffpunktController extends Controller
      */
     public function index()
     {
-        return view('pages.treffpunkt');
+        return $this->controller->getIndexList();
+
     }
 
 

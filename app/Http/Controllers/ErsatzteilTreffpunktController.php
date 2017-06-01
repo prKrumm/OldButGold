@@ -1,25 +1,18 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Patrick
+ * Date: 01.06.2017
+ * Time: 15:02
+ */
 namespace App\Http\Controllers;
 
 use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ErsatzteilController extends Controller
+class ErsatzteilTreffpunktController extends Controller
 {
-
-    private $controller;
-
-
-    /**
-     * Controller constructor
-     */
-    public function __construct()
-    {
-        $this->controller = new ErsatzteilTreffpunktController();
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +20,26 @@ class ErsatzteilController extends Controller
      */
     public function index()
     {
-        return $this->controller->getIndexList();
+        return view('pages.ersatzteil');
+    }
+
+    /**
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getIndexList() {
+        //Aufbereiten der Daten für die View
+        //Fahrzeuge
+        $fahrzeuge=FzgModell::all();
+        // $fahrzeuge = DB::table('fzg_modell')->get();
+
+        //Übergabne der Daten und Zurückgeben der View
+        return view('pages.ersatzteil', [
+            'fzgModelle'=> $fahrzeuge,
+            'fzgCount'=> $fahrzeuge->count()
+        ]);
 
     }
 
