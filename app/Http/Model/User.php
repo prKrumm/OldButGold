@@ -61,7 +61,7 @@ class User extends Authenticatable
      */
     public function themen()
     {
-        return $this->belongsToMany('App\Thema');
+        return $this->belongsToMany('app\Http\Model\Thema');
     }
 
     /**

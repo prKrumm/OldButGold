@@ -60,4 +60,7 @@ class Antwort extends Model
     {
         return $this->hasMany('app\Http\Model\Vote');
     }
+
+
+
 }

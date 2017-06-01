@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\FzgModell;
+use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ErsatzteilController extends Controller
 {
@@ -16,6 +17,32 @@ class ErsatzteilController extends Controller
     {
         return view('pages.ersatzteil');
     }
+
+    /**
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getErsatzteilList() {
+        error_log('Some message here.');
+
+
+        //Aufbereiten der Daten für die View
+        //Fahrzeuge
+        $fahrzeuge=FzgModell::all();
+       // $fahrzeuge = DB::table('fzg_modell')->get();
+
+        //Übergabne der Daten und Zurückgeben der View
+        return view('pages.ersatzteil', [
+            'fzgModelle'=> $fahrzeuge,
+            'fzgCount'=> $fahrzeuge->count()
+        ]);
+
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.

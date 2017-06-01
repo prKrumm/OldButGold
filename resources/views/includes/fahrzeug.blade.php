@@ -14,7 +14,6 @@
                 </form>
                 </div>
             </div>
-
             <!-- waterfall-style vehicle selector -->
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                 <form class="form-horizontal">
@@ -26,22 +25,14 @@
                                     ausw&#228;hlen
                                 </option>
                                 <optgroup class="top" label="Top-Automarken"></optgroup>
-                                <option class="top" value="9950">Audi</option>
-                                <option class="top" value="9953">BMW</option>
-                                <option class="top" value="9960">Fiat</option>
-                                <option class="top" value="9961">Ford</option>
-                                <option class="top" value="10004">Hyundai</option>
-                                <option class="top" value="9971">Mercedes-Benz</option>
-                                <option class="top" value="9977">Opel</option>
-                                <option class="top" value="9980">Renault</option>
-                                <option class="top" value="9983">Seat</option>
-                                <option class="top" value="9984">Skoda</option>
-                                <option class="top" value="9988">Toyota</option>
-                                <option class="top" value="9992">VW</option>
+                                @foreach($fzgModelle as $fzg)
+                                    <option value="{{$fzg->fzg_modell_id}}">{{$fzg->hersteller}}</option>
+                                @endforeach
                                 <optgroup label="Alle Automarken"></optgroup>
                                 <option value="10009">AC</option>
                                 <option value="10044">Aixam</option>
                                 <option value="9948">Alfa Romeo</option>
+
                             </select>
                         </div>
                         <div class="vehicle-option-select vehicle-toolbar-model-select">

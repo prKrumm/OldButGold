@@ -41,7 +41,7 @@ class FzgModell extends Model
      * The user that belong to the fzgModell.
      * N zu M Beziehung
      */
-    public function user()
+   public function user()
     {
         return $this->belongsToMany('app\Http\Model\User');
     }
@@ -53,6 +53,8 @@ class FzgModell extends Model
     {
         return $this->hasMany('app\Http\Model\Frage');
     }
+
+
 
 
 
