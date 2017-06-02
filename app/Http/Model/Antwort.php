@@ -50,7 +50,7 @@ class Antwort extends Model
      */
     public function user()
     {
-        return $this->belongsTo('app\Http\Model\User');
+        return $this->belongsTo('app\Http\User');
     }
 
     /**

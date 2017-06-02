@@ -33,6 +33,7 @@ class ErsatzteilTreffpunktController extends Controller
         //Aufbereiten der Daten für die View
         //Fahrzeuge
         $fahrzeuge=FzgModell::all();
+
         // $fahrzeuge = DB::table('fzg_modell')->get();
 
         //Übergabne der Daten und Zurückgeben der View

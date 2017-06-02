@@ -34,8 +34,9 @@ class Adresse extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'company', 'first_name', 'last_name', 'address_text', 'street', 'house_number', 'post_id', 'zipcode', 'city', 'country_id',
+        'street', 'plz', 'ort', 
     ];
+
 
     /**
      * 1:1 assiciation between adresse and user

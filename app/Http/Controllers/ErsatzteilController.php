@@ -6,19 +6,10 @@ use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ErsatzteilController extends Controller
+class ErsatzteilController extends ErsatzteilTreffpunktController
 {
 
-    private $controller;
 
-
-    /**
-     * Controller constructor
-     */
-    public function __construct()
-    {
-        $this->controller = new ErsatzteilTreffpunktController();
-    }
 
     /**
      * Display a listing of the resource.
@@ -27,7 +18,7 @@ class ErsatzteilController extends Controller
      */
     public function index()
     {
-        return $this->controller->getIndexList();
+        return $this->getIndexList();
 
     }
 
