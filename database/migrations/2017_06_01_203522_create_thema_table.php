@@ -22,21 +22,23 @@ class CreateThemaTable extends Migration
 
 
         DB::table('thema')->insert(
-            [
-                'bezeichnung' => 'Motor'
-            ],
-            [
-                'bezeichnung' => 'Blech'
-            ],
-            [
-                'bezeichnung' => 'Kotflügel'
-            ],
-            [
-                'bezeichnung' => 'Vergaser'
-            ],
-            [
-                'bezeichnung' => 'Sonstiges'
-            ]
+            array(
+                array(
+                    'bezeichnung' => 'Motor'
+                ),
+                array(
+                    'bezeichnung' => 'Blech'
+                ),
+                array(
+                    'bezeichnung' => 'Kotflügel'
+                ),
+                array(
+                    'bezeichnung' => 'Vergaser'
+                ),
+                array(
+                    'bezeichnung' => 'Sonstiges'
+                )
+            )
         );
     }
 

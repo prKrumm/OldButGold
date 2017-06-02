@@ -22,15 +22,17 @@ class CreateRolleTable extends Migration
 
 
         DB::table('rolle')->insert(
-            [
-                'bezeichnung' => 'Händler'
-            ],
-            [
-                'bezeichnung' => 'Oldtimer-Besitzer'
-            ],
-            [
-                'bezeichnung' => 'Admin'
-            ]
+            array(
+                array(
+                    'bezeichnung' => 'Händler'
+                ),
+                array(
+                    'bezeichnung' => 'Oldtimer-Besitzer'
+                ),
+                array(
+                    'bezeichnung' => 'Admin'
+                )
+            )
         );
     }
 

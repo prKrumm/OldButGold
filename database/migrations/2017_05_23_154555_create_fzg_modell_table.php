@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 
-
 class CreateFzgModellTable extends Migration
 {
     /**
@@ -23,12 +22,21 @@ class CreateFzgModellTable extends Migration
 
             $table->timestamps();
         });
-
-
-        DB::table('fzg_modell')->insert([
-                'hersteller' => 'Borgward',
-                'modell' => 'Isabella Coupe'
-            ]
+        DB::table('fzg_modell')->insert(
+            array(
+                array(
+                    'hersteller' => 'Borgward',
+                    'modell' => 'Isabella Coupe'
+                ),
+                array(
+                    'hersteller' =>'Opel',
+                    'model' => 'Typ 51'
+                ),
+                array(
+                    'hersteller' => 'Bugatti',
+                    'mmodel' => 'Typ 55'
+                )
+            )
         );
     }
 
