@@ -19,7 +19,7 @@
                                     <label for="user-role" class="col-md-4 control-label">Ich bin</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control" id="user-role" required>
+                                        <select class="form-control" id="user-role" required name="user_role">
                                             <option value="">Händler/Besitzer</option>
                                             <option value="haendler">Händler</option>
                                             <option value="besitzer">Oldtimer-Besitzer</option>
@@ -96,7 +96,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-4">
-                                        <input id="ort" type="text" class="form-control" name="Ort"
+                                        <input id="ort" type="text" class="form-control" name="ort"
                                                value="{{ old('ort') }}">
 
                                         @if ($errors->has('ort'))

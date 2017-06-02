@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+
+use App\Http\Model\User;
+use App\Http\Model\Adresse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,9 +50,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'user_role' => 'required',
+            'first_name' => 'required|max:50',
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'user_name' => 'required|max:255',
+            'street' => 'required',
+            'plz' => 'required',
+            'ort' => 'required',
             'password' => 'required|min:6|confirmed',
+            'email' => 'required|email|max:255|unique:users',
         ]);
     }
 
@@ -62,10 +70,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        //hash password
+        $data['password'] = bcrypt($data['password']);
+
+
+        //save User
+        $user = new User($data);
+
+        $user->save();
+        //save Adresse
+        //$address = new Adresse($data);
+        //$address->save();
+
+        //save Role
+
+
+        return $user;
     }
 }

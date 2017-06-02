@@ -35,7 +35,7 @@ Route::get('/profil', 'ProfilController@index');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::get('/registrierung', 'RegistrierungController@index');
+Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/tour', 'StaticController@tour');
 

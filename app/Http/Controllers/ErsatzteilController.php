@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class ErsatzteilController extends Controller
+class ErsatzteilController extends ErsatzteilTreffpunktController
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +18,12 @@ class ErsatzteilController extends Controller
      */
     public function index()
     {
-        return view('pages.ersatzteil');
+        return $this->getIndexList();
+
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
