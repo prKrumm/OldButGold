@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 
+use app\Http\Model\Rolle;
 use App\Http\Model\User;
 use App\Http\Model\Adresse;
 use App\Http\Controllers\Controller;
@@ -50,13 +51,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'user_role' => 'required',
+            'rolle_id' => 'required',
             'first_name' => 'required|max:50',
             'name' => 'required|max:255',
-            'user_name' => 'required|max:255',
-            'street' => 'required',
-            'plz' => 'required',
-            'ort' => 'required',
+            'user_name' => 'required|max:255|unique:users',
+            'street' => 'required|max:255',
+            'plz' => 'required|max:5',
+            'ort' => 'required|max:255',
             'password' => 'required|min:6|confirmed',
             'email' => 'required|email|max:255|unique:users',
         ]);
@@ -82,7 +83,6 @@ class RegisterController extends Controller
         //$address = new Adresse($data);
         //$address->save();
 
-        //save Role
 
 
         return $user;

@@ -47,6 +47,10 @@ Route::get('/datenschutz', 'StaticController@datenschutz');
 
 Route::get('/impressum', 'StaticController@impressum');
 
+//AJAX
+
+Route::get('/modelle', 'ErsatzteilTreffpunktController@modelle');
+
 
 /* AJAX calls which return JSON */
 Route::get('/ajaxThemenSuche', 'ErsatzteilTreffpunktController@viewTeilAnfrage');

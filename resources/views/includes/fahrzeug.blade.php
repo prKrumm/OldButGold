@@ -20,8 +20,8 @@
                     <div class="form-group">
                         <div class="vehicle-option-select vehicle-toolbar-manufacturer-select">
                             <label class="control-label"> Hersteller:</label>
-                            <select class="form-control">
-                                <option class="fixed" value="" selected="selected">Hersteller / Marke
+                            <select class="form-control" id="fzg_id">
+                                <option class="fixed" value="0" selected="selected">Hersteller / Marke
                                     ausw&#228;hlen
                                 </option>
                                 <optgroup class="top" label="Top-Automarken"></optgroup>
@@ -38,7 +38,7 @@
                         <div class="vehicle-option-select vehicle-toolbar-model-select">
                             <label class="control-label">Modell:</label>
 
-                            <select class="form-control" disabled="disabled">
+                            <select class="form-control" id="modell_id" disabled="disabled">
                                 <option class="fixed" value="">Modell</option>
                             </select>
                         </div>

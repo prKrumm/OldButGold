@@ -19,10 +19,10 @@
                                     <label for="user-role" class="col-md-4 control-label">Ich bin</label>
 
                                     <div class="col-md-6">
-                                        <select class="form-control" id="user-role" required name="user_role">
+                                        <select class="form-control" id="rolle_id" required name="rolle_id">
                                             <option value="">Händler/Besitzer</option>
-                                            <option value="haendler">Händler</option>
-                                            <option value="besitzer">Oldtimer-Besitzer</option>
+                                            <option value="1">Händler</option>
+                                            <option value="2">Oldtimer-Besitzer</option>
                                         </select>
                                     </div>
                                 </div>

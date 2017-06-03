@@ -29,19 +29,10 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndexList() {
+    public function getFahrzeugList() {
         //Aufbereiten der Daten für die View
         //Fahrzeuge
-        $fahrzeuge=FzgModell::all();
-
-        // $fahrzeuge = DB::table('fzg_modell')->get();
-
-        //Übergabne der Daten und Zurückgeben der View
-        return view('pages.ersatzteil', [
-            'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count()
-        ]);
-
+        return FzgModell::all();
     }
 
 
@@ -124,6 +115,32 @@ class ErsatzteilTreffpunktController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Returns all modelle for given herstelle
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function modelle(Request $request)
+    {
+        $modelle = $this->queryModelle($request);
+        return response()->json($modelle);
+    }
+
+    private function queryModelle(Request $request)
+    {
+        $modelle="hallo";
+        if (isset($request->fahrzeug)) {
+            $fzg_id = $request->fahrzeug;
+        } else {
+            $fzg_id = '';
+        }
+        if ($fzg_id !== '') {
+            $modelle =FzgModell::all()->where('fzg_modell_id','=',$fzg_id);
+
+        }
+        return $modelle;
     }
 
     /**

@@ -3,17 +3,17 @@
 @section('content')
     <div class="container">
         <!--TODO: Add functionality get-Username-->
-        <h2>Hallo, Hubert53!</h2>
+        <h2>Hallo, {{ $user->user_name }}!</h2>
         <hr>
         <div class="row border-between">
 
             <div class="col-md-6">
                 <h3>Profildaten</h3>
                 <address>
-                    Hauptstraße 10 <br>
-                    78478 Konstanz
+                    <p>Hauptstraße 10</p>
+                    <p>78478 Konstanz</p>
                 </address>
-                <p>hubert53@t-online.de</p>
+                <p>{{ $user->email }}</p>
                 <br>
                 <h3>Themen</h3>
                 <!--TODO: add functionality-->
