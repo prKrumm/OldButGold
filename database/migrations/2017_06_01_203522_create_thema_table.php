@@ -37,6 +37,9 @@ class CreateThemaTable extends Migration
                 ),
                 array(
                     'bezeichnung' => 'Sonstiges'
+                ),
+                array(
+                    'bezeichnung' => 'Katalysator'
                 )
             )
         );

@@ -125,4 +125,36 @@ class ErsatzteilTreffpunktController extends Controller
     {
         //
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * AJAX
+     */
+
+    public function viewTeilAnfrage()
+    {
+        return view('pages.ersatzteil_frage');
+    }
+
+    public function matchJSON(Request $request)
+    {
+        $themen = $this->queryThema($request);
+        return response()->json($themen);
+    }
+
+    private function queryThema(Request $request)
+    {
+        if (isset($request->thema)) {
+            $prefix = $request->thema;
+        } else {
+            $prefix = '';
+        }
+        if ($prefix !== '') {
+            $themen = DB::table('thema')->where('bezeichnung', 'like', $prefix . '%')->orderby('thema_id', 'desc')->get();
+        }
+        return $themen;
+    }
+
+
+
 }

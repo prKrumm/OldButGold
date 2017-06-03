@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2 class="left">Teil Anfrage</h2>
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="get" action="/ajaxThemenSuche" id="form">
             <div class="col-md-9 col-sm-12">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Betreff</label>
@@ -20,10 +20,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Themen</label>
+                    <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete">
+                        <input class="form-control" type="text" name="thema" value="{{$thema or ''}}" autofocus onfocus="this.value = this.value;"
+                               autocomplete="on" placeholder="Wählen Sie hier die relevanten Themengebiete" onkeyup="ajaxTheme(this.value)"/>
+                        <div id="ThemenListe"></div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -39,5 +40,17 @@
                 </div>
             </div>
         </form>
+
+        <script>
+            function ajaxTheme(thema) {
+                $("#ThemenListe").html("");
+                $.getJSON( "/ajaxThema?thema="+thema, function(data) {
+                    $.each(data, function(i,thema) {
+                        var link = "<a>"+thema.bezeichnung+"</a><BR>";
+                        $(link).appendTo("#ThemenListe");
+                    });
+                })
+            };
+        </script>
     </div>
 @endsection
