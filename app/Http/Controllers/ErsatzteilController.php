@@ -18,7 +18,13 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function index()
     {
-        return $this->getIndexList();
+        $fahrzeuge = $this->getFahrzeugList();
+
+        //Übergabne der Daten und Zurückgeben der View
+        return view('pages.ersatzteil', [
+            'fzgModelle'=> $fahrzeuge,
+            'fzgCount'=> $fahrzeuge->count()
+        ]);
 
     }
 
@@ -54,7 +60,15 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function show($id)
     {
-        return view('pages.ersatzteil_detail');
+        $fahrzeuge=$this->getFahrzeugList();
+
+        //Übergabne der Daten und Zurückgeben der View
+
+        return view('pages.treffpunkt_detail', [
+            'fzgModelle'=> $fahrzeuge,
+            'fzgCount'=> $fahrzeuge->count() ]);
+
+
     }
 
 

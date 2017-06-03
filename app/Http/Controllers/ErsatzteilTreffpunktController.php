@@ -29,19 +29,10 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndexList() {
+    public function getFahrzeugList() {
         //Aufbereiten der Daten für die View
         //Fahrzeuge
-        $fahrzeuge=FzgModell::all();
-
-        // $fahrzeuge = DB::table('fzg_modell')->get();
-
-        //Übergabne der Daten und Zurückgeben der View
-        return view('pages.ersatzteil', [
-            'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count()
-        ]);
-
+        return FzgModell::all();
     }
 
 
