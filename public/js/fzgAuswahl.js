@@ -28,8 +28,8 @@ $().ready(function() {
                 var options = $("#modell_id");
                 if(data.length==0){
 
-                } else{ options.empty()}
-               
+                } else{ options.empty().append(' <option class="fixed" value="">Modell</option>')}
+
                 $.each(data, function(i,modell) {
 
 
