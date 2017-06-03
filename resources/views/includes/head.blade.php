@@ -24,6 +24,8 @@
 <link href="{{ asset('css/fahrzeugAuswahl.css') }}" rel="stylesheet">
 <link href="{{ asset('css/experts.css') }}" rel="stylesheet">
 
+<!-- JS -->
+<script type="text/javascript" src="{{ asset('js/fzgAuswahl.js') }}"></script>
 <script type="text/javascript">
     $(window).scroll(function () {
         if ($(document).scrollTop() > 50) {

@@ -83,7 +83,6 @@ class RegisterController extends Controller
         //$address = new Adresse($data);
         //$address->save();
 
-        //save Role
 
 
         return $user;

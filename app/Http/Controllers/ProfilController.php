@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Model\User;
 
 class ProfilController extends Controller
 {
@@ -13,7 +15,14 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('pages.profil');
+        $user = Auth::user();
+        //adresse holen
+        //statistiken holen
+        //Gesuche und Treffpunkt Fragen holen
+        //$order = Order::getOrderBySessionHelper();
+
+       // return view('persoenliche_daten', array_merge($this->getCartData(), ['user'=>$user, 'order' => $order, 'changeDelivery'=>false, 'changeInvoice'=>false]));
+        return view('pages.profil',['user'=>$user,]);
     }
 
     /**
