@@ -34,7 +34,7 @@ class CreateFzgModellTable extends Migration
                 ),
                 array(
                     'hersteller' => 'Bugatti',
-                    'mmodel' => 'Typ 55'
+                    'model' => 'Typ 55'
                 )
             )
         );
