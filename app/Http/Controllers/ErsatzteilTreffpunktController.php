@@ -172,6 +172,24 @@ class ErsatzteilTreffpunktController extends Controller
         return $themen;
     }
 
+    public function autocomplete(Request $request)
+    {
+        if (isset($request->term)) {
+            $prefix = $request->term;
+        } else {
+            $prefix = '';
+        }
+        if ($prefix !== '') {
+            $themen = DB::table('thema')->where('bezeichnung', 'like', $prefix . '%')->orderby('thema_id', 'desc')->get();
+        }
+
+        foreach ($themen as $query)
+        {
+            $results[] = ['id' => $query->thema_id, 'value' => $query->bezeichnung]; //you can take custom values as you want
+        }
+        return response()->json($results);
+    }
+
 
 
 }

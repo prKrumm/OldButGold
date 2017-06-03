@@ -23,8 +23,9 @@
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="thema" value="{{$thema or ''}}" autofocus onfocus="this.value = this.value;"
-                               autocomplete="on" placeholder="Wählen Sie hier die relevanten Themengebiete" onkeyup="ajaxTheme(this.value)"/>
+                               autocomplete="on" placeholder="Wählen Sie hier die relevanten Themengebiete" onkeyup="ajaxThema(this.value)"/>
                         <div id="ThemenListe"></div>
+                        <input data-role="tagsinput" type="text" class="form-control" placeholder="Themen mit Dropdown. Google-Style!" id="searchname" name="TagName">
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,8 +42,8 @@
             </div>
         </form>
 
-        <script>
-            function ajaxTheme(thema) {
+        <script type="text/javascript">
+            function ajaxThema(thema) {
                 $("#ThemenListe").html("");
                 $.getJSON( "/ajaxThema?thema="+thema, function(data) {
                     $.each(data, function(i,thema) {
@@ -51,6 +52,16 @@
                     });
                 })
             };
+
+            $('#searchname').autocomplete({
+                source:'{!!URL::route('autocomplete')!!}',
+                minlength:1,
+                autoFocus:true,
+                select:function(e,ui)
+                {
+                    $('#searchname').val(ui.item.value);
+                }
+            });
         </script>
     </div>
 @endsection

@@ -55,3 +55,5 @@ Route::get('/modelle', 'ErsatzteilTreffpunktController@modelle');
 /* AJAX calls which return JSON */
 Route::get('/ajaxThemenSuche', 'ErsatzteilTreffpunktController@viewTeilAnfrage');
 Route::get('/ajaxThema', 'ErsatzteilTreffpunktController@matchJSON');
+
+Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'ErsatzteilTreffpunktController@autocomplete'));
