@@ -21,13 +21,15 @@ Route::get('/experten', 'ExpertenController@index');
 
 Route::get('/treffpunkt', 'TreffpunktController@index');
 
-Route::get('/treffpunkt/frage', 'TreffpunktController@frage');
+Route::get('/treffpunkt/create', 'TreffpunktController@create');
+Route::post('/treffpunkt/store', 'TreffpunktController@store');
 
 Route::get('/treffpunkt/id/{id}', 'TreffpunktController@show');
 
 Route::get('/ersatzteil', 'ErsatzteilController@index');
 
-Route::get('/ersatzteil/frage', 'ErsatzteilController@frage');
+Route::get('/ersatzteil/create', 'ErsatzteilController@create');
+Route::post('/ersatzteil/store', 'ErsatzteilController@store');
 
 Route::get('/ersatzteil/id/{id}', 'ErsatzteilController@show');
 
@@ -50,10 +52,5 @@ Route::get('/impressum', 'StaticController@impressum');
 //AJAX
 
 Route::get('/modelle', 'ErsatzteilTreffpunktController@modelle');
-
-
-/* AJAX calls which return JSON */
-Route::get('/ajaxThemenSuche', 'ErsatzteilTreffpunktController@viewTeilAnfrage');
-Route::get('/ajaxThema', 'ErsatzteilTreffpunktController@matchJSON');
 
 Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'ErsatzteilTreffpunktController@autocomplete'));

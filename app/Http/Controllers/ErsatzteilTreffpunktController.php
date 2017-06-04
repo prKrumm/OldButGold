@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use app\Http\Model\Frage;
 use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,9 +35,6 @@ class ErsatzteilTreffpunktController extends Controller
         //Fahrzeuge
         return FzgModell::all();
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -118,7 +116,7 @@ class ErsatzteilTreffpunktController extends Controller
     }
 
     /**
-     * Returns all modelle for given herstelle
+     * Returns all modelle for given hersteller
      *
      * @return \Illuminate\Http\Response
      */
@@ -143,35 +141,8 @@ class ErsatzteilTreffpunktController extends Controller
         return $modelle;
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     * AJAX
-     */
 
-    public function viewTeilAnfrage()
-    {
-        return view('pages.ersatzteil_frage');
-    }
-
-    public function matchJSON(Request $request)
-    {
-        $themen = $this->queryThema($request);
-        return response()->json($themen);
-    }
-
-    private function queryThema(Request $request)
-    {
-        if (isset($request->thema)) {
-            $prefix = $request->thema;
-        } else {
-            $prefix = '';
-        }
-        if ($prefix !== '') {
-            $themen = DB::table('thema')->where('bezeichnung', 'like', $prefix . '%')->orderby('thema_id', 'desc')->get();
-        }
-        return $themen;
-    }
-
+    // Methode für die Abfrage der relevanten Themen im Fragen-Formular
     public function autocomplete(Request $request)
     {
         if (isset($request->term)) {
@@ -185,7 +156,7 @@ class ErsatzteilTreffpunktController extends Controller
 
         foreach ($themen as $query)
         {
-            $results[] = ['id' => $query->thema_id, 'value' => $query->bezeichnung]; //you can take custom values as you want
+            $results[] = ['id' => $query->thema_id, 'value' => $query->bezeichnung];
         }
         return response()->json($results);
     }

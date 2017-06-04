@@ -6,7 +6,7 @@
             <h2 class="left">Alle Gesuche</h2>
         </div>
         <div class="col-md-3 col-sm-3">
-            <a class="btn btn-default" href="ersatzteil/frage">Teil anfragen</a>
+            <a class="btn btn-default" href="ersatzteil/create">Teil anfragen</a>
         </div>
     </div>
     <div class="detailAntworten">

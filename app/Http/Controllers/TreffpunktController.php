@@ -34,8 +34,9 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function create()
     {
-        //
+        return view('pages.treffpunkt_frage');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -63,17 +64,6 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         return view('pages.treffpunkt_detail', [
             'fzgModelle'=> $fahrzeuge,
             'fzgCount'=> $fahrzeuge->count() ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function frage()
-    {
-        return view('pages.treffpunkt_frage');
     }
 
     /**

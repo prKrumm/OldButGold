@@ -3,29 +3,35 @@
 @section('content')
     <div class="container">
         <h2 class="left">Teil Anfrage</h2>
-        <form class="form-horizontal" method="get" action="/ajaxThemenSuche" id="form">
+        <form class="form-horizontal" method="post" action="{{action('ErsatzteilController@store')}}">
+            {{ csrf_field() }}
             <div class="col-md-9 col-sm-12">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Betreff</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="focusedInput" type="text"
+                        <input class="form-control" id="focusedInput" type="text" name="titel"
                                placeholder="Bitte geben Sie hier Ihren Betreff ein">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Beschreibung</label>
                     <div class="col-sm-10">
-                        <input class="form-control inputHeight" type="text"
+                        <input class="form-control inputHeight" type="text" name="text"
                                placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text" name="thema" value="{{$thema or ''}}" autofocus onfocus="this.value = this.value;"
-                               autocomplete="on" placeholder="Wählen Sie hier die relevanten Themengebiete" onkeyup="ajaxThema(this.value)"/>
-                        <div id="ThemenListe"></div>
-                        <input data-role="tagsinput" type="text" class="form-control" placeholder="Themen mit Dropdown. Google-Style!" id="searchname" name="TagName">
+                        <input data-role="tagsinput" type="text" class="form-control"
+                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="searchname" name="thema">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Bild</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="focusedInput" type="text" name="bild_url"
+                               placeholder="Bitte Bild hinzufügen">
                     </div>
                 </div>
                 <div class="form-group">
@@ -43,16 +49,6 @@
         </form>
 
         <script type="text/javascript">
-            function ajaxThema(thema) {
-                $("#ThemenListe").html("");
-                $.getJSON( "/ajaxThema?thema="+thema, function(data) {
-                    $.each(data, function(i,thema) {
-                        var link = "<a>"+thema.bezeichnung+"</a><BR>";
-                        $(link).appendTo("#ThemenListe");
-                    });
-                })
-            };
-
             $('#searchname').autocomplete({
                 source:'{!!URL::route('autocomplete')!!}',
                 minlength:1,

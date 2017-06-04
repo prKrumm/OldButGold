@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\FzgModell;
+use App\Http\Model\Frage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -38,8 +39,9 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function create()
     {
-        //
+        return view('pages.ersatzteil_frage');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -49,7 +51,15 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function store(Request $request)
     {
-        //
+        $input = $request -> all();
+        $input ['bild_url'] = 'Kein Bild';
+
+        $frage = new Frage;
+        $frage -> titel = $input['titel'];
+
+        Frage::create($request->all());
+
+        return view('pages.ersatzteil_frage');
     }
 
     /**
@@ -69,18 +79,6 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             'fzgCount'=> $fahrzeuge->count() ]);
 
 
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function frage()
-    {
-        return view('pages.ersatzteil_frage');
     }
 
 

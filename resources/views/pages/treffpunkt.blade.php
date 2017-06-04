@@ -6,7 +6,7 @@
             <h2 class="left">Alle Fragen</h2>
         </div>
         <div class="col-md-3 col-sm-3">
-            <a class="btn btn-default" href="ersatzteil/frage">Frage stellen</a>
+            <a class="btn btn-default" href="ersatzteil/create">Frage stellen</a>
         </div>
     </div>
     <div class="detailAntworten">
