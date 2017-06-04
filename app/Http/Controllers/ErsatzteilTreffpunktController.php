@@ -11,6 +11,7 @@ use app\Http\Model\Frage;
 use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\CreateQuestionRequest;
 
 class ErsatzteilTreffpunktController extends Controller
 {
@@ -52,7 +53,7 @@ class ErsatzteilTreffpunktController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateQuestionRequest $request)
     {
         //
     }

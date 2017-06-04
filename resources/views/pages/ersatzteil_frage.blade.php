@@ -2,6 +2,15 @@
 
 @section('content')
     <div class="container">
+
+        @if ($errors->any())
+            <ul class="alert alert-info">
+                @foreach ($errors-> all() as $error)
+                    <li><strong>Info!</strong> {{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif
+
         <h2 class="left">Teil Anfrage</h2>
         <form class="form-horizontal" method="post" action="{{action('ErsatzteilController@store')}}">
             {{ csrf_field() }}

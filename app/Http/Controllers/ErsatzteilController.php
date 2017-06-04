@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Model\FzgModell;
 use App\Http\Model\Frage;
+use App\Http\Requests\CreateQuestionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -49,7 +50,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateQuestionRequest $request)
     {
         $input = $request -> all();
         $input ['bild_url'] = 'Kein Bild';
