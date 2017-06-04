@@ -6,6 +6,7 @@ use App\Http\Model\FzgModell;
 use App\Http\Model\Frage;
 use App\Http\Requests\CreateQuestionRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ErsatzteilController extends ErsatzteilTreffpunktController
@@ -52,15 +53,14 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function store(CreateQuestionRequest $request)
     {
-        $input = $request -> all();
-        $input ['bild_url'] = 'Kein Bild';
+        if (Auth::check()) {
 
-        $frage = new Frage;
-        $frage -> titel = $input['titel'];
+            Frage::create($request->all());
 
-        Frage::create($request->all());
+            return redirect('ersatzteil');
 
-        return view('pages.ersatzteil_frage');
+        } else
+            return view('auth.login');
     }
 
     /**

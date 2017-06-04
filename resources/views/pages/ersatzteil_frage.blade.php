@@ -4,11 +4,13 @@
     <div class="container">
 
         @if ($errors->any())
-            <ul class="alert alert-info">
-                @foreach ($errors-> all() as $error)
-                    <li><strong>Info!</strong> {{ $error }}</li>
-                @endforeach
-            </ul>
+            <div class="alert alert-warning">
+                <ul>
+                    @foreach ($errors-> all() as $error)
+                        <li><strong>Info!</strong> {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
         @endif
 
         <h2 class="left">Teil Anfrage</h2>
@@ -33,7 +35,7 @@
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
                         <input data-role="tagsinput" type="text" class="form-control"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="searchname" name="thema">
+                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
                     </div>
                 </div>
                 <div class="form-group">
@@ -56,17 +58,16 @@
                 </div>
             </div>
         </form>
-
-        <script type="text/javascript">
-            $('#searchname').autocomplete({
-                source:'{!!URL::route('autocomplete')!!}',
-                minlength:1,
-                autoFocus:true,
-                select:function(e,ui)
-                {
-                    $('#searchname').val(ui.item.value);
-                }
-            });
-        </script>
     </div>
+    <script type="text/javascript">
+        $('#ThemenListe').autocomplete({
+            source:'{!!URL::route('autocomplete')!!}',
+            minlength:1,
+            autoFocus:true,
+            select:function(e,ui)
+            {
+                $('#ThemenListe').val(ui.item.value);
+            }
+        });
+    </script>
 @endsection

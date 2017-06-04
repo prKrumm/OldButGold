@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Model\Frage;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateQuestionRequest;
 
 class TreffpunktController extends ErsatzteilTreffpunktController
@@ -47,7 +49,14 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function store(CreateQuestionRequest $request)
     {
-        //
+        if (Auth::check()) {
+
+            Frage::create($request->all());
+
+            return redirect('treffpunkt');
+
+        } else
+            return view('auth.login');
     }
 
     /**

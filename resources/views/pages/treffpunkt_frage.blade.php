@@ -1,28 +1,47 @@
 @extends('layouts.masterFahrzeugFrage')
 @section('content')
     <div class="container">
+
+        @if ($errors->any())
+            <div class="alert alert-warning">
+                <ul>
+                    @foreach ($errors-> all() as $error)
+                        <li><strong>Info!</strong> {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <h2 class="left">Frage stellen</h2>
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="post" action="{{action('TreffpunktController@store')}}">
+            {{ csrf_field() }}
             <div class="col-md-9 col-sm-12">
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Betreff</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text"
+                        <input class="form-control" type="text" name="titel"
                                placeholder="Bitte geben Sie hier Ihren Betreff ein">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Beschreibung</label>
                     <div class="col-sm-10">
-                        <input class="form-control inputHeight" type="text"
+                        <input class="form-control inputHeight" type="text" name="text"
                                placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Themen</label>
+                    <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
-                        <input class="form-control" type="text"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete">
+                        <input data-role="tagsinput" type="text" class="form-control"
+                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Bild</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="focusedInput" type="text" name="bild_url"
+                               placeholder="Bitte Bild hinzufügen">
                     </div>
                 </div>
                 <div class="form-group">
@@ -39,4 +58,15 @@
             </div>
         </form>
     </div>
+    <script type="text/javascript">
+        $('#ThemenListe').autocomplete({
+            source:'{!!URL::route('autocomplete')!!}',
+            minlength:1,
+            autoFocus:true,
+            select:function(e,ui)
+            {
+                $('#ThemenListe').val(ui.item.value);
+            }
+        });
+    </script>
 @endsection
