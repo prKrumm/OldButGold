@@ -22,22 +22,6 @@ class CreateFzgModellTable extends Migration
 
             $table->timestamps();
         });
-        DB::table('fzg_modell')->insert(
-            array(
-                array(
-                    'hersteller' => 'Borgward',
-                    'modell' => 'Isabella Coupe'
-                ),
-                array(
-                    'hersteller' =>'Opel',
-                    'model' => 'Typ 51'
-                ),
-                array(
-                    'hersteller' => 'Bugatti',
-                    'model' => 'Typ 55'
-                )
-            )
-        );
     }
 
     /**

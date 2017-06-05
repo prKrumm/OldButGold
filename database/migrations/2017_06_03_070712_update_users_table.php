@@ -18,24 +18,6 @@ class UpdateUsersTable extends Migration
 
             $table->foreign('rolle_id')->references('rolle_id')->on('rolle');
         });
-        /*
-         *             $table->increments('user_id')->unique();
-            $table->string('name');
-            $table->string('first_name');
-            $table->string('user_name');
-            $table->string('email')->unique();
-            $table->string('password');
-         */
-        DB::table('users')->insert(
-            array(
-                'name' => 'Schreiner',
-                'first_name' => 'Viktoria',
-                'user_name' => 'Vk',
-                'email' => 'Viktoria.schreiner@konstanz.de',
-                'password' => 'geheim',
-                'rolle_id' => '1'
-            )
-        );
     }
 
 

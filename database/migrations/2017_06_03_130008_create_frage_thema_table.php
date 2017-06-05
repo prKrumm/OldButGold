@@ -21,12 +21,6 @@ class CreateFrageThemaTable extends Migration
             $table->foreign('frage_id')->references('frage_id')->on('frage');
             $table->timestamps();
         });
-        DB::table('frage_gehoert_thema')->insert(
-            array(
-                'thema_id' => '1',
-                'frage_id' => '1'
-            )
-        );
     }
 
     /**

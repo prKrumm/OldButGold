@@ -23,13 +23,6 @@ class CreateVoteTable extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();
         });
-        DB::table('vote')->insert(
-            array(
-                'value'=>12,
-                'antwort_id' => '1',
-                'user_id' => '1'
-            )
-        );
     }
 
     /**

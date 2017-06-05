@@ -19,21 +19,6 @@ class CreateRolleTable extends Migration
 
             $table->timestamps();
         });
-
-
-        DB::table('rolle')->insert(
-            array(
-                array(
-                    'bezeichnung' => 'Händler'
-                ),
-                array(
-                    'bezeichnung' => 'Oldtimer-Besitzer'
-                ),
-                array(
-                    'bezeichnung' => 'Admin'
-                )
-            )
-        );
     }
 
     /**

@@ -23,14 +23,6 @@ class CreateAddresseTable extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();
         });
-        DB::table('addresse')->insert(
-            array(
-                'street' => 'Feilitzschstraße 7',
-                'plz' => '80802',
-                'ort' => 'München',
-                'user_id' => 1
-            )
-        );
     }
 
     /**

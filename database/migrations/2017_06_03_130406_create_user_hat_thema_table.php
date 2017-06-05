@@ -21,12 +21,6 @@ class CreateUserHatThemaTable extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();
         });
-        DB::table('user_hat_thema')->insert(
-            array(
-                'thema_id' => '1',
-                'user_id' => '1'
-            )
-        );
     }
 
     /**

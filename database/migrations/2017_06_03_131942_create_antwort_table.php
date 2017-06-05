@@ -15,7 +15,7 @@ class CreateAntwortTable extends Migration
     {
         Schema::create('antwort', function (Blueprint $table) {
             $table->increments('antwort_id')->unique();
-            $table->string('text');
+            $table->string('text',1000);
             $table->integer('frage_id')->unsigned()->default('');
             $table->integer('user_id')->unsigned()->default('');
 
@@ -24,14 +24,6 @@ class CreateAntwortTable extends Migration
 
             $table->timestamps();
         });
-        DB::table('antwort')->insert(
-            array(
-                'text' => 'Müßte lauf Katalog eine Gelenkscheibe sein. Es zeigt 
-                im Microfish aber ein Kreuzgelenk für den 180er.',
-                'frage_id' => 1,
-                'user_id' => 1
-            )
-        );
     }
 
     /**

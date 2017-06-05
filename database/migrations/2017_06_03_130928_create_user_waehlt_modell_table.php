@@ -21,12 +21,6 @@ class CreateUserWaehltModellTable extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();
         });
-        DB::table('user_waehlt_modell')->insert(
-            array(
-                'fzg_modell_id' => '1',
-                'user_id' => '1'
-            )
-        );
     }
 
     /**

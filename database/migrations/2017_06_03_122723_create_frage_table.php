@@ -16,7 +16,7 @@ class CreateFrageTable extends Migration
         Schema::create('frage', function (Blueprint $table) {
             $table->increments('frage_id')->unique();
             $table->string('titel');
-            $table->string('text');
+            $table->string('text',1000);
             //Funktion Bilder hochladen aktuell nicht geplant
             $table->string('bild_url');
             $table->integer('fzg_modell_id')->unsigned()->default('');
@@ -26,15 +26,6 @@ class CreateFrageTable extends Migration
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();
         });
-        DB::table('frage')->insert(
-            array(
-                'titel' => ' Artikelnummer von Benz umschlüsseln? A 180 411 05 15',
-                'text' => 'Kann mir wer helfen damit? ',
-                'bild_url'=>'235klejsrtj@lk4',
-                'fzg_modell_id'=>1,
-                'user_id'=>1
-            )
-        );
     }
 
     /**
