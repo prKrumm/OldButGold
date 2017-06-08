@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Antwort;
 use Illuminate\Http\Request;
 use App\Http\Model\Frage;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,6 @@ class TreffpunktController extends ErsatzteilTreffpunktController
 {
 
 
-
     /**
      * Display a listing of the resource.
      *
@@ -19,13 +19,13 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function index()
     {
-        $fahrzeuge=$this->getFahrzeugList();
+        $fahrzeuge = $this->getFahrzeugList();
         $fragen = $this->showAllQuestions();
 
         //Übergabne der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
-            'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count(),
+            'fzgModelle' => $fahrzeuge,
+            'fzgCount' => $fahrzeuge->count(),
             'fragen' => $fragen
         ]);
 
@@ -46,7 +46,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateQuestionRequest $request)
@@ -64,24 +64,29 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $fahrzeuge=$this->getFahrzeugList();
+        $fahrzeuge = $this->getFahrzeugList();
 
+        $tmpFrage = Frage::all()->where('frage_id', '=', $id);
+        $tmpAntworten = Antwort::all()->where('frage_id', '=', $id);
         //Übergabne der Daten und Zurückgeben der View
 
         return view('pages.treffpunkt_detail', [
-            'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count() ]);
+            'fzgModelle' => $fahrzeuge,
+            'fzgCount' => $fahrzeuge->count(),
+            'frage' => $tmpFrage[$id - 1],
+            'antworten' => $tmpAntworten
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -92,8 +97,8 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -104,7 +109,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
