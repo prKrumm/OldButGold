@@ -1,3 +1,10 @@
+<script type="text/javascript">
+    $(".anchor").click(function(){
+        $(".anchor").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="topheader">
         OldButGold.com - Ihr Portal für Oldtimer!
@@ -24,9 +31,9 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li><a href="/treffpunkt">Treffpunkt</a></li>
-                <li><a href="/ersatzteil">Ersatzteile</a></li>
-                <li><a href="/experten">Experten</a></li>
+                <li><a class="anchor" href="/treffpunkt">Treffpunkt</a></li>
+                <li><a class="anchor" href="/ersatzteil">Ersatzteile</a></li>
+                <li><a class="anchor" href="/experten">Experten</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

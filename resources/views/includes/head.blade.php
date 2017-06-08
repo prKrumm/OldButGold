@@ -18,6 +18,8 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <!--Fonts-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -27,6 +29,7 @@
 <link href="{{ asset('css/question.css') }}" rel="stylesheet">
 <link href="{{ asset('css/fahrzeugAuswahl.css') }}" rel="stylesheet">
 <link href="{{ asset('css/experts.css') }}" rel="stylesheet">
+<link href="{{ asset('css/socialMedia.css') }}" rel="stylesheet">
 
 <!-- JS -->
 <script type="text/javascript" src="{{ asset('js/fzgAuswahl.js') }}"></script>
