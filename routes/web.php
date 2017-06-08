@@ -27,6 +27,7 @@ Route::post('/treffpunkt/store', 'TreffpunktController@store');
 Route::get('/treffpunkt/id/{id}', 'TreffpunktController@show');
 
 Route::get('/ersatzteil', 'ErsatzteilController@index');
+Route::get('/ersatzteil', 'ErsatzteilController@index');
 
 Route::get('/ersatzteil/create', 'ErsatzteilController@create');
 Route::post('/ersatzteil/store', 'ErsatzteilController@store');

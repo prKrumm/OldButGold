@@ -7,7 +7,8 @@
  */
 namespace App\Http\Controllers;
 
-use app\Http\Model\Frage;
+use App\Http\Model\Frage;
+use App\Http\Model\Thema;
 use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +36,18 @@ class ErsatzteilTreffpunktController extends Controller
         //Aufbereiten der Daten für die View
         //Fahrzeuge
         return FzgModell::all();
+    }
+
+    public function showAllQuestions() {
+
+        $fzg_Modell_id = 1;
+
+        $fragen = DB::table('frage')
+            ->where('frage.fzg_modell_id', '=', $fzg_Modell_id)
+            ->paginate(3);
+
+        return $fragen;
+
     }
 
     /**

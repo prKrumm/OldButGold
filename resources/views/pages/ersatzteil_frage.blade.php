@@ -17,28 +17,28 @@
         <form class="form-horizontal" method="post" action="{{action('ErsatzteilController@store')}}">
             {{ csrf_field() }}
             <div class="col-md-9 col-sm-12">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('titel') ? ' has-error' : '' }}">
                     <label class="col-sm-2 control-label">Betreff</label>
                     <div class="col-sm-10">
                         <input class="form-control" id="focusedInput" type="text" name="titel"
                                placeholder="Bitte geben Sie hier Ihren Betreff ein">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
                     <label class="col-sm-2 control-label">Beschreibung</label>
                     <div class="col-sm-10">
                         <input class="form-control inputHeight" type="text" name="text"
                                placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
                         <input data-role="tagsinput" type="text" class="form-control"
                                placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('bild_url') ? ' has-error' : '' }}">
                     <label class="col-sm-2 control-label">Bild</label>
                     <div class="col-sm-10">
                         <input class="form-control" id="focusedInput" type="text" name="bild_url"

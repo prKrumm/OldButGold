@@ -20,11 +20,13 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     public function index()
     {
         $fahrzeuge=$this->getFahrzeugList();
+        $fragen = $this->showAllQuestions();
 
         //Übergabne der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
             'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count()
+            'fzgCount'=> $fahrzeuge->count(),
+            'fragen' => $fragen
         ]);
 
     }

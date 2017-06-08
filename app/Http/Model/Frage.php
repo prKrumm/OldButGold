@@ -43,7 +43,7 @@ class Frage extends Model
      */
     public function themen()
     {
-        return $this->belongsToMany('app\Http\Model\Thema');
+        return $this->belongsToMany('App\Http\Model\Thema');
     }
 
     /**
@@ -51,7 +51,7 @@ class Frage extends Model
      */
     public function fzgModell()
     {
-        return $this->belongsTo('app\Http\Model\FzgModell');
+        return $this->belongsTo('App\Http\Model\FzgModell');
     }
 
     /**
@@ -59,7 +59,7 @@ class Frage extends Model
      */
     public function user()
     {
-        return $this->belongsTo('app\Http\User');
+        return $this->belongsTo('App\Http\User');
     }
 
     /**
