@@ -10,12 +10,20 @@
     <section class="detailAntworten">
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h2 class="answer">2 Antworten</h2>
+                <h2 class="answer"> {!!$countAnswers!!}
+                    <?php if($countAnswers == 1 ){
+                    ?>
+                    Antwort
+                    <?php }
+                    else{ ?>
+                    Antworten
+                    <?php } ?>
+                </h2>
             </div>
         </div>
         <!--Hier startet die foreach!!-->
-        <!--foreach($antworten as $antwort)-->
-            <div class="row">
+        @foreach($antworten as $antwort)
+            <div class="row answer">
                 <div class="col-md-2 col-sm-2">
                     <div class="detailBtn">
                         <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
@@ -33,11 +41,16 @@
 
                 </div>
                 <div class="col-md-10 col-sm-10">
-                    <p> Lorem Ipsum
-                        <!--{!!$antworten!!}-->
+                    <p>
+                        {!!$antwort->text!!}
+
                     </p>
                 </div>
             </div>
-        <!--endforeach-->
+
+        @endforeach
+        <br><br><br><br>
+
+        <h2>Deine Antwort</h2>
     </section>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\Antwort;
+use App\Http\Model\Vote;
 use Illuminate\Http\Request;
 use App\Http\Model\Frage;
 use Illuminate\Support\Facades\Auth;
@@ -10,8 +11,6 @@ use App\Http\Requests\CreateQuestionRequest;
 
 class TreffpunktController extends ErsatzteilTreffpunktController
 {
-
-
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +21,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         $fahrzeuge = $this->getFahrzeugList();
         $fragen = $this->showAllQuestions();
 
-        //Übergabne der Daten und Zurückgeben der View
+        //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
             'fzgModelle' => $fahrzeuge,
             'fzgCount' => $fahrzeuge->count(),
@@ -72,16 +71,38 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         $fahrzeuge = $this->getFahrzeugList();
 
         $tmpFrage = Frage::all()->where('frage_id', '=', $id);
-        $tmpAntworten = Antwort::all()->where('frage_id', '=', $id);
-        //Übergabne der Daten und Zurückgeben der View
+        //TODO: hier einen join auf Votes, Antwort mit höchsten Votes zuerst anzeigen
+        $tmpAntworten = $this->getAntwortenByVotes($id);
+        $tmpIndex = Antwort::all()->where('frage_id', '=', $id)->count();
 
+        //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt_detail', [
             'fzgModelle' => $fahrzeuge,
             'fzgCount' => $fahrzeuge->count(),
             'frage' => $tmpFrage[$id - 1],
-            'antworten' => $tmpAntworten
+            'countAnswers' => $tmpIndex,
+            'antworten' => $tmpAntworten,
         ]);
     }
+
+    /**
+     * SQL- Select mit Eloquent ausdrücken:
+    select antwort.antwort_id, antwort.text, antwort.user_id, antwort.frage_id, sum(vote.value) as summierteVotes
+    from vote, antwort
+    where vote.antwort_id = antwort.antwort_id
+    group by antwort.antwort_id
+    order by summierteVotes desc
+     *
+     *
+     * @return JSON
+     * @param Antwort.frage_id
+     */
+
+    public function getAntwortenByVotes($id){
+        $tmpAntwort = Antwort::all()->where('frage_id', '=', $id);
+        return $tmpAntwort;
+    }
+
 
     /**
      * Show the form for editing the specified resource.
