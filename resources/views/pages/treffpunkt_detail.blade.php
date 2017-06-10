@@ -31,7 +31,7 @@
                         </button>
                     </div>
                     <div class="detailAntwortenCount">
-                        <p>0</p>
+                        <p>{!!$antwort->votes->sum('value')!!}</p>
                     </div>
                     <div class="detailBtn">
                         <button type="button" class="btn btn-custom" aria-label="Left Align" href="">

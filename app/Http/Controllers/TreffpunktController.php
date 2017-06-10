@@ -74,6 +74,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         //TODO: hier einen join auf Votes, Antwort mit höchsten Votes zuerst anzeigen
         $tmpAntworten = $this->getAntwortenByVotes($id);
         $tmpIndex = Antwort::all()->where('frage_id', '=', $id)->count();
+        //$tmpVote = Vote::all()->where('antwort_id','3')->get();
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt_detail', [

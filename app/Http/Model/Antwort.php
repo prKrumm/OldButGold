@@ -42,7 +42,7 @@ class Antwort extends Model
      */
     public function frage()
     {
-        return $this->belongsTo('app\Http\Model\Frage');
+        return $this->belongsTo('app\Http\Model\Frage', 'frage_id','frage_id');
     }
 
     /**
@@ -58,9 +58,6 @@ class Antwort extends Model
      */
     public function votes()
     {
-        return $this->hasMany('app\Http\Model\Vote');
+        return $this->hasMany('App\Http\Model\Vote','antwort_id','antwort_id');
     }
-
-
-
 }

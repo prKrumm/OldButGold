@@ -3,6 +3,7 @@
 namespace app\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Integer;
 
 class Vote extends Model
 {
@@ -42,7 +43,7 @@ class Vote extends Model
      */
     public function antwort()
     {
-        return $this->belongsTo('app\Http\Model\Antwort');
+        return $this->belongsTo('app\Http\Model\Antwort','antwort_id', 'antwort_id');
     }
 
     /**
@@ -50,6 +51,6 @@ class Vote extends Model
      */
     public function user()
     {
-        return $this->belongsTo('app\Http\Model\User');
+        return $this->belongsTo('app\Http\Model\User','user_id','user_id');
     }
 }
