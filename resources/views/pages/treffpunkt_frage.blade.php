@@ -30,18 +30,18 @@
                                placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
                     </div>
                 </div>
-                <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
-                    <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
-                    <div class="col-sm-10">
-                        <input data-role="tagsinput" type="text" class="form-control"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
-                    </div>
-                </div>
                 <div class="form-group{{ $errors->has('bild_url') ? ' has-error' : '' }}">
                     <label class="col-sm-2 control-label">Bild</label>
                     <div class="col-sm-10">
                         <input class="form-control" id="focusedInput" type="text" name="bild_url"
                                placeholder="Bitte Bild hinzufügen">
+                    </div>
+                </div>
+                <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
+                    <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
+                    <div class="col-sm-10">
+                        <input type="text" data-role="tagsinput" class="form-control"
+                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
                     </div>
                 </div>
                 <div class="form-group">
@@ -59,6 +59,8 @@
         </form>
     </div>
     <script type="text/javascript">
+        /**
+         *
         $('#ThemenListe').autocomplete({
             source:'{!!URL::route('autocomplete')!!}',
             minlength:1,
@@ -67,6 +69,25 @@
             {
                 $('#ThemenListe').val(ui.item.value);
             }
+        });
+
+
+        $('#ThemenListe').tagsinput({
+            typeahead: {
+                source: function(query) {
+                    return $.get('http://someservice.com');
+                }
+            }
+        });
+
+         */
+
+
+        $('ThemenListe').tagsinput({
+            typeahead: {
+                source: ['Amsterdam', 'Washington', 'Sydney', 'Beijing', 'Cairo']
+            },
+            freeInput: false
         });
     </script>
 @endsection
