@@ -34,7 +34,7 @@ class Frage extends Model
      * @var array
      */
     protected $fillable = [
-        'text','titel','bild_url',
+        'text', 'titel', 'bild_url',
     ];
 
     /**
@@ -67,6 +67,6 @@ class Frage extends Model
      */
     public function antworten()
     {
-        return $this->hasMany('app\Http\Model\Antwort');
+        return $this->hasMany('app\Http\Model\Antwort', 'antwort_id', 'antwort_id');
     }
 }
