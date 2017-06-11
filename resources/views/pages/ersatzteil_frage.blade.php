@@ -34,7 +34,7 @@
                 <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
-                        <input data-role="tagsinput" type="text" class="form-control"
+                        <input type="text" class="form-control"
                                placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
                     </div>
                 </div>
