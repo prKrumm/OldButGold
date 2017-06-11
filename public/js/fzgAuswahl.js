@@ -33,11 +33,13 @@ $().ready(function() {
                 $.each(data, function(i,modell) {
 
 
-                        options.append($("<option />").val(modell.hersteller+" "+modell.modell).text(modell.hersteller+" "+modell.modell));
+                        options.append($("<option />").val(modell.fzg_modell_id).text(modell.hersteller+" "+modell.modell));
 
                 });
             });
     });
+
+
 
 
 });
