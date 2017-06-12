@@ -9,7 +9,7 @@
                 <i class="material-icons md-36">drive_eta</i>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
-                @if(Session::has('fzgObject'))
+                @if(Session::has('fzgName'))
                 <div class="strongText">{{Session::get('fzgName')}} {{Session::get('fzgModell')}}</div>
                 @endif
             </div>
