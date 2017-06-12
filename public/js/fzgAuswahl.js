@@ -59,7 +59,7 @@ $().ready(function() {
                 //replace link for paginating
 
                $(".fragenCon").html(newStringFragen);
-                $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
+               $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
 
             });
 

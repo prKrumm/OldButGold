@@ -19,8 +19,16 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function index()
     {
+
+        //check if fzg in session
+        if(session('fzg', false)==true){
+            $fzg_id=session('fzgId', 'default');
+            $fragen = $this->queryFragenGesuche($fzg_id,'treffpunkt');
+        } else{
+            //show all questions
+            $fragen = $this->showAllQuestions('treffpunkt');
+        }
         $fahrzeuge = $this->getFahrzeugList();
-        $fragen = $this->showAllQuestions('ersatzteil');
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
