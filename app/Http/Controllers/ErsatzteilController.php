@@ -96,7 +96,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function create()
     {   //falls fahrzeug gewählt, ok sonst redirect
-        if(session(fzg)==true) {
+        if(session('fzg')==true) {
             return view('pages.ersatzteil_frage');
         } else{
             return redirect()->action('ErsatzteilController@index');

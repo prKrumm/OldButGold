@@ -68,6 +68,15 @@ $().ready(function() {
 
     });
 
+    $("#frageKnopf").click(function() {
+        if($("#modell_id").val()!=''){
+
+        } else {
+            $("#fahrzeugAuswahl").effect( "shake", {times:4}, 1000 );
+            return false;
+        }
+    });
+
 
 
 
