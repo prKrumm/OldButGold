@@ -69,7 +69,6 @@ $().ready(function() {
     });
 
 
-    $()
 
 
 
