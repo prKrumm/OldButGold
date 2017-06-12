@@ -1,4 +1,6 @@
 <section class="fahrzeugAuswahl">
+    <div id="fahrzeugAuswahl">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -26,8 +28,10 @@
                                 </option>
                                 <optgroup class="top" label="Top-Automarken"></optgroup>
                                 @foreach($fzgModelle as $fzg)
-                                    <option value="{{$fzg->fzg_modell_id}}">{{$fzg->hersteller}}</option>
-                                @endforeach
+
+                                        <option value="{{$fzg->fzg_modell_id}}">{{$fzg->hersteller}}</option>
+
+                                        @endforeach
                                 <optgroup label="Alle Automarken"></optgroup>
                                 <option value="10009">AC</option>
                                 <option value="10044">Aixam</option>
@@ -47,6 +51,7 @@
             </div>
 
         </div>
+    </div>
     </div>
 </section>
 

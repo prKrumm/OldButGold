@@ -8,6 +8,8 @@ use App\Http\Requests\CreateQuestionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class ErsatzteilController extends ErsatzteilTreffpunktController
 {
@@ -22,7 +24,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     public function index()
     {
         $fahrzeuge = $this->getFahrzeugList();
-        $fragen = $this->showAllQuestions();
+        $fragen = $this->showAllQuestions('ersatzteil');
 
         //Übergabne der Daten und Zurückgeben der View
         return view('pages.ersatzteil', [
@@ -31,6 +33,48 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             'fragen' => $fragen
         ]);
 
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function fragen(Request $request)
+    {
+        $fahrzeuge = $this->getFahrzeugList();
+        if (isset($request->modell)) {
+            $fzg_id = $request->modell;
+        } else {
+            $fzg_id=$request->session()->get('fzgId');
+        }
+        if ($fzg_id !== '') {
+            $currentFahrzeug = FzgModell::getFzgById($fzg_id);
+
+            $request->session()->put('fzgId',$fzg_id);
+            $request->session()->put('fzg',true);
+            $request->session()->put('fzgName',$currentFahrzeug->hersteller);
+            $request->session()->put('fzgModell',$currentFahrzeug->modell);
+
+            $fragen =$this->queryFragenGesuche($fzg_id,'ersatzteil');
+
+        }
+
+        //if(Request::ajax()){
+          //  return Response::json(View::make('pages.treffpunkt'),[
+           //     'fzgModelle' => $fahrzeuge,
+            //    'fzgCount' => $fahrzeuge->count(),
+           //     'fragen' => $fragen
+           // ])->render();
+        //}
+
+        //Übergabe der Daten und Zurückgeben der View
+        return view('pages.ersatzteil', [
+            'fzgModelle' => $fahrzeuge,
+            'fzgCount' => $fahrzeuge->count(),
+            'fragen' => $fragen
+        ]);
     }
 
 
@@ -42,8 +86,12 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('pages.ersatzteil_frage');
+    {   //falls fahrzeug gewählt, ok sonst redirect
+        if(session(fzg)==true) {
+            return view('pages.ersatzteil_frage');
+        } else{
+            return redirect()->action('ErsatzteilController@index');
+        }
     }
 
 
@@ -117,5 +165,12 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     public function destroy($id)
     {
         //
+    }
+
+    // Entfernt ausgewähltes Fahrzeug
+    public function remove(Request $request)
+    {
+        $request->session()->put('fzg');
+        return redirect()->action('ErsatzteilController@index');
     }
 }

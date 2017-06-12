@@ -79,3 +79,8 @@
     </div>
     </section>
 @endsection
+
+
+@section('content2')
+    <a class="btn btn-default" href="/ersatzteil/remove">Fahrzeug wechseln</a>
+@endsection

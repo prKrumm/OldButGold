@@ -38,15 +38,17 @@ class ErsatzteilTreffpunktController extends Controller
         return FzgModell::all();
     }
 
-    public function showAllQuestions() {
-
-        $fzg_Modell_id = 1;
-
-        $fragen = DB::table('frage')
-            ->where('frage.fzg_modell_id', '=', $fzg_Modell_id)
-            ->paginate(3);
-
-        return $fragen;
+    /**
+     * Methode holt alle Fragen oder Gesuche aus der DB je nachdem welcher type
+     * ausgewählt wurde (ersatzteil; gesuch).
+     * Der Übergabeparameter fzg_modell_id schränkt die Fragen auf das jeweilige fzg modell ein.
+     * Falls null, dann alle Fragen anzeigen.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showAllQuestions($type) {
+        return $this->queryFragenGesuche(null,$type);
 
     }
 
@@ -89,9 +91,9 @@ class ErsatzteilTreffpunktController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function frage()
+    public function fragen(Request $request)
     {
-        return view('pages.ersatzteil_frage');
+        return $this->queryFragenGesuche(null,$type);
     }
 
 
@@ -155,6 +157,21 @@ class ErsatzteilTreffpunktController extends Controller
         return $modelle;
     }
 
+    protected function queryFragenGesuche($fzg_Modell_id,$type)
+    {
+        $paginateCount=3;
+        if($fzg_Modell_id==null){
+            $fragen = DB::table('frage')
+                ->paginate($paginateCount);
+        } else {
+
+            $fragen = DB::table('frage')
+                ->where('frage.fzg_modell_id', '=', $fzg_Modell_id)
+                ->paginate($paginateCount);
+        }
+        return $fragen;
+    }
+
 
     // Methode für die Abfrage der relevanten Themen im Fragen-Formular
     public function autocomplete(Request $request)
@@ -174,6 +191,8 @@ class ErsatzteilTreffpunktController extends Controller
         }
         return response()->json($results);
     }
+
+
 
 
 

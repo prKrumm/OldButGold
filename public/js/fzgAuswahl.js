@@ -4,6 +4,8 @@
 
 $().ready(function() {
 
+
+
     $("#fzg_id").change(function() {
 
         //delete old modelle
@@ -28,17 +30,46 @@ $().ready(function() {
                 var options = $("#modell_id");
                 if(data.length==0){
 
-                } else{ options.empty().append(' <option class="fixed" value="">Modell</option>')}
+                } else{
+
+                    options.empty().append(' <option class="fixed" value="">Modell</option>')}
 
                 $.each(data, function(i,modell) {
 
 
-                        options.append($("<option />").val(modell.fzg_modell_id).text(modell.hersteller+" "+modell.modell));
+
+                        options.append($("<option />").val(modell.fzg_modell_id).text(modell.hersteller + " " + modell.modell));
+
 
                 });
             });
     });
 
+    $("#modell_id").change(function() {
+
+
+        if(this.value==0){
+            //do nothing
+        } else{
+            //send request
+            $.get( window.location.pathname+"/fragen?modell="+this.value).done(function(data){
+                var $replaceString=$(data);
+                var newStringFragen=$replaceString.find(".fragenCon");
+                var newStringFahrzeug = $replaceString.find("#fahrzeugAuswahl");
+                //replace link for paginating
+
+               $(".fragenCon").html(newStringFragen);
+                $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
+
+            });
+
+
+        }
+
+    });
+
+
+    $()
 
 
 

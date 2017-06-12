@@ -1,5 +1,7 @@
 @extends('layouts.masterFahrzeug')
 
+
+
 @section('content')
     <div class="row">
         <div class="col-md-9 col-sm-9">
@@ -9,7 +11,7 @@
             <a class="btn btn-default" href="ersatzteil/create">Teil anfragen</a>
         </div>
     </div>
-
+    <div class="fragenCon">
     @foreach($fragen as $frage)
     <div class="detailAntworten">
         <div class="row">
@@ -39,5 +41,9 @@
     </div>
     @endforeach
     <?php echo $fragen->render(); ?>
+    </div>
+@endsection
 
+@section('content2')
+    <a class="btn btn-default" href="ersatzteil/remove">Fahrzeug wechseln</a>
 @endsection

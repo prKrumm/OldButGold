@@ -91,3 +91,7 @@
         });
     </script>
 @endsection
+
+@section('content2')
+    <a class="btn btn-default" href="/treffpunkt/remove">Fahrzeug wechseln</a>
+@endsection

@@ -4,6 +4,8 @@ namespace app\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+
 
 class FzgModell extends Model
 {
@@ -52,6 +54,13 @@ class FzgModell extends Model
     public function fragen()
     {
         return $this->hasMany('app\Http\Model\Frage');
+    }
+
+
+    public static function getFzgById($Id){
+        return FzgModell::all()->where('fzg_modell_id','==',$Id)->first();
+       // return DB::table('fzg_modell')
+         //   ->where('fzg_modell_id', '=', $Id);
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\Antwort;
+use app\Http\Model\FzgModell;
 use App\Http\Model\Vote;
 use Illuminate\Http\Request;
 use App\Http\Model\Frage;
@@ -19,7 +20,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     public function index()
     {
         $fahrzeuge = $this->getFahrzeugList();
-        $fragen = $this->showAllQuestions();
+        $fragen = $this->showAllQuestions('ersatzteil');
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
@@ -30,6 +31,48 @@ class TreffpunktController extends ErsatzteilTreffpunktController
 
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function fragen(Request $request)
+    {
+        $fahrzeuge = $this->getFahrzeugList();
+
+        if (isset($request->modell)) {
+            $fzg_id = $request->modell;
+        } else {
+            $fzg_id=$request->session()->get('fzgId');
+        }
+        if ($fzg_id !== '') {
+            $currentFahrzeug = FzgModell::getFzgById($fzg_id);
+            $request->session()->put('fzgId',$fzg_id);
+            $request->session()->put('fzg',true);
+            $request->session()->put('fzgName',$currentFahrzeug->hersteller);
+            $request->session()->put('fzgModell',$currentFahrzeug->modell);
+
+            $fragen =$this->queryFragenGesuche($fzg_id,'ersatzteil');
+
+        }
+
+        //if(Request::ajax()){
+        //  return Response::json(View::make('pages.treffpunkt'),[
+        //     'fzgModelle' => $fahrzeuge,
+        //    'fzgCount' => $fahrzeuge->count(),
+        //     'fragen' => $fragen
+        // ])->render();
+        //}
+
+        //Übergabe der Daten und Zurückgeben der View
+        return view('pages.treffpunkt', [
+            'fzgModelle' => $fahrzeuge,
+            'fzgCount' => $fahrzeuge->count(),
+            'fragen' => $fragen
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +81,13 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function create()
     {
-        return view('pages.treffpunkt_frage');
+        //falls fahrzeug gewählt, ok sonst redirect
+        if(session('fzg')==true) {
+            return view('pages.treffpunkt_frage');
+        } else{
+            return redirect()->action('TreffpunktController@index');
+        }
+
     }
 
 
@@ -137,5 +186,12 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     public function destroy($id)
     {
         //
+    }
+
+    // Entfernt ausgewähltes Fahrzeug
+    public function remove(Request $request)
+    {
+        $request->session()->put('fzg');
+        return redirect()->action('TreffpunktController@index');
     }
 }
