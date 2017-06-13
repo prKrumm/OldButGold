@@ -128,7 +128,9 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function show($id)
     {
-        $fahrzeuge = $this->getFahrzeugList();
+        //hole alle fahrzeuge
+        $fahrzeugeTop = $this->getFahrzeugListTop();
+        $fahrzeugeRest=$this->getFahrzeugListRest();
 
         $tmpFrage = Frage::all()->where('frage_id', '=', $id);
         //TODO: hier einen join auf Votes, Antwort mit höchsten Votes zuerst anzeigen
@@ -141,8 +143,8 @@ class TreffpunktController extends ErsatzteilTreffpunktController
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt_detail', [
-            'fzgModelle' => $fahrzeuge,
-            'fzgCount' => $fahrzeuge->count(),
+            'fzgTop' => $fahrzeugeTop,
+            'fzgRest' => $fahrzeugeRest,
             'frage' => $tmpFrage[$id - 1],
             'countAnswers' => $tmpIndex,
             'antworten' => $tmpAntworten,

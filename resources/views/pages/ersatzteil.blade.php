@@ -41,8 +41,10 @@
                     <h3><a href="/ersatzteil/id/{{ $frage->frage_id }}"class="question-hyperlink"value="{{$frage->titel}}">{{$frage->titel}}</a>
                     </h3>
                     <div class="tags">
-                        <a href="/ersatzteil" rel="tag">Motor</a>
-                        <a href="/ersatzteil" rel="tag">1,9l</a>
+                        <p>{{$frage->themen}}</p>
+                    </div>
+                    <div class="user">
+                        <p>{{$frage->user_name}}</p>
                     </div>
                 </div>
             </div>

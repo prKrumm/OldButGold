@@ -28,7 +28,11 @@
                             <div><i class="material-icons">trending_up</i></div>
                         </div>
                         <div class="status unanswered">
-                            <div class="mini-counts"><span title="0 answers">0</span></div>
+                            @if(is_null($frage->countAntwort))
+                                <div class="mini-counts"><span title="0 answers">0</span></div>
+                            @else
+                                <div class="mini-counts"><span title="0 answers">{{$frage->countAntwort}}</span></div>
+                            @endif
                             <div><i class="material-icons">chat</i></div>
                         </div>
                     </div>
@@ -38,8 +42,10 @@
                         <h3><a href="/treffpunkt/id/{!! $frage->frage_id !!}"class="question-hyperlink" value="{{$frage->titel}}">{{$frage->titel}}</a>
                         </h3>
                         <div class="tags">
-                            <a href="/treffpunkt" rel="tag">Motor</a>
-                            <a href="/treffpunkt" rel="tag">1,9l</a>
+                            <p>{{$frage->themen}}</p>
+                        </div>
+                        <div class="user">
+                            <p>{{$frage->user_name}}</p>
                         </div>
                     </div>
                 </div>
