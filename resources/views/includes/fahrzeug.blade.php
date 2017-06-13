@@ -27,16 +27,21 @@
                                     ausw&#228;hlen
                                 </option>
                                 <optgroup class="top" label="Top-Automarken"></optgroup>
-                                @foreach($fzgModelle as $fzg)
+                                @foreach($fzgTop as $fzg)
 
-                                        <option value="{{$fzg->fzg_modell_id}}">{{$fzg->hersteller}}</option>
 
-                                        @endforeach
+
+
+                                        <option value="{{$fzg->hersteller_id}}">{{$fzg->marke}}</option>
+
+                                @endforeach
                                 <optgroup label="Alle Automarken"></optgroup>
-                                <option value="10009">AC</option>
-                                <option value="10044">Aixam</option>
-                                <option value="9948">Alfa Romeo</option>
+                                @foreach($fzgRest as $fzg)
 
+                                        <option value="{{$fzg->hersteller_id}}">{{$fzg->marke}}</option>
+
+
+                                @endforeach
                             </select>
                         </div>
                         <div class="vehicle-option-select vehicle-toolbar-model-select">

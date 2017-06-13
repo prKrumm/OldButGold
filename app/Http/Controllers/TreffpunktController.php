@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Model\Antwort;
 use app\Http\Model\FzgModell;
+use app\Http\Model\Hersteller;
 use App\Http\Model\Vote;
 use Illuminate\Http\Request;
 use App\Http\Model\Frage;
@@ -29,14 +30,15 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             $fragen = $this->showAllQuestions('treffpunkt');
         }
         //hole alle Fahrzeuge
-        $fahrzeuge = $this->getFahrzeugList();
+        $fahrzeugeTop = $this->getFahrzeugListTop();
+        $fahrzeugeRest=$this->getFahrzeugListRest();
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
-            'fzgModelle' => $fahrzeuge,
-            'fzgCount' => $fahrzeuge->count(),
+            'fzgTop' => $fahrzeugeTop,
+            'fzgRest' => $fahrzeugeRest,
             'fragen' => $fragen,
             'themen' => $themen
         ]);
@@ -59,11 +61,12 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             $fzg_id=$request->session()->get('fzgId');
         }
         if ($fzg_id !== '') {
-            $currentFahrzeug = FzgModell::getFzgById($fzg_id);
+            $currentModell = FzgModell::getFzgById($fzg_id);
+            $currentFahrzeug = Hersteller::getFzgById($currentModell->hersteller_id);
             $request->session()->put('fzgId',$fzg_id);
             $request->session()->put('fzg',true);
-            $request->session()->put('fzgName',$currentFahrzeug->hersteller);
-            $request->session()->put('fzgModell',$currentFahrzeug->modell);
+            $request->session()->put('fzgName',$currentFahrzeug->marke);
+            $request->session()->put('fzgModell',$currentModell->modell);
 
             $fragen =$this->queryFragenGesuche($fzg_id,'ersatzteil');
 

@@ -8,6 +8,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\Frage;
+use App\Http\Model\Hersteller;
 use App\Http\Model\Thema;
 use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
@@ -35,8 +36,34 @@ class ErsatzteilTreffpunktController extends Controller
     public function getFahrzeugList() {
         //Aufbereiten der Daten für die View
         //Fahrzeuge
-        return FzgModell::all();
+        return Hersteller::all();
     }
+
+    /**
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getFahrzeugListTop() {
+        //Aufbereiten der Daten für die View
+        //Fahrzeuge
+        return Hersteller::all()->where('isTopMarke','==','1');
+    }
+
+    /**
+     *
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getFahrzeugListRest() {
+        //Aufbereiten der Daten für die View
+        //Fahrzeuge
+        return Hersteller::all()->where('isTopMarke','==','0');
+    }
+
+
 
     /**
      * Holt sich alle Themen und die Anzahl der gestellten Fragen für jedes Thema
@@ -168,7 +195,7 @@ class ErsatzteilTreffpunktController extends Controller
             $fzg_id = '';
         }
         if ($fzg_id !== '') {
-            $modelle =FzgModell::all()->where('fzg_modell_id','=',$fzg_id);
+            $modelle =FzgModell::all()->where('hersteller_id','=',$fzg_id);
 
         }
         return $modelle;

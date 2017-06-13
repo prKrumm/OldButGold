@@ -32,14 +32,16 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             $fragen = $this->showAllQuestions('ersatzteil');
         }
         //hole alle fahrzeuge
-        $fahrzeuge = $this->getFahrzeugList();
+        $fahrzeugeTop = $this->getFahrzeugListTop();
+        $fahrzeugeRest=$this->getFahrzeugListRest();
+
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
         //Übergabne der Daten und Zurückgeben der View
         return view('pages.ersatzteil', [
-            'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count(),
+            'fzgTop' => $fahrzeugeTop,
+            'fzgRest' => $fahrzeugeRest,
             'fragen' => $fragen,
             'themen' => $themen
         ]);

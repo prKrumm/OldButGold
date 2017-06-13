@@ -1,5 +1,5 @@
 <?php
-namespace app\Http\Model;
+namespace App\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
@@ -37,5 +37,11 @@ class Hersteller extends Model
     protected $fillable = [
         'marke', 'isTopMarke'
     ];
+
+
+    public static function getFzgById($Id){
+        return Hersteller::all()->where('hersteller_id','==',$Id)->first();
+
+    }
 
 }
