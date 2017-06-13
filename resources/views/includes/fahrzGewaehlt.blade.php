@@ -13,7 +13,7 @@
             <div class="col-lg-5 col-md-5 col-sm-3 col-xs-12">
                 <div id="selectedCar">
                 @if(Session::has('fzgName'))
-                        <div class="strongText"><strong>{{Session::get('fzgName')->marke}} {{Session::get('fzgModell')}}</strong></div>
+                        <div class="strongText"><strong>{{Session::get('fzgName')}} {{Session::get('fzgModell')}}</strong></div>
                 @endif
                 </div>
             </div>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\Antwort;
-use app\Http\Model\FzgModell;
-use app\Http\Model\Hersteller;
+use App\Http\Model\FzgModell;
+use App\Http\Model\Hersteller;
 use App\Http\Model\Vote;
 use Illuminate\Http\Request;
 use App\Http\Model\Frage;

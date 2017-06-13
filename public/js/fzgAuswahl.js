@@ -53,10 +53,10 @@ $().ready(function() {
         } else{
 
             var path=window.location.pathname+"/fragen?modell=";
-            if(path.search("treffpunkt")){
+            if(path.indexOf("treffpunkt")!==-1){
                 path="/treffpunkt/fragen?modell="
             }
-            if(path.search("ersatzteil")){
+            if(path.indexOf("ersatzteil")!==-1){
                 path="/ersatzteil/fragen?modell="
             }
             //send request

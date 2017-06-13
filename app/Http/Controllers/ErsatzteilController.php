@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Model\FzgModell;
+use App\Http\Model\Hersteller;
 use App\Http\Model\Frage;
 use App\Http\Requests\CreateQuestionRequest;
 use Illuminate\Http\Request;
@@ -63,12 +64,13 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             $fzg_id=$request->session()->get('fzgId');
         }
         if ($fzg_id !== '') {
-            $currentFahrzeug = FzgModell::getFzgById($fzg_id);
+            $currentModell = FzgModell::getFzgById($fzg_id);
+            $currentFahrzeug = Hersteller::getFzgById($currentModell->hersteller_id);
 
             $request->session()->put('fzgId',$fzg_id);
             $request->session()->put('fzg',true);
-            $request->session()->put('fzgName',$currentFahrzeug->hersteller);
-            $request->session()->put('fzgModell',$currentFahrzeug->modell);
+            $request->session()->put('fzgName',$currentFahrzeug->marke);
+            $request->session()->put('fzgModell',$currentModell->modell);
 
             $fragen =$this->queryFragenGesuche($fzg_id,'ersatzteil');
 
