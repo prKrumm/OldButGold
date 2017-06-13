@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-lg-11 col-md-11 col-sm-10 col-xs-10">
                     <div class="summary">
-                        <h3><a href="/treffpunkt/id/3"class="question-hyperlink" value="{{$frage->text}}">{{$frage->text}}</a>
+                        <h3><a href="/treffpunkt/id/{!! $frage->frage_id !!}"class="question-hyperlink" value="{{$frage->titel}}">{{$frage->titel}}</a>
                         </h3>
                         <div class="tags">
                             <a href="/treffpunkt" rel="tag">Motor</a>

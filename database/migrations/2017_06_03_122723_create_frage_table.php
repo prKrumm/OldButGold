@@ -19,6 +19,7 @@ class CreateFrageTable extends Migration
             $table->string('text',1000);
             //Funktion Bilder hochladen aktuell nicht geplant
             $table->string('bild_url');
+            $table->string('rubrik');
             $table->integer('fzg_modell_id')->unsigned()->default('');
             $table->integer('user_id')->unsigned()->default('');
 

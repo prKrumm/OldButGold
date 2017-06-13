@@ -36,7 +36,7 @@ class FzgModell extends Model
      * @var array
      */
     protected $fillable = [
-        'hersteller', 'modell',
+        'modell',
     ];
 
     /**
@@ -54,6 +54,17 @@ class FzgModell extends Model
     public function fragen()
     {
         return $this->hasMany('app\Http\Model\Frage');
+    }
+
+    /**
+     * @param $Id
+     * @return mixed
+     *     /**
+     * Get the hersteller that owns the fzg_modell.
+     */
+    public function hersteller()
+    {
+        return $this->belongsTo('app\Http\Model\Hersteller','hersteller_id', 'hersteller_id');
     }
 
 
