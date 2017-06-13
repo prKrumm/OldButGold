@@ -51,8 +51,16 @@ $().ready(function() {
         if(this.value==0){
             //do nothing
         } else{
+
+            var path=window.location.pathname+"/fragen?modell=";
+            if(path.search("treffpunkt")){
+                path="/treffpunkt/fragen?modell="
+            }
+            if(path.search("ersatzteil")){
+                path="/ersatzteil/fragen?modell="
+            }
             //send request
-            $.get( window.location.pathname+"/fragen?modell="+this.value).done(function(data){
+            $.get( path+this.value).done(function(data){
                 var $replaceString=$(data);
                 var newStringFragen=$replaceString.find(".fragenCon");
                 var newStringFahrzeug = $replaceString.find("#fahrzeugAuswahl");
