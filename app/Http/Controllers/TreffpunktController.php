@@ -28,13 +28,17 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             //show all questions
             $fragen = $this->showAllQuestions('treffpunkt');
         }
+        //hole alle Fahrzeuge
         $fahrzeuge = $this->getFahrzeugList();
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
             'fzgModelle' => $fahrzeuge,
             'fzgCount' => $fahrzeuge->count(),
-            'fragen' => $fragen
+            'fragen' => $fragen,
+            'themen' => $themen
         ]);
 
     }
@@ -65,19 +69,15 @@ class TreffpunktController extends ErsatzteilTreffpunktController
 
         }
 
-        //if(Request::ajax()){
-        //  return Response::json(View::make('pages.treffpunkt'),[
-        //     'fzgModelle' => $fahrzeuge,
-        //    'fzgCount' => $fahrzeuge->count(),
-        //     'fragen' => $fragen
-        // ])->render();
-        //}
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
             'fzgModelle' => $fahrzeuge,
             'fzgCount' => $fahrzeuge->count(),
-            'fragen' => $fragen
+            'fragen' => $fragen,
+            'themen' => $themen
         ]);
     }
 
@@ -133,6 +133,9 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         $tmpIndex = Antwort::all()->where('frage_id', '=', $id)->count();
         //$tmpVote = Vote::all()->where('antwort_id','3')->get();
 
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
+
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt_detail', [
             'fzgModelle' => $fahrzeuge,
@@ -140,6 +143,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             'frage' => $tmpFrage[$id - 1],
             'countAnswers' => $tmpIndex,
             'antworten' => $tmpAntworten,
+            'themen' => $themen
         ]);
     }
 

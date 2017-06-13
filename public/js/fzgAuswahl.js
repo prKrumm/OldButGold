@@ -64,10 +64,12 @@ $().ready(function() {
                 var $replaceString=$(data);
                 var newStringFragen=$replaceString.find(".fragenCon");
                 var newStringFahrzeug = $replaceString.find("#fahrzeugAuswahl");
+                var newStringSideBar = $replaceString.find("#sidebarContainer");
                 //replace link for paginating
 
                $(".fragenCon").html(newStringFragen);
                $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
+               $("#sidebarContainer").replaceWith(newStringSideBar);
 
             });
 

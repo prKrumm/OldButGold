@@ -65,6 +65,9 @@
     font-size: 90px;
 }
 
+.badge {
+    font-size: 25px;
+}
 html {
     position: relative;
     min-height: 100%;

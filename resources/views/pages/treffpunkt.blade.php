@@ -6,7 +6,7 @@
     <div class="fragenCon">
     <div class="row">
         <div class="col-md-9 col-sm-9">
-            <h2 class="left">Alle Fragen <cite>({{$fragen->total()}})</cite></h2>
+            <h2 class="left">Alle Fragen <span class="badge">{{$fragen->total()}}</span></h2>
         </div>
         <div class="col-md-3 col-sm-3">
             <a class="btn btn-default" href="/treffpunkt/create" id="frageKnopf">Frage stellen</a>

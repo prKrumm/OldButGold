@@ -39,6 +39,23 @@ class ErsatzteilTreffpunktController extends Controller
     }
 
     /**
+     * Holt sich alle Themen und die Anzahl der gestellten Fragen für jedes Thema
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getThemenListWithCount() {
+        //Aufbereiten der Daten für die View
+        //Themen
+        $themen = DB::table('thema')
+            ->leftJoin('frage_gehoert_thema', 'thema.thema_id', '=', 'frage_gehoert_thema.thema_id')
+            ->select('thema.*', DB::raw('count(frage_gehoert_thema.thema_id) as total'))
+            ->groupBy('thema.thema_id')->orderBy('total', 'desc')
+            ->get();
+        return $themen;
+    }
+
+    /**
      * Methode holt alle Fragen oder Gesuche aus der DB je nachdem welcher type
      * ausgewählt wurde (ersatzteil; gesuch).
      * Der Übergabeparameter fzg_modell_id schränkt die Fragen auf das jeweilige fzg modell ein.

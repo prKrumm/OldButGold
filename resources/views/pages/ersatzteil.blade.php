@@ -6,7 +6,7 @@
     <div class="fragenCon">
     <div class="row">
         <div class="col-md-9 col-sm-9">
-            <h2 class="left">Alle Gesuche <cite>({{$fragen->total()}})</cite></h2>
+            <h2 class="left">Alle Gesuche  <span class="badge">{{$fragen->total()}}</span></h2>
         </div>
         <div class="col-md-3 col-sm-3">
             <a class="btn btn-default" href="/ersatzteil/create" id="frageKnopf">Teil anfragen</a>

@@ -31,15 +31,17 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             //show all questions
             $fragen = $this->showAllQuestions('ersatzteil');
         }
-
+        //hole alle fahrzeuge
         $fahrzeuge = $this->getFahrzeugList();
-
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
 
         //Übergabne der Daten und Zurückgeben der View
         return view('pages.ersatzteil', [
             'fzgModelle'=> $fahrzeuge,
             'fzgCount'=> $fahrzeuge->count(),
-            'fragen' => $fragen
+            'fragen' => $fragen,
+            'themen' => $themen
         ]);
 
     }
@@ -69,20 +71,15 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             $fragen =$this->queryFragenGesuche($fzg_id,'ersatzteil');
 
         }
-
-        //if(Request::ajax()){
-          //  return Response::json(View::make('pages.treffpunkt'),[
-           //     'fzgModelle' => $fahrzeuge,
-            //    'fzgCount' => $fahrzeuge->count(),
-           //     'fragen' => $fragen
-           // ])->render();
-        //}
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.ersatzteil', [
             'fzgModelle' => $fahrzeuge,
             'fzgCount' => $fahrzeuge->count(),
-            'fragen' => $fragen
+            'fragen' => $fragen,
+            'themen' => $themen
 
         ]);
     }
@@ -133,11 +130,15 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     {
         $fahrzeuge=$this->getFahrzeugList();
 
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
+
         //Übergabne der Daten und Zurückgeben der View
 
         return view('pages.treffpunkt_detail', [
             'fzgModelle'=> $fahrzeuge,
-            'fzgCount'=> $fahrzeuge->count() ]);
+            'fzgCount'=> $fahrzeuge->count(),
+            'themen' => $themen]);
 
 
     }
