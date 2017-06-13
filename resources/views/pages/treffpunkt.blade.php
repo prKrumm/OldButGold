@@ -20,7 +20,11 @@
                 <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
                     <div>
                         <div class="votes">
-                            <div class="mini-counts"><span title="0 votes">0</span></div>
+                            @if(is_null($frage->sumValue))
+                                <div class="mini-counts"><span title="0 votes">0</span></div>
+                                @else
+                            <div class="mini-counts"><span title="0 votes">{{$frage->sumValue}}</span></div>
+                            @endif
                             <div><i class="material-icons">trending_up</i></div>
                         </div>
                         <div class="status unanswered">

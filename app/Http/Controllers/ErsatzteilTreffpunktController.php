@@ -202,17 +202,37 @@ class ErsatzteilTreffpunktController extends Controller
     }
 
     protected function queryFragenGesuche($fzg_Modell_id,$type)
+        // $themen = DB::table('thema')
+         //   ->leftJoin('frage_gehoert_thema', 'thema.thema_id', '=', 'frage_gehoert_thema.thema_id')
+         //   ->select('thema.*', DB::raw('count(frage_gehoert_thema.thema_id) as total'))
+         //   ->groupBy('thema.thema_id')->orderBy('total', 'desc')
+         //   ->get();
+
     {
         $paginateCount=3;
         if($fzg_Modell_id==null){
             $fragen = DB::table('frage')
+                ->leftJoin('users','users.user_id','=','frage.user_id')
+                ->leftJoin('frage_gehoert_thema','frage_gehoert_thema.frage_id','=','frage.frage_id')
+                ->leftJoin('antwort','antwort.frage_id','=','frage.frage_id')
+                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
+                ->leftJoin('thema','thema.thema_id','=','frage_gehoert_thema.thema_id')
                 ->where('frage.rubrik', '=', $type)
+                ->select('*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(antwort.antwort_id) as countAntwort'))
+                ->groupBy('frage.frage_id')
                 ->paginate($paginateCount);
         } else {
 
             $fragen = DB::table('frage')
+                ->leftJoin('users','users.user_id','=','frage.user_id')
+                ->leftJoin('frage_gehoert_thema','frage_gehoert_thema.frage_id','=','frage.frage_id')
+                ->leftJoin('antwort','antwort.frage_id','=','frage.frage_id')
+                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
+                ->leftJoin('thema','thema.thema_id','=','frage_gehoert_thema.thema_id')
                 ->where('frage.fzg_modell_id', '=', $fzg_Modell_id)
                 ->where('frage.rubrik', '=', $type)
+                ->select('*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(antwort.antwort_id) as countAntwort'))
+                ->groupBy('frage.frage_id')
                 ->paginate($paginateCount);
         }
         return $fragen;
