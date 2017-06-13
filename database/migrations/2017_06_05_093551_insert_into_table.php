@@ -11,29 +11,59 @@ class InsertIntoTable extends Migration
      *
      * @return void
      */
+
     public function up()
     {
+
+        //Hersteller
+        DB::table('hersteller')->insert(
+            array(
+                array(
+                    'marke' => 'Borgward',
+                    'isTopMarke' => false
+                ),
+                array(
+                    'marke' => 'Opel',
+                    'isTopMarke' => true
+                ),
+                array(
+                    'marke' => 'Bugatti',
+                    'isTopMarke' => true
+                ),
+                array(
+                    'marke' => 'Sonstiges',
+                    'isTopMarke' => false
+                )
+            )
+        );
+
         //Fahrzeugmodell
         DB::table('fzg_modell')->insert(
             array(
                 array(
-                    'hersteller' => 'Borgward',
-                    'modell' => 'Isabella Coupe'
+                    'modell' => 'Isabella Coupe',
+                    'hersteller_id' => 1
                 ),
                 array(
-                    'hersteller' => 'Opel',
-                    'model' => 'Typ 51'
+                    'modell' => 'P100',
+                    'hersteller_id' => 1
                 ),
                 array(
-                    'hersteller' => 'Bugatti',
-                    'model' => 'Typ 55'
+                    'model' => 'Typ 51',
+                    'hersteller_id' => 2
                 ),
                 array(
-                    'hersteller' => 'Sonstiges',
-                    'model' => 'Sonstiges'
+                    'model' => 'Typ 55',
+                    'hersteller_id' => 3
+                ),
+                array(
+                    'model' => 'Sonstiges',
+                    'hersteller_id' => 4
                 )
             )
         );
+
+
         //Thema
         DB::table('thema')->insert(
             array(
@@ -74,6 +104,7 @@ class InsertIntoTable extends Migration
         );
 
         //Users
+        //PW: 'geheim'
         DB::table('users')->insert(
             array(
                 array(
@@ -81,7 +112,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Viktoria',
                     'user_name' => 'Vk',
                     'email' => 'Viktoria.schreiner@konstanz.de',
-                    'password' => 'geheim',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),
                 array(
@@ -89,7 +120,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Patrick',
                     'user_name' => 'PatrickK',
                     'email' => 'Patrick.Krumm@konstanz.de',
-                    'password' => 'sehr geheim',
+                    'password' => 'sehr $2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),
                 array(
@@ -97,31 +128,31 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Florian',
                     'user_name' => 'FlorianK',
                     'email' => 'Florian.Kaiser@konstanz.de',
-                    'password' => 'auch geheim',
-                    'rolle_id' => '1'
+                    'password' => 'auch $2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
+                    'rolle_id' => '2'
                 ),
                 array(
                     'name' => 'Schmidt',
                     'first_name' => 'Hubert',
                     'user_name' => 'Hubbi',
                     'email' => 'Hubbi@schmidt.de',
-                    'password' => 'geheim',
-                    'rolle_id' => '1'
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
+                    'rolle_id' => '2'
                 ),
                 array(
                     'name' => 'Kainzhuber',
                     'first_name' => 'Sigfried',
                     'user_name' => 'Siggi',
                     'email' => 'Siggi@oldies.de',
-                    'password' => 'geheim',
-                    'rolle_id' => '1'
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
+                    'rolle_id' => '2'
                 ),
                 array(
                     'name' => 'Müller',
                     'first_name' => 'Karoline',
                     'user_name' => 'Karo',
                     'email' => 'Karo@mueller.de',
-                    'password' => 'geheim',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),//Admin
                 array(
@@ -190,6 +221,7 @@ class InsertIntoTable extends Migration
                     'titel' => ' Artikelnummer von Benz umschlüsseln? A 180 411 05 15',
                     'text' => 'Kann mir wer helfen damit? ',
                     'bild_url' => '235klejsrtj@lk4',
+                    'rubrik' => 'Frage',
                     'fzg_modell_id' => 1,
                     'user_id' => 1
                 ),
@@ -200,6 +232,7 @@ class InsertIntoTable extends Migration
                  4 Stellungen für was brauche ich die Vierte? 
                 Ohne Licht, Abblendlicht, Aufblendlicht und ??? Einfacher Schaltplan wäre hilfreich!',
                     'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Frage',
                     'fzg_modell_id' => '2',
                     'user_id' => '1'
                 ),
@@ -213,6 +246,7 @@ class InsertIntoTable extends Migration
                 vielleicht einer eine empfehlenswerte Autolackiererei in der Umgebung von Hessen ?
                 Ich freue mich auf hilfreiche Antworten ',
                     'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Frage',
                     'fzg_modell_id' => '1',
                     'user_id' => '2'
                 ),
@@ -228,6 +262,7 @@ class InsertIntoTable extends Migration
                 Hier soll es sich nur um folgende Frage drehen:
                 Ist es möglich, rostende stellen zu versiegeln und am Weiterrosten zu hindern, ohne den Rost vollständig zu entfernen?',
                     'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Frage',
                     'fzg_modell_id' => '1',
                     'user_id' => '3'
                 ),
@@ -237,7 +272,32 @@ class InsertIntoTable extends Migration
                 Der Hot Rod mit V-8 Motor und hatte ein H-Kennzeichen. Obwohl er deutlich vom Original abwich und nicht 
                 einmal Kotflügel montiert waren, hat der TÜV seinen Segen dafür erteilt. Details dazu findet man bei CI.eu ',
                     'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Frage',
                     'fzg_modell_id' => '1',
+                    'user_id' => '3'
+                ),
+                array(
+                    'titel' => 'Gesucht! Wanted! Porsche 911 Oldtimer Ersatzteile ´65 – ´73',
+                    'text' => 'Ich suche zurzeit die folgenden Porsche 911 Ersatzteile, Zubehörteile sowie Literatur jeder Art über den Porsche 911 aus den Baujahren 1963 bis 1973. Wirklich jedes Ersatzteil für dieses Modell ist interessant',
+                    'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Gesuch',
+                    'fzg_modell_id' => '1',
+                    'user_id' => '3'
+                ),
+                array(
+                    'titel' => 'Fritzmeier Fritzmeier M211 und Fritzmeier Ueberrollbuegel Porsche Diesel 217',
+                    'text' => 'Hat jemand dieses Ersatzteil auf Lager?',
+                    'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Gesuch',
+                    'fzg_modell_id' => '3',
+                    'user_id' => '3'
+                ),
+                array(
+                    'titel' => 'Sonnenblende A 1168101410',
+                    'text' => 'Hat jemand für meinen Mercedes-Benz eine Sonnenblende A 1168101410 parat?',
+                    'bild_url' => '35klejsrtj@lk4',
+                    'rubrik' => 'Gesuch',
+                    'fzg_modell_id' => '2',
                     'user_id' => '3'
                 )
             )
@@ -266,6 +326,18 @@ class InsertIntoTable extends Migration
                 array(
                     'thema_id' => '4',
                     'frage_id' => '5'
+                ),
+                array(
+                    'thema_id' => '2',
+                    'frage_id' => '6'
+                ),
+                array(
+                    'thema_id' => '4',
+                    'frage_id' => '7'
+                ),
+                array(
+                    'thema_id' => '3',
+                    'frage_id' => '8'
                 )
             )
         );
@@ -380,6 +452,21 @@ Hier nachzubohren, ist in meinen Augen kontraproduktiv, da der "Schuss nach hint
 Man kann hier sicher sagen, dass die Besitzer solcher Bastelbuden schuld daran wären. Man kann aber auch dafür plädieren, dass einfach bei solchen kaum bewegten Schätzchen, von denen keine Gefahr ausgeht, mit etwas Kulanz auf den Sachverhalt geblickt werden kann.',
                     'frage_id' => 5,
                     'user_id' => 6
+                ),
+                array(
+                    'text' => 'Ja. Ich schicke Ihnne ein Angebot per Email.',
+                    'frage_id' => 6,
+                    'user_id' => 1
+                ),
+                array(
+                    'text' => 'Ja. Ich schicke Ihnne ebenfalls ein Angebot per Email.',
+                    'frage_id' => 6,
+                    'user_id' => 2
+                ),
+                array(
+                    'text' => 'Hab ich leider aktuell nicht im Angebot',
+                    'frage_id' => 6,
+                    'user_id' => 3
                 )
             )
         );
