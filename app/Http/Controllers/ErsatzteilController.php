@@ -27,10 +27,10 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
         //check if fzg in session
         if(session('fzg', false)==true){
             $fzg_id=session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id,'ersatzteil');
+            $fragen = $this->queryFragenGesuche($fzg_id,'Gesuch');
         } else{
             //show all questions
-            $fragen = $this->showAllQuestions('ersatzteil');
+            $fragen = $this->showAllQuestions('Gesuch');
         }
         //hole alle fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
@@ -72,7 +72,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             $request->session()->put('fzgName',$currentFahrzeug->marke);
             $request->session()->put('fzgModell',$currentModell->modell);
 
-            $fragen =$this->queryFragenGesuche($fzg_id,'ersatzteil');
+            $fragen =$this->queryFragenGesuche($fzg_id,'Gesuch');
 
         }
         //hole alle Themen

@@ -206,11 +206,13 @@ class ErsatzteilTreffpunktController extends Controller
         $paginateCount=3;
         if($fzg_Modell_id==null){
             $fragen = DB::table('frage')
+                ->where('frage.rubrik', '=', $type)
                 ->paginate($paginateCount);
         } else {
 
             $fragen = DB::table('frage')
                 ->where('frage.fzg_modell_id', '=', $fzg_Modell_id)
+                ->where('frage.rubrik', '=', $type)
                 ->paginate($paginateCount);
         }
         return $fragen;
