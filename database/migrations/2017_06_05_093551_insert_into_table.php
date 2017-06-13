@@ -104,6 +104,7 @@ class InsertIntoTable extends Migration
         );
 
         //Users
+        //PW: 'geheim'
         DB::table('users')->insert(
             array(
                 array(
@@ -111,7 +112,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Viktoria',
                     'user_name' => 'Vk',
                     'email' => 'Viktoria.schreiner@konstanz.de',
-                    'password' => 'geheim',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),
                 array(
@@ -119,7 +120,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Patrick',
                     'user_name' => 'PatrickK',
                     'email' => 'Patrick.Krumm@konstanz.de',
-                    'password' => 'sehr geheim',
+                    'password' => 'sehr $2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),
                 array(
@@ -127,7 +128,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Florian',
                     'user_name' => 'FlorianK',
                     'email' => 'Florian.Kaiser@konstanz.de',
-                    'password' => 'auch geheim',
+                    'password' => 'auch $2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '2'
                 ),
                 array(
@@ -135,7 +136,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Hubert',
                     'user_name' => 'Hubbi',
                     'email' => 'Hubbi@schmidt.de',
-                    'password' => 'geheim',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '2'
                 ),
                 array(
@@ -143,7 +144,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Sigfried',
                     'user_name' => 'Siggi',
                     'email' => 'Siggi@oldies.de',
-                    'password' => 'geheim',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '2'
                 ),
                 array(
@@ -151,7 +152,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Karoline',
                     'user_name' => 'Karo',
                     'email' => 'Karo@mueller.de',
-                    'password' => 'geheim',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),//Admin
                 array(
