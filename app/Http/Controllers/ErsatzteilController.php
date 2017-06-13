@@ -83,6 +83,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             'fzgModelle' => $fahrzeuge,
             'fzgCount' => $fahrzeuge->count(),
             'fragen' => $fragen
+
         ]);
     }
 
