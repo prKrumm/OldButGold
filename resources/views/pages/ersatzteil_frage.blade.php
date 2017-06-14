@@ -20,22 +20,22 @@
             <input type="hidden" name="rubrik" value="Gesuch">
             <div class="col-md-9 col-sm-12">
                 <div class="form-group{{ $errors->has('titel') ? ' has-error' : '' }}">
-                    <label class="col-sm-2 control-label">Betreff</label>
-                    <div class="col-sm-10">
+                    <label class="col-md-3 col-sm-3 control-label">Betreff</label>
+                    <div class="col-md-9 col-sm-9">
                         <input class="form-control" id="focusedInput" type="text" name="titel"
                                placeholder="Bitte geben Sie hier Ihren Betreff ein">
                     </div>
                 </div>
                 <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
-                    <label class="col-sm-2 control-label">Beschreibung</label>
-                    <div class="col-sm-10">
-                        <input class="form-control inputHeight" type="text" name="text"
-                               placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
+                    <label class="col-md-3 col-sm-3 control-label">Beschreibung</label>
+                    <div class="col-md-9 col-sm-9">
+                        <textarea class="form-control" type="text" name="text" rows="6"
+                                  placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich"></textarea>
                     </div>
                 </div>
                 <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
-                    <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
-                    <div class="col-sm-10">
+                    <label class="col-md-3 col-sm-3 control-label">Themen</label>
+                    <div class="col-md-9 col-sm-9">
                         @foreach ($themen as $thema)
                             <label class="checkbox-inline">
                             <input type="checkbox" id="ThemenListe" name="thema[]" value="{{$thema->bezeichnung}}">{{$thema->bezeichnung}}
@@ -44,8 +44,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2"></label>
-                    <div class="col-sm-10">
+                    <label class="col-md-3 col-sm-3"></label>
+                    <div class="col-md-9 col-sm-9">
                         <button type="submit" class="btn btn-default">Frage senden</button>
                     </div>
                 </div>
@@ -57,14 +57,6 @@
             </div>
         </form>
     </div>
-    <script type="text/javascript">
-        $('#ThemenListe').autocomplete({
-            source:'{!!URL::route('autocomplete')!!}',
-            minlength:1,
-            autoFocus:true,
-
-        });
-    </script>
 @endsection
 
 @section('content2')
