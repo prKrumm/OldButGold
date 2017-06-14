@@ -13,6 +13,7 @@ use App\Http\Model\Thema;
 use App\Http\Model\FzgModell;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateQuestionRequest;
 
 class ErsatzteilTreffpunktController extends Controller
@@ -116,6 +117,7 @@ class ErsatzteilTreffpunktController extends Controller
     {
         //
     }
+
 
     /**
      * Display the specified resource.
@@ -290,9 +292,50 @@ class ErsatzteilTreffpunktController extends Controller
         return response()->json($results);
     }
 
+
     public function showAllThemes () {
         $themen = DB::table('thema')->select('bezeichnung')->get();
-        return response ()->json($themen);
+        return $themen;
+    }
+
+
+    public function queryFrageSpeichern ($request)
+    {
+        // Abfragen der fzgId in der Session
+        // Abfrage, ob vorhanden nicht notwendig, da FrageStellen erste möglich mit Auswahl eines Fahrzeuges
+        $fzg_id = $request->session()->get('fzgId');
+
+
+        // User ID abfragen und eine neue Frage erstellen
+        $user_id = Auth::id();
+        $frage = new Frage;
+
+        // Daten aus dem Formular (zum Teil mit hidden-inputfields)
+        $frage->titel = $request->titel;
+        $frage->text = $request->text;
+        $frage->bild_url = $request->bild_url;
+        $frage->rubrik = $request->rubrik;
+        $frage->fzg_modell_id = $fzg_id;
+        $frage->user_id = $user_id;
+
+        $frage->save();
+        // ID der gerade angelegten Frage abfragen
+        $frageId = $frage->frage_id;
+
+        // Array mit den Themen erzeugen
+        $themen = $request->thema;
+
+        // Abfrage der IDs aus der DB
+        foreach ($themen as $thema) {
+            $themaId = DB::table('thema')->where('bezeichnung', '=', $thema)->value('thema_id');
+
+            DB::table('frage_gehoert_thema')->insert(
+                ['thema_id' => $themaId, 'frage_id' => $frageId]
+            );
+
+        }
+
+
     }
 
 

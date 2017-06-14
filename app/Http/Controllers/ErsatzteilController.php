@@ -115,9 +115,14 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   //falls fahrzeug gewählt, ok sonst redirect
+    {
+        $themen = $this->showAllThemes();
+        //falls fahrzeug gewählt, ok sonst redirect
         if(session('fzg')==true) {
-            return view('pages.ersatzteil_frage');
+            return view('pages.ersatzteil_frage', [
+            'themen' => $themen]);
+
+
         } else{
             return redirect()->action('ErsatzteilController@index');
         }
@@ -133,9 +138,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     public function store(CreateQuestionRequest $request)
     {
         if (Auth::check()) {
-
-            Frage::create($request->all());
-
+            $this->queryFrageSpeichern($request);
             return redirect('ersatzteil');
 
         } else

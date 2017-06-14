@@ -16,6 +16,8 @@
         <h2 class="left">Teil Anfrage</h2>
         <form class="form-horizontal" method="post" action="{{action('ErsatzteilController@store')}}">
             {{ csrf_field() }}
+            <input type="hidden" name="bild_url" value="keinBild">
+            <input type="hidden" name="rubrik" value="Gesuch">
             <div class="col-md-9 col-sm-12">
                 <div class="form-group{{ $errors->has('titel') ? ' has-error' : '' }}">
                     <label class="col-sm-2 control-label">Betreff</label>
@@ -34,8 +36,11 @@
                 <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" data-role="tagsinput"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
+                        @foreach ($themen as $thema)
+                            <label class="checkbox-inline">
+                            <input type="checkbox" id="ThemenListe" name="thema[]" value="{{$thema->bezeichnung}}">{{$thema->bezeichnung}}
+                            </label>
+                        @endforeach
                     </div>
                 </div>
                 <div class="form-group">
@@ -57,10 +62,7 @@
             source:'{!!URL::route('autocomplete')!!}',
             minlength:1,
             autoFocus:true,
-            select:function(e,ui)
-            {
-                $('#ThemenListe').val(ui.item.value);
-            }
+
         });
     </script>
 @endsection

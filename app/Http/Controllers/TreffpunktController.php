@@ -127,39 +127,8 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function store(CreateQuestionRequest $request)
     {
-        // Abfragen der fzgId in der Session
-        // Abfrage, ob vorhanden nicht notwendig, da FrageStellen erste möglich mit Auswahl eines Fahrzeuges
-        $fzg_id = $request->session()->get('fzgId');
-
         if (Auth::check()) {
-
-            // User ID abfragen und eine neue Frage erstellen
-            $user_id = Auth::id();
-            $frage = new Frage;
-
-            // Daten aus dem Formular (zum Teil mit hidden-inputfields)
-            $frage->titel = $request->titel;
-            $frage->text = $request->text;
-            $frage->bild_url = $request->bild_url;
-            $frage->rubrik = $request->rubrik;
-            $frage->fzg_modell_id = $fzg_id;
-            $frage->user_id = $user_id;
-
-            $frage->save();
-            // ID der gerade angelegten Frage abfragen
-            $frageId = $frage->frage_id;
-
-            // Array mit den Themen erzeugen
-            $themen = $request->thema;
-
-            // Abfrage der IDs aus der DB
-            $themaId = DB::table('thema')->where('bezeichnung', '=', $themen)->value('thema_id');
-
-            DB::table('frage_gehoert_thema')->insert(
-                ['thema_id' => $themaId, 'frage_id' => $frageId]
-            );
-
-
+            $this->queryFrageSpeichern($request);
             return redirect('treffpunkt');
 
         } else
