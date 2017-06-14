@@ -92,7 +92,7 @@ class ErsatzteilTreffpunktController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function showAllQuestions($type) {
-        return $this->queryFragenGesuche(null,$type);
+        return $this->queryFragenGesuche(null,$type,null);
 
     }
 
@@ -201,92 +201,74 @@ class ErsatzteilTreffpunktController extends Controller
         return $modelle;
     }
 
-    protected function queryFragenGesuche($fzg_Modell_id,$type)
+    protected function queryFragenGesuche($fzg_Modell_id,$type,$thema)
 
     {
+
         $paginateCount=3;
+        $whereExtension=array(['test.rubrik', '=', $type]);
+
+        //sql injection vorbeugen
+        if($thema==null){
+
+        } else{
+            array_push($whereExtension,['test.themen', 'LIKE', "%".$thema."%"]);
+        }
+
         if($fzg_Modell_id==null){
 
-            //$fragen2=DB::select('Select *, Group_CONCAT(DISTINCT thema.bezeichnung), sum(v.value)as sumValue,count(a.antwort_id) as countAntwort  FROM ((((frage f Left outer join users u on f.user_id = u.user_id)left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join antwort a on a.frage_id = f.frage_id)left outer join vote v on v.antwort_id = a.antwort_id)left outer join thema on thema.thema_id = t.thema_id  group by (f.frage_id)');
-
+        } else {
+            array_push($whereExtension,['test.fzg_modell_id', '=', $fzg_Modell_id]);
+        }
 
             $themen=DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
 
-//            $fragen2=DB::table('frage')
-//                ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
-//                ->leftJoin($themen,function($join){
-//                    $join->on('test.frage_id',"=",'frage.frage_id');
-//                })
-//                ->leftJoin('users','users.user_id','=','frage.user_id')
+
+//                $fragen=DB::table($themen)
+//                ->leftJoin('users','users.user_id','=','test.user_id')
 //                ->leftJoin('antwort','antwort.frage_id','=','test.frage_id')
 //                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
 //                ->where('test.rubrik', '=', $type)
-//                ->groupBy('frage.frage_id')
+//                ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
+//                ->groupBy('test.frage_id')
 //                ->paginate($paginateCount);
 
-//              $fragen = DB::table('frage')
-//                ->leftJoin('users','users.user_id','=','frage.user_id')
-//                ->leftJoin('frage_gehoert_thema','frage.frage_id','=','frage_gehoert_thema.frage_id')
-//                  ->leftJoin('thema','frage_gehoert_thema.thema_id','=','thema.thema_id')
-//                ->leftJoin('antwort','antwort.frage_id','=','frage.frage_id')
-//                  ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
-//                ->where('frage.rubrik', '=', $type)
-//                ->select('*',DB::raw('(group_concat(DISTINCT thema.bezeichnung)) as themen'),DB::raw('sum(vote.value) as sumValue'),DB::raw('count(DISTINCT antwort.antwort_id) as countAntwort'))
-//                ->groupBy('frage.frage_id')
-//                ->paginate($paginateCount);
-
-                $fragen=DB::table($themen)
-                ->leftJoin('users','users.user_id','=','test.user_id')
-                ->leftJoin('antwort','antwort.frage_id','=','test.frage_id')
-                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
-                ->where('test.rubrik', '=', $type)
-                ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
-                ->groupBy('test.frage_id')
-                ->paginate($paginateCount);
+        $fragen2=DB::table($themen)
+            ->leftJoin('users','users.user_id','=','test.user_id')
+            ->leftJoin('antwort','antwort.frage_id','=','test.frage_id')
+            ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
+            ->where($whereExtension)
+            ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
+            ->groupBy('test.frage_id')
+            ->paginate($paginateCount);
 
 
-        } else {
-           // $fragen2=DB::select('Select *, Group_CONCAT(DISTINCT thema.bezeichnung), sum(v.value)as valueCount,count(a.antwort_id) as antwortCount  FROM ((((frage f Left outer join users u on f.user_id = u.user_id)left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join antwort a on a.frage_id = f.frage_id)left outer join vote v on v.antwort_id = a.antwort_id)left outer join thema on thema.thema_id = t.thema_id  group by (f.frage_id)');
+
+//
 //            $themen=DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
 //
-//            $fragen2=DB::table('frage')
-//                ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
-//                ->leftJoin($themen,function($join){
-//                    $join->on('test.frage_id',"=",'frage.frage_id');
-//                })
-//                ->leftJoin('users','users.user_id','=','frage.user_id')
+//            $fragen=DB::table($themen)
+//                ->leftJoin('users','users.user_id','=','test.user_id')
 //                ->leftJoin('antwort','antwort.frage_id','=','test.frage_id')
 //                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
 //                ->where('test.rubrik', '=', $type)
+//                ->where('test.fzg_modell_id', '=', $fzg_Modell_id)
+//                ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
 //                ->groupBy('test.frage_id')
 //                ->paginate($paginateCount);
 //
-            $themen=DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
+//            if($thema!==''){
+//                $fragen->where('test.themen', 'LIKE', $thema);
+//            }
 
-            $fragen=DB::table($themen)
-                ->leftJoin('users','users.user_id','=','test.user_id')
-                ->leftJoin('antwort','antwort.frage_id','=','test.frage_id')
-                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
-                ->where('test.rubrik', '=', $type)
-                ->where('test.fzg_modell_id', '=', $fzg_Modell_id)
-                ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
-                ->groupBy('test.frage_id')
-                ->paginate($paginateCount);
-//
-//            $fragen = DB::table('frage')
-//                ->leftJoin('users','users.user_id','=','frage.user_id')
-//                ->leftJoin('frage_gehoert_thema','frage_gehoert_thema.frage_id','=','frage.frage_id')
-//                ->leftJoin('antwort','antwort.frage_id','=','frage.frage_id')
-//                ->leftJoin('thema','thema.thema_id','=','frage_gehoert_thema.thema_id')
-//                ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
-//                ->where('frage.fzg_modell_id', '=', $fzg_Modell_id)
-//                ->where('frage.rubrik', '=', $type)
-//                ->select('frage.*','users.*',DB::raw('group_concat(DISTINCT thema.bezeichnung) as themen'),DB::raw('sum(vote.value) as sumValue'),DB::raw('count(DISTINCT antwort.antwort_id) as countAntwort'))
-//                ->groupBy('frage.frage_id')
-//                ->paginate($paginateCount);
-        }
-        return $fragen;
+
+
+
+        return $fragen2;
     }
+
+
+
 
 
     // Methode für die Abfrage der relevanten Themen im Fragen-Formular

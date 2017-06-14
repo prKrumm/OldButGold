@@ -57,6 +57,7 @@ Route::get('/impressum', 'StaticController@impressum');
 
 Route::get('/modelle', 'ErsatzteilTreffpunktController@modelle');
 
+
 Route::get('/treffpunkt/fragen', 'TreffpunktController@fragen');
 Route::get('/ersatzteil/fragen', 'ErsatzteilController@fragen');
 

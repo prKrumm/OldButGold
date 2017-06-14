@@ -84,3 +84,22 @@
 @section('content2')
     <a class="btn btn-default" href="/ersatzteil/remove">Fahrzeug wechseln</a>
 @endsection
+
+@section('content3')
+    @isset($themen)
+        @foreach($themen as $thema)
+            <div>
+                @if($thema->bezeichnung===Session::get('thema'))
+                    <a href="/ersatzteil/fragen?thema={{$thema->bezeichnung}}" rel="tag" class="tagEvent" value="{{$thema->bezeichnung}}"> <span class="label label-success">{{$thema->bezeichnung}}</span></a>&nbsp;<span
+                            class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span
+                                class="item-multiplier-count">{{$thema->total}}</span></span>
+
+                @else
+                    <a href="/ersatzteil/fragen?thema={{$thema->bezeichnung}}" rel="tag" class="tagEvent" value="{{$thema->bezeichnung}}"> <span class="label label-default">{{$thema->bezeichnung}}</span></a>&nbsp;<span
+                            class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span
+                                class="item-multiplier-count">{{$thema->total}}</span></span>
+                @endif
+            </div>
+        @endforeach
+    @endisset
+@endsection

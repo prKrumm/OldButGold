@@ -45,9 +45,7 @@ $().ready(function() {
             });
     });
 
-    $("#modell_id").change(function() {
-
-
+    var anfrage =function () {
         if(this.value==0){
             //do nothing
         } else{
@@ -59,6 +57,7 @@ $().ready(function() {
             if(path.indexOf("ersatzteil")!==-1){
                 path="/ersatzteil/fragen?modell="
             }
+
             //send request
             $.get( path+this.value).done(function(data){
                 var $replaceString=$(data);
@@ -67,16 +66,45 @@ $().ready(function() {
                 var newStringSideBar = $replaceString.find("#sidebarContainer");
                 //replace link for paginating
 
-               $(".fragenCon").html(newStringFragen);
-               $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
-               $("#sidebarContainer").replaceWith(newStringSideBar);
-
+                $(".fragenCon").html(newStringFragen);
+                $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
+                $("#sidebarContainer").replaceWith(newStringSideBar);
             });
-
-
         }
+    }
 
-    });
+    var anfrage2 =function () {
+            var thema=$(this).attr("value");
+
+            var path=window.location.pathname+"/fragen?thema=";
+            if(path.indexOf("treffpunkt")!==-1){
+                path="/treffpunkt/fragen?thema="
+            }
+            if(path.indexOf("ersatzteil")!==-1){
+                path="/ersatzteil/fragen?thema="
+            }
+
+            //send request
+            $.get( path+thema).done(function(data){
+                var $replaceString=$(data);
+                var newStringFragen=$replaceString.find(".fragenCon");
+                var newStringFahrzeug = $replaceString.find("#fahrzeugAuswahl");
+                var newStringSideBar = $replaceString.find("#sidebarContainer");
+                //replace link for paginating
+
+                $(".fragenCon").html(newStringFragen);
+                $("#fahrzeugAuswahl").replaceWith(newStringFahrzeug);
+                $("#sidebarContainer").replaceWith(newStringSideBar);
+            });
+        $( this ).css( "color", "yellow" );
+
+        //return false;
+    }
+
+    $("#modell_id").change(anfrage);
+
+
+
 
     $("#frageKnopf").click(function() {
         if($("#modell_id").val()!=''){
@@ -86,6 +114,8 @@ $().ready(function() {
             return false;
         }
     });
+
+
 
 
 

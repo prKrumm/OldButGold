@@ -150,6 +150,11 @@ div {
     width: 100%;
 }
 
+#ausgewThema{
+    color: white;
+    background-color: #3097d1;
+}
+
 #ausgewFahrzeugIcon{
     text-align: center;
 }

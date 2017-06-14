@@ -24,7 +24,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         //check if fzg in session
         if(session('fzg', false)==true){
             $fzg_id=session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id,'Frage');
+            $fragen = $this->queryFragenGesuche($fzg_id,'Frage',null);
         } else{
             //show all questions
             $fragen = $this->showAllQuestions('Frage');
@@ -60,7 +60,19 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         } else {
             $fzg_id=$request->session()->get('fzgId');
         }
-        if ($fzg_id !== '') {
+        if (isset($request->thema)) {
+            $thema = $request->thema;
+            if($request->session()->get('thema')== $thema){
+                $request->session()->forget('thema');
+                $thema=null;
+            } else {
+                $request->session()->put('thema', $thema);
+            }
+        } else {
+            $thema=$request->session()->get('thema');
+        }
+
+        if ($fzg_id !== ''&&$fzg_id !==null) {
             $currentModell = FzgModell::getFzgById($fzg_id);
             $currentFahrzeug = Hersteller::getFzgById($currentModell->hersteller_id);
             $request->session()->put('fzgId',$fzg_id);
@@ -68,17 +80,21 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             $request->session()->put('fzgName',$currentFahrzeug->marke);
             $request->session()->put('fzgModell',$currentModell->modell);
 
-            $fragen =$this->queryFragenGesuche($fzg_id,'Frage');
+            $fragen =$this->queryFragenGesuche($fzg_id,'Frage',$thema);
 
+        } else {
+            $fragen = $this->queryFragenGesuche(null, 'Frage', $thema);
         }
-
+        //hole alle Fahrzeuge
+        $fahrzeugeTop = $this->getFahrzeugListTop();
+        $fahrzeugeRest=$this->getFahrzeugListRest();
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
         //Übergabe der Daten und Zurückgeben der View
         return view('pages.treffpunkt', [
-            'fzgModelle' => $fahrzeuge,
-            'fzgCount' => $fahrzeuge->count(),
+            'fzgTop' => $fahrzeugeTop,
+            'fzgRest' => $fahrzeugeRest,
             'fragen' => $fragen,
             'themen' => $themen
         ]);
@@ -209,6 +225,9 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     public function remove(Request $request)
     {
         $request->session()->put('fzg');
+        $request->session()->forget('fzg');
+        $request->session()->forget('fzgId');
+
         return redirect()->action('TreffpunktController@index');
     }
 }
