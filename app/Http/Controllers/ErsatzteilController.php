@@ -24,13 +24,14 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function index()
     {
+        $thema=session()->get('thema');
         //check if fzg in session
-        if(session('fzg', false)==true){
+        if(session('fzg', false)==true||$thema!=null){
             $fzg_id=session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id,'Gesuch',null);
+            $fragen = $this->queryFragenGesuche($fzg_id,'Gesuch',$thema);
         } else{
             //show all questions
-            $fragen = $this->showAllQuestions('Gesuch');
+            $fragen =$this->queryFragenGesuche(null,'Gesuch',$thema);
         }
         //hole alle fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();

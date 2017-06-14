@@ -21,14 +21,14 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function index()
     {
-
+        $thema=session()->get('thema');
         //check if fzg in session
         if(session('fzg', false)==true){
             $fzg_id=session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id,'Frage',null);
+            $fragen = $this->queryFragenGesuche($fzg_id,'Frage',$thema);
         } else{
             //show all questions
-            $fragen = $this->showAllQuestions('Frage');
+            $fragen =$this->queryFragenGesuche(null,'Frage',$thema);
         }
         //hole alle Fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
