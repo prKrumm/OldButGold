@@ -27,7 +27,6 @@ class CreateQuestionRequest extends FormRequest
         return [
             'titel' => 'required|min:3',
             'text' => 'required',
-            'bild_url' => 'required',
             'thema' => 'required',
         ];
     }

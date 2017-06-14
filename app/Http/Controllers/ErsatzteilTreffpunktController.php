@@ -290,6 +290,11 @@ class ErsatzteilTreffpunktController extends Controller
         return response()->json($results);
     }
 
+    public function showAllThemes () {
+        $themen = DB::table('thema')->select('bezeichnung')->get();
+        return response ()->json($themen);
+    }
+
 
 
 

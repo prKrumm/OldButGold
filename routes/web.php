@@ -63,3 +63,4 @@ Route::get('/ersatzteil/fragen', 'ErsatzteilController@fragen');
 
 
 Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'ErsatzteilTreffpunktController@autocomplete'));
+Route::get('/showAllThemes', array('as' => 'showAllThemes', 'uses'=>'ErsatzteilTreffpunktController@showAllThemes'));

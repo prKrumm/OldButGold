@@ -34,15 +34,8 @@
                 <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
                     <label for="ThemenListe" class="col-sm-2 control-label">Themen</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control" data-role="tagsinput"
                                placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
-                    </div>
-                </div>
-                <div class="form-group{{ $errors->has('bild_url') ? ' has-error' : '' }}">
-                    <label class="col-sm-2 control-label">Bild</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="focusedInput" type="text" name="bild_url"
-                               placeholder="Bitte Bild hinzufügen">
                     </div>
                 </div>
                 <div class="form-group">
