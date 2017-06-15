@@ -9,3 +9,9 @@ $(window).scroll(function() {
         $('nav').removeClass('shrink');
     }
 });
+
+
+$(".anchor").click(function(){
+    $(".anchor").removeClass("active");
+    $(this).addClass("active");
+});

@@ -109,9 +109,11 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function create()
     {
+        $themen = $this->showAllThemes();
         //falls fahrzeug gewählt, ok sonst redirect
         if(session('fzg')==true) {
-            return view('pages.treffpunkt_frage');
+            return view('pages.treffpunkt_frage', [
+                'themen' => $themen]);
         } else{
             return redirect()->action('TreffpunktController@index');
         }
@@ -129,7 +131,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     {
         if (Auth::check()) {
             $this->queryFrageSpeichern($request);
-            return redirect('treffpunkt');
+            return redirect('treffpunkt')->with('status', 'Sie haben gerade eine Frage an die Community gestellt');
 
         } else
             return view('auth.login');

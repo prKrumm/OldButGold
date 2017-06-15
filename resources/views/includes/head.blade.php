@@ -24,14 +24,8 @@
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- Bootstrap tags input -->
-<script src="{{asset('/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js')}}"></script>
-<!-- Type aheaed -->
-<script src="{{ asset('/js/typeahead/dist/typeahead.bundle.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/js/typeahead/dist/bloodhound.min.js') }}" type="text/javascript"></script>
-
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<!--<link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 <link href="{{ asset('css/allSites.css') }}" rel="stylesheet">
@@ -43,12 +37,4 @@
 <!-- JS -->
 <script type="text/javascript" src="{{ asset('js/fzgAuswahl.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/typeahead.js') }}"></script>
-<script type="text/javascript">
-    $(window).scroll(function () {
-        if ($(document).scrollTop() > 50) {
-            $('nav').addClass('shrink');
-        } else {
-            $('nav').removeClass('shrink');
-        }
-    });
-</script>
+<script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>

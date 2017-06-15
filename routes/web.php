@@ -47,6 +47,8 @@ Route::get('/tour', 'StaticController@tour');
 
 Route::get('/kontakt', 'StaticController@kontakt');
 
+Route::post('/kontakt/kontaktformular', 'StaticController@kontaktformular');
+
 Route::get('/ueberuns', 'StaticController@ueberuns');
 
 Route::get('/datenschutz', 'StaticController@datenschutz');

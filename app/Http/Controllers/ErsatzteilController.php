@@ -121,8 +121,6 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
         if(session('fzg')==true) {
             return view('pages.ersatzteil_frage', [
             'themen' => $themen]);
-
-
         } else{
             return redirect()->action('ErsatzteilController@index');
         }
@@ -139,7 +137,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     {
         if (Auth::check()) {
             $this->queryFrageSpeichern($request);
-            return redirect('ersatzteil');
+            return redirect('ersatzteil')->with('status', 'Sie haben gerade eine Teil-Anfrage an die Community gestellt');
 
         } else
             return view('auth.login');

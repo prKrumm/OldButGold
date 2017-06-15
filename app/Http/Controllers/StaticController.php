@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KontaktQuestionRequest;
 use Illuminate\Http\Request;
 
 class StaticController extends Controller
@@ -105,5 +106,15 @@ class StaticController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function kontaktformular(KontaktQuestionRequest $request){
+
+        $titel = $request->titel;
+        $text = $request->text;
+        $email = $request->email;
+
+        return redirect('kontakt')-> with('status', 'Vielen Dank für Ihre Nachricht');
+
     }
 }

@@ -3,6 +3,14 @@
 
 
 @section('content')
+    @if(session('status'))
+        <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <h4>Vielen Dank für Ihre Nachricht</h4>
+            <strong>Hurra!</strong> {{session('status')}}
+        </div>
+    @endif
+
     <div class="fragenCon">
     <div class="row">
         <div class="col-md-9 col-sm-9">

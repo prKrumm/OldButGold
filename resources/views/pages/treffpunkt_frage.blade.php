@@ -35,8 +35,11 @@
                 <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
                     <label class="col-md-3 col-sm-3 control-label">Themen</label>
                     <div class="col-md-9 col-sm-9">
-                        <input type="text" class="form-control"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete" id="ThemenListe" name="thema">
+                        @foreach ($themen as $thema)
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="ThemenListe" name="thema[]" value="{{$thema->bezeichnung}}">{{$thema->bezeichnung}}
+                            </label>
+                        @endforeach
                     </div>
                 </div>
                 <div class="form-group">
@@ -53,14 +56,6 @@
             </div>
         </form>
     </div>
-    <script type="text/javascript">
-        $('#ThemenListe').autocomplete({
-            source:'{!!URL::route('autocomplete')!!}',
-            minlength:1,
-            autoFocus:true,
-
-        });
-    </script>
 @endsection
 
 @section('content2')
