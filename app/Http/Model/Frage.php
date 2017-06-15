@@ -51,7 +51,7 @@ class Frage extends Model
      */
     public function fzgModell()
     {
-        return $this->belongsTo('App\Http\Model\FzgModell');
+        return $this->belongsTo('App\Http\Model\FzgModell', 'fzg_modell_id','fzg_modell_id');
     }
 
     /**
@@ -59,7 +59,7 @@ class Frage extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Http\User');
+        return $this->belongsTo('App\Http\User', 'user_id', 'users_id');
     }
 
     /**
@@ -68,5 +68,10 @@ class Frage extends Model
     public function antworten()
     {
         return $this->hasMany('app\Http\Model\Antwort', 'antwort_id', 'antwort_id');
+    }
+
+    //Returns Frage for certain Id
+    public static function getFrageById($id){
+        return Frage::where('frage_id', '=', $id)->first();
     }
 }

@@ -21,18 +21,18 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function index()
     {
-        $thema=session()->get('thema');
+        $thema = session()->get('thema');
         //check if fzg in session
-        if(session('fzg', false)==true){
-            $fzg_id=session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id,'Frage',$thema);
-        } else{
+        if (session('fzg', false) == true) {
+            $fzg_id = session('fzgId', 'default');
+            $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema);
+        } else {
             //show all questions
-            $fragen =$this->queryFragenGesuche(null,'Frage',$thema);
+            $fragen = $this->queryFragenGesuche(null, 'Frage', $thema);
         }
         //hole alle Fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
-        $fahrzeugeRest=$this->getFahrzeugListRest();
+        $fahrzeugeRest = $this->getFahrzeugListRest();
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
@@ -49,7 +49,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function fragen(Request $request)
@@ -59,36 +59,36 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         if (isset($request->modell)) {
             $fzg_id = $request->modell;
         } else {
-            $fzg_id=$request->session()->get('fzgId');
+            $fzg_id = $request->session()->get('fzgId');
         }
         if (isset($request->thema)) {
             $thema = $request->thema;
-            if($request->session()->get('thema')== $thema){
+            if ($request->session()->get('thema') == $thema) {
                 $request->session()->forget('thema');
-                $thema=null;
+                $thema = null;
             } else {
                 $request->session()->put('thema', $thema);
             }
         } else {
-            $thema=$request->session()->get('thema');
+            $thema = $request->session()->get('thema');
         }
 
-        if ($fzg_id !== ''&&$fzg_id !==null) {
+        if ($fzg_id !== '' && $fzg_id !== null) {
             $currentModell = FzgModell::getFzgById($fzg_id);
             $currentFahrzeug = Hersteller::getFzgById($currentModell->hersteller_id);
-            $request->session()->put('fzgId',$fzg_id);
-            $request->session()->put('fzg',true);
-            $request->session()->put('fzgName',$currentFahrzeug->marke);
-            $request->session()->put('fzgModell',$currentModell->modell);
+            $request->session()->put('fzgId', $fzg_id);
+            $request->session()->put('fzg', true);
+            $request->session()->put('fzgName', $currentFahrzeug->marke);
+            $request->session()->put('fzgModell', $currentModell->modell);
 
-            $fragen =$this->queryFragenGesuche($fzg_id,'Frage',$thema);
+            $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema);
 
         } else {
             $fragen = $this->queryFragenGesuche(null, 'Frage', $thema);
         }
         //hole alle Fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
-        $fahrzeugeRest=$this->getFahrzeugListRest();
+        $fahrzeugeRest = $this->getFahrzeugListRest();
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
@@ -110,9 +110,9 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     public function create()
     {
         //falls fahrzeug gewählt, ok sonst redirect
-        if(session('fzg')==true) {
+        if (session('fzg') == true) {
             return view('pages.treffpunkt_frage');
-        } else{
+        } else {
             return redirect()->action('TreffpunktController@index');
         }
 
@@ -145,13 +145,12 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     {
         //hole alle fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
-        $fahrzeugeRest=$this->getFahrzeugListRest();
-
-        $tmpFrage = Frage::all()->where('frage_id', '=', $id);
-        //TODO: hier einen join auf Votes, Antwort mit höchsten Votes zuerst anzeigen
+        $fahrzeugeRest = $this->getFahrzeugListRest();
+        //hole die Frage
+        $tmpFrage = Frage::getFrageById($id);
+        //hole alle passenden Fragen, sortiert nach Votes
         $tmpAntworten = $this->getAntwortenByVotes($id);
-        $tmpIndex = Antwort::all()->where('frage_id', '=', $id)->count();
-        //$tmpVote = Vote::all()->where('antwort_id','3')->get();
+        $tmpCountAnsw = Antwort::getCountedAntwortById($id);
 
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
@@ -160,8 +159,8 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         return view('pages.treffpunkt_detail', [
             'fzgTop' => $fahrzeugeTop,
             'fzgRest' => $fahrzeugeRest,
-            'frage' => $tmpFrage[$id - 1],
-            'countAnswers' => $tmpIndex,
+            'frage' => $tmpFrage,
+            'countAnswers' => $tmpCountAnsw,
             'antworten' => $tmpAntworten,
             'themen' => $themen
         ]);
@@ -169,20 +168,22 @@ class TreffpunktController extends ErsatzteilTreffpunktController
 
     /**
      * SQL- Select mit Eloquent ausdrücken:
-    select antwort.antwort_id, antwort.text, antwort.user_id, antwort.frage_id, sum(vote.value) as summierteVotes
-    from vote, antwort
-    where vote.antwort_id = antwort.antwort_id
-    group by antwort.antwort_id
-    order by summierteVotes desc
+     * select antwort.antwort_id, antwort.text, antwort.user_id, antwort.frage_id, sum(vote.value) as summierteVotes
+     * from vote, antwort
+     * where vote.antwort_id = antwort.antwort_id
+     * group by antwort.antwort_id
+     * order by summierteVotes desc
      *
      *
      * @return JSON
-     * @param Antwort.frage_id
+     * @param Antwort .frage_id
      */
 
-    public function getAntwortenByVotes($id){
-        $tmpAntwort = Antwort::all()->where('frage_id', '=', $id);
-        return $tmpAntwort;
+    public function getAntwortenByVotes($id)
+    {
+        $tmpAntworten = Antwort::getAllAntwortenforFrage($id);
+
+        return $tmpAntworten;
     }
 
 

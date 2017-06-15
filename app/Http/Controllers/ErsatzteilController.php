@@ -40,7 +40,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
-        //Übergabne der Daten und Zurückgeben der View
+        //Übergabe der Daten und Zurückgeben der View
         return view('pages.ersatzteil', [
             'fzgTop' => $fahrzeugeTop,
             'fzgRest' => $fahrzeugeRest,

@@ -120,7 +120,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Patrick',
                     'user_name' => 'PatrickK',
                     'email' => 'Patrick.Krumm@konstanz.de',
-                    'password' => 'sehr $2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '1'
                 ),
                 array(
@@ -128,7 +128,7 @@ class InsertIntoTable extends Migration
                     'first_name' => 'Florian',
                     'user_name' => 'FlorianK',
                     'email' => 'Florian.Kaiser@konstanz.de',
-                    'password' => 'auch $2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
                     'rolle_id' => '2'
                 ),
                 array(

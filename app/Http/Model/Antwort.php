@@ -42,7 +42,7 @@ class Antwort extends Model
      */
     public function frage()
     {
-        return $this->belongsTo('app\Http\Model\Frage', 'frage_id','frage_id');
+        return $this->belongsTo('app\Http\Model\Frage', 'frage_id', 'frage_id');
     }
 
     /**
@@ -58,6 +58,28 @@ class Antwort extends Model
      */
     public function votes()
     {
-        return $this->hasMany('App\Http\Model\Vote','antwort_id','antwort_id');
+        return $this->hasMany('App\Http\Model\Vote', 'antwort_id', 'antwort_id');
     }
+
+
+    public static function getCountedAntwortById($id)
+    {
+        return Antwort::where('frage_id', '=', $id)->count();
+    }
+
+
+    public static function getAllAntwortenForFrage($frage_id)
+    {
+        $tmpAntworten = Antwort::all()
+            ->where('frage_id', '=', $frage_id);
+        //self::sortAntwortenByVote($tmpAntworten);
+        return Antwort::all()->where('frage_id', '=', $frage_id);
+    }
+
+
+    private static function sortAntwortenByVote($antworten)
+    {
+
+    }
+
 }
