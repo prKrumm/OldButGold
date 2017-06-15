@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Antwort;
 use App\Http\Model\Frage;
 use App\Http\Model\Hersteller;
 use App\Http\Model\Thema;
@@ -333,6 +334,42 @@ class ErsatzteilTreffpunktController extends Controller
         }
 
 
+    }
+
+    public function showDetails($id)
+    {
+        //hole alle fahrzeuge
+        $fahrzeugeTop = $this->getFahrzeugListTop();
+        $fahrzeugeRest = $this->getFahrzeugListRest();
+        //hole die Frage
+        $tmpFrage = Frage::getFrageById($id);
+        //hole alle passenden Fragen, sortiert nach Votes
+        $tmpAntworten = $this->getAntwortenByVotes($id);
+        $tmpCountAnsw = Antwort::getCountedAntwortById($id);
+
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
+
+        //Übergabe der Daten
+        return [
+            'fzgTop' => $fahrzeugeTop,
+            'fzgRest' => $fahrzeugeRest,
+            'frage' => $tmpFrage,
+            'countAnswers' => $tmpCountAnsw,
+            'antworten' => $tmpAntworten,
+            'themen' => $themen
+        ];
+    }
+
+    /**
+     * @return JSON
+     * @param Antwort .frage_id
+     */
+
+    public function getAntwortenByVotes($id)
+    {
+        $tmpAntworten = Antwort::getAllAntwortenforFrage($id);
+        return $tmpAntworten;
     }
 
 

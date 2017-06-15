@@ -143,48 +143,10 @@ class TreffpunktController extends ErsatzteilTreffpunktController
      */
     public function show($id)
     {
-        //hole alle fahrzeuge
-        $fahrzeugeTop = $this->getFahrzeugListTop();
-        $fahrzeugeRest = $this->getFahrzeugListRest();
-        //hole die Frage
-        $tmpFrage = Frage::getFrageById($id);
-        //hole alle passenden Fragen, sortiert nach Votes
-        $tmpAntworten = $this->getAntwortenByVotes($id);
-        $tmpCountAnsw = Antwort::getCountedAntwortById($id);
-
-        //hole alle Themen
-        $themen = $this->getThemenListWithCount();
-
-        //Übergabe der Daten und Zurückgeben der View
-        return view('pages.treffpunkt_detail', [
-            'fzgTop' => $fahrzeugeTop,
-            'fzgRest' => $fahrzeugeRest,
-            'frage' => $tmpFrage,
-            'countAnswers' => $tmpCountAnsw,
-            'antworten' => $tmpAntworten,
-            'themen' => $themen
-        ]);
+        //zeige alle Infos an
+        return view('pages.treffpunkt_detail', $this->showDetails($id));
     }
 
-    /**
-     * SQL- Select mit Eloquent ausdrücken:
-     * select antwort.antwort_id, antwort.text, antwort.user_id, antwort.frage_id, sum(vote.value) as summierteVotes
-     * from vote, antwort
-     * where vote.antwort_id = antwort.antwort_id
-     * group by antwort.antwort_id
-     * order by summierteVotes desc
-     *
-     *
-     * @return JSON
-     * @param Antwort .frage_id
-     */
-
-    public function getAntwortenByVotes($id)
-    {
-        $tmpAntworten = Antwort::getAllAntwortenforFrage($id);
-
-        return $tmpAntworten;
-    }
 
 
     /**
