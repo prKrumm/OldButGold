@@ -117,7 +117,12 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         } else {
             return redirect()->action('TreffpunktController@index');
         }
+    }
 
+    public function storeTreffpunktAntwort(Request $request)
+    {
+        $this->storeAntwort($request);
+        return redirect('treffpunkt');
     }
 
 
@@ -137,6 +142,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             return view('auth.login');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -148,7 +154,6 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         //zeige alle Infos an
         return view('pages.treffpunkt_detail', $this->showDetails($id));
     }
-
 
 
     /**

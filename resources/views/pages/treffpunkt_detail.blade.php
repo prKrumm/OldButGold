@@ -49,9 +49,27 @@
             </div>
 
         @endforeach
-        <br><br><br><br>
+        <br>
 
-        <h2>Deine Antwort</h2>
+        <h2>Ihre Antwort</h2>
+    <!--
+                1:  Form soll an AntwortController@store weitergeleitet werden
+                2:
+                -->
+        <form class="form-horizontal" method="post" action="{{action('TreffpunktController@storeTreffpunktAntwort')}}">
+            {{ csrf_field() }}
+            <input type="hidden" name="frage_id" value=1>                       <!--$antwort->frage_id-->
+            <input type="hidden" name="user_id" value='1'>                      <!--$antwort->user_id-->
+            <div>
+                <div>
+                    <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                        <textarea class="form-control" name="text" rows="6"
+                                  placeholder="Bitte beschreiben Sie Ihre Antwort so genau wie möglich"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button  class="btn btn-default">Antwort senden</button>
+        </form>
     </section>
 @endsection
 

@@ -372,5 +372,24 @@ class ErsatzteilTreffpunktController extends Controller
         return $tmpAntworten;
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeAntwort(Request $request)
+    {
+        //validate
+        //store
+        $antwort = new Antwort();
+
+        $antwort->text = $request->text;
+        $antwort->frage_id = $request->frage_id;
+        $antwort->user_id = $request->user_id;
+
+        $antwort->save();
+    }
+
 
 }

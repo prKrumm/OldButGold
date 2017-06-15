@@ -36,7 +36,6 @@ class Antwort extends Model
         'value',
     ];
 
-
     /**
      * Get the antwort that owns the frage.
      */
@@ -50,7 +49,7 @@ class Antwort extends Model
      */
     public function user()
     {
-        return $this->belongsTo('app\Http\User');
+        return $this->belongsTo('app\Http\User','user_id','user_id');
     }
 
     /**
