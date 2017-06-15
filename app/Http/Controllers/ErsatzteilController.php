@@ -40,7 +40,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
-        //Übergabne der Daten und Zurückgeben der View
+        //Übergabe der Daten und Zurückgeben der View
         return view('pages.ersatzteil', [
             'fzgTop' => $fahrzeugeTop,
             'fzgRest' => $fahrzeugeRest,
@@ -151,20 +151,8 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
      */
     public function show($id)
     {
-        //hole alle fahrzeuge
-        $fahrzeugeTop = $this->getFahrzeugListTop();
-        $fahrzeugeRest=$this->getFahrzeugListRest();
-        //hole alle Themen
-        $themen = $this->getThemenListWithCount();
-
-        //Übergabne der Daten und Zurückgeben der View
-
-        return view('pages.treffpunkt_detail', [
-            'fzgTop' => $fahrzeugeTop,
-            'fzgRest' => $fahrzeugeRest,
-            'themen' => $themen]);
-
-
+        //zeige alle Infos an
+        return view('pages.treffpunkt_detail', $this->showDetails($id));
     }
 
 

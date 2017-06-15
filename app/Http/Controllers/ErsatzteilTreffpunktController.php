@@ -5,8 +5,10 @@
  * Date: 01.06.2017
  * Time: 15:02
  */
+
 namespace App\Http\Controllers;
 
+use App\Http\Model\Antwort;
 use App\Http\Model\Frage;
 use App\Http\Model\Hersteller;
 use App\Http\Model\Thema;
@@ -34,7 +36,8 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getFahrzeugList() {
+    public function getFahrzeugList()
+    {
         //Aufbereiten der Daten für die View
         //Fahrzeuge
         return Hersteller::all();
@@ -46,10 +49,11 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getFahrzeugListTop() {
+    public function getFahrzeugListTop()
+    {
         //Aufbereiten der Daten für die View
         //Fahrzeuge
-        return Hersteller::all()->where('isTopMarke','==','1');
+        return Hersteller::all()->where('isTopMarke', '==', '1');
     }
 
     /**
@@ -58,12 +62,12 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getFahrzeugListRest() {
+    public function getFahrzeugListRest()
+    {
         //Aufbereiten der Daten für die View
         //Fahrzeuge
-        return Hersteller::all()->where('isTopMarke','==','0');
+        return Hersteller::all()->where('isTopMarke', '==', '0');
     }
-
 
 
     /**
@@ -72,7 +76,8 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getThemenListWithCount() {
+    public function getThemenListWithCount()
+    {
         //Aufbereiten der Daten für die View
         //Themen
         $themen = DB::table('thema')
@@ -92,8 +97,9 @@ class ErsatzteilTreffpunktController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showAllQuestions($type) {
-        return $this->queryFragenGesuche(null,$type,null);
+    public function showAllQuestions($type)
+    {
+        return $this->queryFragenGesuche(null, $type, null);
 
     }
 
@@ -110,7 +116,7 @@ class ErsatzteilTreffpunktController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateQuestionRequest $request)
@@ -122,7 +128,7 @@ class ErsatzteilTreffpunktController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -134,19 +140,19 @@ class ErsatzteilTreffpunktController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function fragen(Request $request)
     {
-        return $this->queryFragenGesuche(null,$type);
+        return $this->queryFragenGesuche(null, $type);
     }
 
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -157,8 +163,8 @@ class ErsatzteilTreffpunktController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -169,7 +175,7 @@ class ErsatzteilTreffpunktController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -190,40 +196,38 @@ class ErsatzteilTreffpunktController extends Controller
 
     private function queryModelle(Request $request)
     {
-        $modelle="hallo";
+        $modelle = "hallo";
         if (isset($request->fahrzeug)) {
             $fzg_id = $request->fahrzeug;
         } else {
             $fzg_id = '';
         }
         if ($fzg_id !== '') {
-            $modelle =FzgModell::all()->where('hersteller_id','=',$fzg_id);
+            $modelle = FzgModell::all()->where('hersteller_id', '=', $fzg_id);
 
         }
         return $modelle;
     }
 
-    protected function queryFragenGesuche($fzg_Modell_id,$type,$thema)
-
+    protected function queryFragenGesuche($fzg_Modell_id, $type, $thema)
     {
-
-        $paginateCount=3;
-        $whereExtension=array(['test.rubrik', '=', $type]);
+        $paginateCount = 3;
+        $whereExtension = array(['test.rubrik', '=', $type]);
 
         //sql injection vorbeugen
-        if($thema==null){
-
-        } else{
-            array_push($whereExtension,['test.themen', 'LIKE', "%".$thema."%"]);
-        }
-
-        if($fzg_Modell_id==null){
+        if ($thema == null) {
 
         } else {
-            array_push($whereExtension,['test.fzg_modell_id', '=', $fzg_Modell_id]);
+            array_push($whereExtension, ['test.themen', 'LIKE', "%" . $thema . "%"]);
         }
 
-            $themen=DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
+        if ($fzg_Modell_id == null) {
+
+        } else {
+            array_push($whereExtension, ['test.fzg_modell_id', '=', $fzg_Modell_id]);
+        }
+
+        $themen = DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
 
 
 //                $fragen=DB::table($themen)
@@ -235,15 +239,14 @@ class ErsatzteilTreffpunktController extends Controller
 //                ->groupBy('test.frage_id')
 //                ->paginate($paginateCount);
 
-        $fragen2=DB::table($themen)
-            ->leftJoin('users','users.user_id','=','test.user_id')
-            ->leftJoin('antwort','antwort.frage_id','=','test.frage_id')
-            ->leftJoin('vote','vote.antwort_id','=','antwort.antwort_id')
+        $fragen2 = DB::table($themen)
+            ->leftJoin('users', 'users.user_id', '=', 'test.user_id')
+            ->leftJoin('antwort', 'antwort.frage_id', '=', 'test.frage_id')
+            ->leftJoin('vote', 'vote.antwort_id', '=', 'antwort.antwort_id')
             ->where($whereExtension)
-            ->select('test.*','users.*',DB::raw('sum(vote.value) as sumValue'),DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
+            ->select('test.*', 'users.*', DB::raw('sum(vote.value) as sumValue'), DB::raw('count(Distinct antwort.antwort_id) as countAntwort'))
             ->groupBy('test.frage_id')
             ->paginate($paginateCount);
-
 
 
 //
@@ -264,13 +267,8 @@ class ErsatzteilTreffpunktController extends Controller
 //            }
 
 
-
-
         return $fragen2;
     }
-
-
-
 
 
     // Methode für die Abfrage der relevanten Themen im Fragen-Formular
@@ -285,21 +283,21 @@ class ErsatzteilTreffpunktController extends Controller
             $themen = DB::table('thema')->where('bezeichnung', 'like', $prefix . '%')->orderby('thema_id', 'desc')->get();
         }
 
-        foreach ($themen as $query)
-        {
+        foreach ($themen as $query) {
             $results[] = ['id' => $query->thema_id, 'value' => $query->bezeichnung];
         }
         return response()->json($results);
     }
 
 
-    public function showAllThemes () {
+    public function showAllThemes()
+    {
         $themen = DB::table('thema')->select('bezeichnung')->get();
         return $themen;
     }
 
 
-    public function queryFrageSpeichern ($request)
+    public function queryFrageSpeichern($request)
     {
         // Abfragen der fzgId in der Session
         // Abfrage, ob vorhanden nicht notwendig, da FrageStellen erste möglich mit Auswahl eines Fahrzeuges
@@ -338,8 +336,41 @@ class ErsatzteilTreffpunktController extends Controller
 
     }
 
+    public function showDetails($id)
+    {
+        //hole alle fahrzeuge
+        $fahrzeugeTop = $this->getFahrzeugListTop();
+        $fahrzeugeRest = $this->getFahrzeugListRest();
+        //hole die Frage
+        $tmpFrage = Frage::getFrageById($id);
+        //hole alle passenden Fragen, sortiert nach Votes
+        $tmpAntworten = $this->getAntwortenByVotes($id);
+        $tmpCountAnsw = Antwort::getCountedAntwortById($id);
 
+        //hole alle Themen
+        $themen = $this->getThemenListWithCount();
 
+        //Übergabe der Daten
+        return [
+            'fzgTop' => $fahrzeugeTop,
+            'fzgRest' => $fahrzeugeRest,
+            'frage' => $tmpFrage,
+            'countAnswers' => $tmpCountAnsw,
+            'antworten' => $tmpAntworten,
+            'themen' => $themen
+        ];
+    }
+
+    /**
+     * @return JSON
+     * @param Antwort .frage_id
+     */
+
+    public function getAntwortenByVotes($id)
+    {
+        $tmpAntworten = Antwort::getAllAntwortenforFrage($id);
+        return $tmpAntworten;
+    }
 
 
 }
