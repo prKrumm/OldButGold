@@ -162,3 +162,12 @@ div {
 #sidebarContainer{
     padding-top: 10px;
 }
+
+.inbox {
+    border-radius: 20px;
+    background-color: #d4d4d4;
+}
+
+span.glyphicon-envelope {
+    font-size: 1em;
+}

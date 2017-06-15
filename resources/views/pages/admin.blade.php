@@ -4,7 +4,33 @@
 
     <div class="container">
         <h2>Hallo, Admin!</h2>
-        <hr>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>Posteingang</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-5">
+                    @foreach($fragen as $frage)
+                        <div onclick="mail({{$frage->frage_id}});">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            <a value="{{$frage->titel}}">{{$frage->titel}}</a>
+                        </div>
+                    @endforeach
+                    <?php echo $fragen->render(); ?>
+                </div>
+                <div class="col-md-7">
+                    <h4 id="mailTitel"></h4>
+                    <a id="mailContent"></a>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function mail (id){
+                $("#mailTitel").load("/treffpunkt/id/" + id, {suggest: txt});
+            }
+        </script>
+
         <div class="row border-between">
             <div class="col-md-6">
                 <h2>Alle Fragen</h2>
