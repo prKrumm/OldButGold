@@ -42,6 +42,7 @@ Route::get('/profil', 'ProfilController@index');
 //ADMIN
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/show', 'AdminController@show');
+Route::get('/admin/emailInhalt', 'AdminController@emailInhalt');
 
 
 //REGISTER

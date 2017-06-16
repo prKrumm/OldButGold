@@ -13,7 +13,7 @@
                     @foreach($fragen as $frage)
                         <div onclick="mail({{$frage->frage_id}});">
                             <span class="glyphicon glyphicon-envelope"></span>
-                            <a value="{{$frage->titel}}">{{$frage->titel}}</a>
+                            <a class="emailList" value="{{$frage->titel}}">{{$frage->titel}}</a>
                         </div>
                     @endforeach
                     <?php echo $fragen->render(); ?>
@@ -21,15 +21,10 @@
                 <div class="col-md-7">
                     <h4 id="mailTitel"></h4>
                     <a id="mailContent"></a>
+                    <a id="mailAbsender"></a>
                 </div>
             </div>
         </div>
-
-        <script type="text/javascript">
-            function mail (id){
-                $("#mailTitel").load("/treffpunkt/id/" + id, {suggest: txt});
-            }
-        </script>
 
         <div class="row border-between">
             <div class="col-md-6">

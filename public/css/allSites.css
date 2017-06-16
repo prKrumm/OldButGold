@@ -171,3 +171,15 @@ div {
 span.glyphicon-envelope {
     font-size: 1em;
 }
+
+.emailList {
+    color: black;
+}
+
+#mailContent {
+    color: #48474F;
+}
+
+#mailTitel {
+    color: #337ab7;
+}
