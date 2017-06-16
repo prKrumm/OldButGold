@@ -26,9 +26,9 @@ function mail (id){
         cache: false,
         success: function (data) {
             console.log(data);
-            console.log(data["0"].frage_id);
             $("#mailTitel").html("<strong>Betreff: </strong>" +data["0"].titel);
             $("#mailContent").html(data["0"].text);
+            $("#mailAbsender").html("<strong>Absender: </strong>" +data["0"].email);
         }
     });
 }

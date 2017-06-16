@@ -14,9 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $fragen = DB::table('Frage')->simplePaginate(5);
+        $emails = DB::table('Kontaktanfrage')->simplePaginate(5);
         return view('pages.admin', [
-            'fragen' => $fragen
+            'emails' => $emails
         ]);
     }
 
@@ -89,8 +89,9 @@ class AdminController extends Controller
     public function emailInhalt (Request $request) {
         $emailId = $request->emailId;
 
-        $frage = DB::table('Frage')->where('frage_id', '=' , $emailId)->get();
-        return response()->json($frage);
+        $emails = DB::table('Kontaktanfrage')->where('kontaktanfrage_id', '=' , $emailId)->get();
+
+        return $emails;
 
     }
 }

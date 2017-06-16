@@ -10,17 +10,17 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-5">
-                    @foreach($fragen as $frage)
-                        <div onclick="mail({{$frage->frage_id}});">
+                    @foreach($emails as $email)
+                        <div onclick="mail({{$email->kontaktanfrage_id}});">
                             <span class="glyphicon glyphicon-envelope"></span>
-                            <a class="emailList" value="{{$frage->titel}}">{{$frage->titel}}</a>
+                            <a class="emailList" value="{{$email->titel}}">{{$email->titel}}</a>
                         </div>
                     @endforeach
-                    <?php echo $fragen->render(); ?>
+                    <?php echo $emails->render(); ?>
                 </div>
                 <div class="col-md-7">
                     <h4 id="mailTitel"></h4>
-                    <a id="mailContent"></a>
+                    <a id="mailContent"></a><br>
                     <a id="mailAbsender"></a>
                 </div>
             </div>

@@ -183,3 +183,7 @@ span.glyphicon-envelope {
 #mailTitel {
     color: #337ab7;
 }
+
+#mailAbsender {
+    color: #48474F;
+}

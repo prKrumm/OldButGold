@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\KontaktQuestionRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StaticController extends Controller
 {
@@ -113,6 +114,10 @@ class StaticController extends Controller
         $titel = $request->titel;
         $text = $request->text;
         $email = $request->email;
+
+        DB::table('Kontaktanfrage')->insert(
+            ['titel' => $titel, 'text' => $text, 'email' => $email]
+        );
 
         return redirect('kontakt')-> with('status', 'Vielen Dank für Ihre Nachricht');
 
