@@ -8,20 +8,21 @@
             <div class="panel-heading">
                 <h4>Posteingang</h4>
             </div>
-            <div class="panel-body">
-                <div class="col-md-5">
+            <div id="posteingang" class="panel-body">
+                <div id="emailList" class="col-md-3">
                     @foreach($emails as $email)
                         <div onclick="mail({{$email->kontaktanfrage_id}});">
                             <span class="glyphicon glyphicon-envelope"></span>
-                            <a class="emailList" value="{{$email->titel}}">{{$email->titel}}</a>
+                            <a value="{{$email->titel}}"><strong>{{$email->titel}}</strong></a>
                         </div>
                     @endforeach
                     <?php echo $emails->render(); ?>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-9">
                     <h4 id="mailTitel"></h4>
-                    <a id="mailContent"></a><br>
-                    <a id="mailAbsender"></a>
+                    <p id="mailAbsender"></p>
+                    <p id="mailDatum"></p>
+                    <article id="mailContent"></article>
                 </div>
             </div>
         </div>

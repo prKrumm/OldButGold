@@ -18,6 +18,7 @@ class CreateKontaktanfrageTable extends Migration
             $table->string('titel');
             $table->string('text',1000);
             $table->string('email');
+            $table->string('gelesen');
             $table->timestamps();
         });
     }

@@ -172,8 +172,10 @@ span.glyphicon-envelope {
     font-size: 1em;
 }
 
-.emailList {
+#emailList {
     color: black;
+    border-right: solid  #337ab7;
+    min-height: 200px;
 }
 
 #mailContent {
@@ -186,4 +188,19 @@ span.glyphicon-envelope {
 
 #mailAbsender {
     color: #48474F;
+    font-size: 0.8em;
+}
+
+#mailDatum {
+    color: #48474F;
+    font-size: 0.8em;
+}
+
+#posteingang {
+    min-height: 250px;
+}
+
+#posteingang p {
+    display: inline-block;
+    vertical-align: top;
 }

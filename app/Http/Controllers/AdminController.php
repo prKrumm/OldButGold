@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $emails = DB::table('Kontaktanfrage')->simplePaginate(5);
+        $emails = DB::table('Kontaktanfrage')->orderBy('kontaktanfrage_id', 'desc')->paginate(5);
         return view('pages.admin', [
             'emails' => $emails
         ]);
