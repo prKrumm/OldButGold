@@ -58,8 +58,7 @@
                 -->
         <form class="form-horizontal" method="post" action="{{action('TreffpunktController@storeTreffpunktAntwort')}}">
             {{ csrf_field() }}
-            <input type="hidden" name="frage_id" value=1>                       <!--$antwort->frage_id-->
-            <input type="hidden" name="user_id" value='1'>                      <!--$antwort->user_id-->
+            <input type="hidden" name="frage_id" value="{!! $frage->frage_id !!}"> <!--$antwort->frage_id-->
             <div>
                 <div>
                     <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">

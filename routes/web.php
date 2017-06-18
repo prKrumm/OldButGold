@@ -23,7 +23,7 @@ Route::get('/treffpunkt/create', 'TreffpunktController@create');
 Route::get('/treffpunkt/remove', 'TreffpunktController@remove');
 Route::post('/treffpunkt/store', 'TreffpunktController@store');
 Route::get('/treffpunkt/id/{id}', 'TreffpunktController@show');
-Route::get('/antwort', 'TreffpunktController@storeTreffpunktAntwort');
+Route::post('/antwort', 'TreffpunktController@storeTreffpunktAntwort');
 
 
 //ERSATZTEIL

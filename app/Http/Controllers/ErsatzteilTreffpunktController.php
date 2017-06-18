@@ -383,10 +383,11 @@ class ErsatzteilTreffpunktController extends Controller
         //validate
         //store
         $antwort = new Antwort();
+        $user_id = Auth::id();
 
         $antwort->text = $request->text;
         $antwort->frage_id = $request->frage_id;
-        $antwort->user_id = $request->user_id;
+        $antwort->user_id = $user_id;
 
         $antwort->save();
     }
