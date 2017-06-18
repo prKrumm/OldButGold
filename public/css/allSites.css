@@ -33,7 +33,12 @@
 }
 
 .question-hyperlink {
-    font-size: 18px;
+    /*
+    color: #48474F;
+     color: #B45347;
+    */
+    color: #48474F;
+    font-size: 16px;
 }
 
 .material-icons.md-18 {
@@ -180,6 +185,13 @@ span.glyphicon-envelope {
 
 #mailContent {
     color: #48474F;
+    margin-top: 1em;
+}
+
+.mailContent {
+    color: #48474F;
+    height: 160px;
+    overflow: scroll;
 }
 
 #mailTitel {
@@ -203,4 +215,27 @@ span.glyphicon-envelope {
 #posteingang p {
     display: inline-block;
     vertical-align: top;
+}
+
+.textPanel {
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.tags p {
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+.panel-default > .panel-heading {
+    /*border-color:  #B45347;
+      background-color: #B45347;
+    color: white;
+        max-height: 60px;
+    */
+}
+
+.panel-default {
+    /*border-color:  #B45347; */
 }

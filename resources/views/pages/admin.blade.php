@@ -9,7 +9,7 @@
                 <h4>Posteingang</h4>
             </div>
             <div id="posteingang" class="panel-body">
-                <div id="emailList" class="col-md-3">
+                <div id="emailList" class="col-md-4">
                     @foreach($emails as $email)
                         <div onclick="mail({{$email->kontaktanfrage_id}});">
                             <span class="glyphicon glyphicon-envelope"></span>
@@ -18,7 +18,7 @@
                     @endforeach
                     <?php echo $emails->render(); ?>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <h4 id="mailTitel"></h4>
                     <p id="mailAbsender"></p>
                     <p id="mailDatum"></p>

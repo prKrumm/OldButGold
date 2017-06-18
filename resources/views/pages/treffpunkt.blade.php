@@ -23,39 +23,48 @@
 
 
     @foreach($fragen as $frage)
-        <div class="detailAntworten">
+        <div class="panel panel-default">
+            <div class="panel panel-heading">
+
+                    <a href="/treffpunkt/id/{!! $frage->frage_id !!}"class="question-hyperlink" value="{{$frage->titel}}">{{$frage->titel}}</a>
+
+            </div>
             <div class="row">
-                <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
-                    <div>
-                        <div class="votes">
-                            @if(is_null($frage->sumValue))
-                                <div class="mini-counts"><span title="0 votes">0</span></div>
-                                @else
-                            <div class="mini-counts"><span title="0 votes">{{$frage->sumValue}}</span></div>
-                            @endif
-                            <div><i class="material-icons">trending_up</i></div>
-                        </div>
-                        <div class="status unanswered">
-                            @if(is_null($frage->countAntwort))
-                                <div class="mini-counts"><span title="0 answers">0</span></div>
-                            @else
-                                <div class="mini-counts"><span title="0 answers">{{$frage->countAntwort}}</span></div>
-                            @endif
-                            <div><i class="material-icons">chat</i></div>
-                        </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <div class="votes">
+                        <div><i class="material-icons">trending_up</i></div>
+                    </div>
+                    <div class="status unanswered">
+                        <div><i class="material-icons">chat</i></div>
                     </div>
                 </div>
-                <div class="col-lg-11 col-md-11 col-sm-10 col-xs-10">
-                    <div class="summary">
-                        <h3>
-                            <a href="/treffpunkt/id/{!! $frage->frage_id !!}"class="question-hyperlink" value="{{$frage->titel}}">{{$frage->titel}}</a>
-                        </h3>
-                        <div class="tags">
-                            <p>{{$frage->themen}}</p>
-                        </div>
-                        <div class="user">
-                            <p>{{$frage->user_name}}</p>
-                        </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <div class="votes">
+                        @if(is_null($frage->sumValue))
+                            <div class="mini-counts">
+                                <span title="0 votes">0</span>
+                            </div>
+                            @else
+                            <div class="mini-counts">
+                                <span title="0 votes">{{$frage->sumValue}}</span>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="status unanswered">
+                        @if(is_null($frage->countAntwort))
+                            <div class="mini-counts"><span title="0 answers">0</span></div>
+                        @else
+                            <div class="mini-counts"><span title="0 answers">{{$frage->countAntwort}}</span></div>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
+                    <div>
+                        <p class="textPanel">{{$frage->text}}</p>
+                    </div>
+                    <div class="tags">
+                        <p>Themen: </p><a> {{$frage->themen}}</a>
+                        <p>Erstellt von: </p> <a>{{$frage->user_name}}</a>
                     </div>
                 </div>
             </div>
