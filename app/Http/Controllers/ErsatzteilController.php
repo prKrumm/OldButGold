@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Model\FzgModell;
 use App\Http\Model\Hersteller;
 use App\Http\Model\Frage;
+use App\Http\Requests\CreateAnswerRequest;
 use App\Http\Requests\CreateQuestionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -106,6 +107,16 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
         ]);
     }
 
+    public function storeErsatzteilAntwort(CreateAnswerRequest $request)
+    {
+        if (Auth::check()) {
+            $this->storeAntwort($request);
+            return redirect('ersatzteil')->with('status', 'Sie haben gerade eine Antwort auf ein Community-Gesuch gegeben.');
+
+        } else
+            return view('auth.login');
+    }
+
 
 
 
@@ -152,7 +163,7 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     public function show($id)
     {
         //zeige alle Infos an
-        return view('pages.treffpunkt_detail', $this->showDetails($id));
+        return view('pages.ersatzteil_detail', $this->showDetails($id));
     }
 
 

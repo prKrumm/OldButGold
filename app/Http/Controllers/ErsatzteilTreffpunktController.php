@@ -13,6 +13,7 @@ use App\Http\Model\Frage;
 use App\Http\Model\Hersteller;
 use App\Http\Model\Thema;
 use App\Http\Model\FzgModell;
+use App\Http\Requests\CreateAnswerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -378,9 +379,11 @@ class ErsatzteilTreffpunktController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function storeAntwort(Request $request)
+    public function storeAntwort(CreateAnswerRequest $request)
     {
+
         //validate
+
         //store
         $antwort = new Antwort();
         $user_id = Auth::id();

@@ -6,6 +6,7 @@ use App\Http\Model\Antwort;
 use App\Http\Model\FzgModell;
 use App\Http\Model\Hersteller;
 use App\Http\Model\Vote;
+use App\Http\Requests\CreateAnswerRequest;
 use Illuminate\Http\Request;
 use App\Http\Model\Frage;
 use Illuminate\Support\Facades\Auth;
@@ -119,10 +120,15 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         }
     }
 
-    public function storeTreffpunktAntwort(Request $request)
+    public function storeTreffpunktAntwort(CreateAnswerRequest $request)
     {
-        $this->storeAntwort($request);
-        return redirect('treffpunkt');
+
+        if (Auth::check()) {
+            $this->storeAntwort($request);
+            return redirect('treffpunkt')->with('status', 'Sie haben gerade eine Antwort auf eine Community-Frage gegeben.');
+
+        } else
+            return view('auth.login');
     }
 
 

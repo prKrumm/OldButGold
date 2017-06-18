@@ -23,7 +23,7 @@ Route::get('/treffpunkt/create', 'TreffpunktController@create');
 Route::get('/treffpunkt/remove', 'TreffpunktController@remove');
 Route::post('/treffpunkt/store', 'TreffpunktController@store');
 Route::get('/treffpunkt/id/{id}', 'TreffpunktController@show');
-Route::post('/antwort', 'TreffpunktController@storeTreffpunktAntwort');
+Route::post('/antwortTreff', 'TreffpunktController@storeTreffpunktAntwort');
 
 
 //ERSATZTEIL
@@ -33,6 +33,7 @@ Route::get('/ersatzteil/create', 'ErsatzteilController@create');
 Route::get('/ersatzteil/remove', 'ErsatzteilController@remove');
 Route::post('/ersatzteil/store', 'ErsatzteilController@store');
 Route::get('/ersatzteil/id/{id}', 'ErsatzteilController@show');
+Route::post('/antwortErsatz', 'ErsatzteilController@storeErsatzteilAntwort');
 
 
 //PROFIL

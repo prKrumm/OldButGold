@@ -1,6 +1,14 @@
 @extends('layouts.masterFahrzeug')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-warning">
+            <p>
+                <strong>Speichern der Antwort war leider nicht erfolgreich! Bitte schreiben Sie die Antwort in das
+                    Textfeld. </strong>
+            </p>
+        </div>
+    @endif
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <h2 class="left">{!!$frage->titel!!}</h2>
@@ -21,7 +29,6 @@
                 </h2>
             </div>
         </div>
-        <!--Hier startet die foreach!!-->
         @foreach($antworten as $antwort)
             <div class="row answer">
                 <div class="col-md-2 col-sm-2">
@@ -52,13 +59,9 @@
         <br>
 
         <h2>Ihre Antwort</h2>
-    <!--
-                1:  Form soll an AntwortController@store weitergeleitet werden
-                2:
-                -->
         <form class="form-horizontal" method="post" action="{{action('TreffpunktController@storeTreffpunktAntwort')}}">
             {{ csrf_field() }}
-            <input type="hidden" name="frage_id" value="{!! $frage->frage_id !!}"> <!--$antwort->frage_id-->
+            <input type="hidden" name="frage_id" value="{!! $frage->frage_id !!}">
             <div>
                 <div>
                     <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
@@ -67,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <button  class="btn btn-default">Antwort senden</button>
+            <button class="btn btn-default">Antwort senden</button>
         </form>
     </section>
 @endsection
@@ -81,12 +84,16 @@
         @foreach($themen as $thema)
             <div>
                 @if($thema->bezeichnung===Session::get('thema'))
-                    <a href="/treffpunkt/fragen?thema={{$thema->bezeichnung}}" rel="tag" class="tagEvent" value="{{$thema->bezeichnung}}"> <span class="label label-success">{{$thema->bezeichnung}}</span></a>&nbsp;<span
+                    <a href="/treffpunkt/fragen?thema={{$thema->bezeichnung}}" rel="tag" class="tagEvent"
+                       value="{{$thema->bezeichnung}}"> <span class="label label-success">{{$thema->bezeichnung}}</span></a>
+                    &nbsp;<span
                             class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span
                                 class="item-multiplier-count">{{$thema->total}}</span></span>
 
                 @else
-                    <a href="/treffpunkt/fragen?thema={{$thema->bezeichnung}}" rel="tag" class="tagEvent" value="{{$thema->bezeichnung}}"> <span class="label label-default">{{$thema->bezeichnung}}</span></a>&nbsp;<span
+                    <a href="/treffpunkt/fragen?thema={{$thema->bezeichnung}}" rel="tag" class="tagEvent"
+                       value="{{$thema->bezeichnung}}"> <span class="label label-default">{{$thema->bezeichnung}}</span></a>
+                    &nbsp;<span
                             class="item-multiplier"><span class="item-multiplier-x">&times;</span>&nbsp;<span
                                 class="item-multiplier-count">{{$thema->total}}</span></span>
                 @endif
