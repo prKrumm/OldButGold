@@ -38,7 +38,16 @@
                         </button>
                     </div>
                     <div class="detailAntwortenCount">
-                        <p>{!!$antwort->votes->sum('value')!!}</p>
+                        <p>
+                            <?php
+                            if($antwort->value == null) { ?>
+                            0
+                            <?php }
+                            else{
+                            ?>
+                            {!!$antwort->value!!}
+                            <?php } ?>
+                        </p>
                     </div>
                     <div class="detailBtn">
                         <button type="button" class="btn btn-custom" aria-label="Left Align" href="">

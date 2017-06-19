@@ -29,33 +29,46 @@
                 </h2>
             </div>
         </div>
-        @foreach($antworten as $antwort)
-            <div class="row answer">
-                <div class="col-md-2 col-sm-2">
-                    <div class="detailBtn">
-                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
-                            <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div class="detailAntwortenCount">
-                        <p>{!!$antwort->votes->sum('value')!!}</p>
-                    </div>
-                    <div class="detailBtn">
-                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
-                            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                        </button>
-                    </div>
+        <div id="antworten">
+            @foreach( $antworten as $antwort)
 
+                <div class="row answer">
+                    <div class="col-md-2 col-sm-2">
+                        <div class="detailBtn">
+                            <button type="button" class="btn btn-custom" aria-label="Left Align" href=""
+                                    onclick="upvote($antwort)">
+                                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="detailAntwortenCount">
+                            <p>
+                                <?php
+                                if($antwort->value == null) { ?>
+                                0
+                                <?php }
+                                else{
+                                ?>
+                                {!!$antwort->value!!}
+                                    <?php } ?>
+                            </p>
+                        </div>
+                        <div class="detailBtn">
+                            <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
+                                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-sm-10">
+                        <p>
+                            {!!$antwort->text!!}
+
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-10 col-sm-10">
-                    <p>
-                        {!!$antwort->text!!}
+            @endforeach
 
-                    </p>
-                </div>
-            </div>
 
-        @endforeach
+        </div>
         <br>
 
         <h2>Ihre Antwort</h2>

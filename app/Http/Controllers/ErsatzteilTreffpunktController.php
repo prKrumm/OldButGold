@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateQuestionRequest;
+use function MongoDB\BSON\toJSON;
 
 class ErsatzteilTreffpunktController extends Controller
 {
@@ -369,8 +370,15 @@ class ErsatzteilTreffpunktController extends Controller
 
     public function getAntwortenByVotes($id)
     {
-        $tmpAntworten = Antwort::getAllAntwortenforFrage($id);
-        return $tmpAntworten;
+        $data = DB::table('antwort')
+            ->select(DB::raw('frage_id, text, sum(vote.value) as value, vote.antwort_id, vote.user_id'))
+            ->where('antwort.frage_id', '=', $id)
+            ->leftJoin('vote', 'vote.antwort_id', '=', 'antwort.antwort_id','left outer')
+            ->groupBy('antwort.antwort_id')
+            ->orderBy('value', 'desc')
+            ->get();
+
+        return $data;
     }
 
     /**
@@ -381,10 +389,6 @@ class ErsatzteilTreffpunktController extends Controller
      */
     public function storeAntwort(CreateAnswerRequest $request)
     {
-
-        //validate
-
-        //store
         $antwort = new Antwort();
         $user_id = Auth::id();
 
@@ -395,5 +399,7 @@ class ErsatzteilTreffpunktController extends Controller
         $antwort->save();
     }
 
-
+    public function showAllAntworten(Request $request)
+    {
+    }
 }
