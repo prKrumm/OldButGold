@@ -14,10 +14,10 @@
     <div class="fragenCon">
     <div class="row">
         <div class="col-md-9 col-sm-8">
-            <h2 class="left">Alle Fragen <span class="badge">{{$fragen->total()}}</span></h2>
+            <h2 class="left"><span class="glyphicon glyphicon-comment"></span> Alle Fragen <span class="badge">{{$fragen->total()}}</span></h2>
         </div>
         <div class="col-md-3 col-sm-4">
-            <a class="btn btn-default" href="/treffpunkt/create" id="frageKnopf"><span class="glyphicon glyphicon-comment"></span> Frage stellen</a>
+            <a class="btn btn-default" href="/treffpunkt/create" id="frageKnopf">Frage stellen</a>
         </div>
     </div>
 
