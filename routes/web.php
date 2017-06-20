@@ -11,6 +11,7 @@
 |
 */
 
+
 Auth::routes();
 
 
@@ -51,7 +52,9 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 
 //STATISCH
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::get('/tour', 'StaticController@tour');
 Route::get('/kontakt', 'StaticController@kontakt');
 Route::post('/kontakt/kontaktformular', 'StaticController@kontaktformular');
@@ -64,6 +67,10 @@ Route::get('/impressum', 'StaticController@impressum');
 Route::get('/modelle', 'ErsatzteilTreffpunktController@modelle');
 Route::get('/treffpunkt/fragen', 'TreffpunktController@fragen');
 Route::get('/ersatzteil/fragen', 'ErsatzteilController@fragen');
-Route::get('/autocomplete', array('as' => 'autocomplete', 'uses'=>'ErsatzteilTreffpunktController@autocomplete'));
-Route::get('/showAllThemes', array('as' => 'showAllThemes', 'uses'=>'ErsatzteilTreffpunktController@showAllThemes'));
+Route::get('/autocomplete', array('as' => 'autocomplete', 'uses' => 'ErsatzteilTreffpunktController@autocomplete'));
+Route::get('/showAllThemes', array('as' => 'showAllThemes', 'uses' => 'ErsatzteilTreffpunktController@showAllThemes'));
+
+
+Route::post('/storeVotes', array('uses' => 'ErsatzteilTreffpunktController@storeVotes'));
+
 

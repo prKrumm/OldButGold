@@ -13,12 +13,12 @@ use App\Http\Model\Frage;
 use App\Http\Model\Hersteller;
 use App\Http\Model\Thema;
 use App\Http\Model\FzgModell;
+use App\Http\Model\Vote;
 use App\Http\Requests\CreateAnswerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateQuestionRequest;
-use function MongoDB\BSON\toJSON;
 
 class ErsatzteilTreffpunktController extends Controller
 {
@@ -31,6 +31,7 @@ class ErsatzteilTreffpunktController extends Controller
     {
         return view('pages.ersatzteil');
     }
+
 
     /**
      *
@@ -45,6 +46,7 @@ class ErsatzteilTreffpunktController extends Controller
         return Hersteller::all();
     }
 
+
     /**
      *
      *
@@ -57,6 +59,7 @@ class ErsatzteilTreffpunktController extends Controller
         //Fahrzeuge
         return Hersteller::all()->where('isTopMarke', '==', '1');
     }
+
 
     /**
      *
@@ -90,6 +93,7 @@ class ErsatzteilTreffpunktController extends Controller
         return $themen;
     }
 
+
     /**
      * Methode holt alle Fragen oder Gesuche aus der DB je nachdem welcher type
      * ausgewählt wurde (ersatzteil; gesuch).
@@ -105,6 +109,7 @@ class ErsatzteilTreffpunktController extends Controller
 
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -114,6 +119,7 @@ class ErsatzteilTreffpunktController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -162,6 +168,7 @@ class ErsatzteilTreffpunktController extends Controller
         //
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -174,6 +181,7 @@ class ErsatzteilTreffpunktController extends Controller
         //
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -185,6 +193,7 @@ class ErsatzteilTreffpunktController extends Controller
         //
     }
 
+
     /**
      * Returns all modelle for given hersteller
      *
@@ -195,6 +204,7 @@ class ErsatzteilTreffpunktController extends Controller
         $modelle = $this->queryModelle($request);
         return response()->json($modelle);
     }
+
 
     private function queryModelle(Request $request)
     {
@@ -210,6 +220,7 @@ class ErsatzteilTreffpunktController extends Controller
         }
         return $modelle;
     }
+
 
     protected function queryFragenGesuche($fzg_Modell_id, $type, $thema)
     {
@@ -338,6 +349,7 @@ class ErsatzteilTreffpunktController extends Controller
 
     }
 
+
     public function showDetails($id)
     {
         //hole alle fahrzeuge
@@ -363,23 +375,24 @@ class ErsatzteilTreffpunktController extends Controller
         ];
     }
 
+
     /**
      * @return JSON
      * @param Antwort .frage_id
      */
-
     public function getAntwortenByVotes($id)
     {
         $data = DB::table('antwort')
-            ->select(DB::raw('frage_id, text, sum(vote.value) as value, vote.antwort_id, vote.user_id'))
+            ->select(DB::raw('frage_id, text, sum(vote.value) as value, antwort.antwort_id, vote.user_id'))
             ->where('antwort.frage_id', '=', $id)
-            ->leftJoin('vote', 'vote.antwort_id', '=', 'antwort.antwort_id','left outer')
+            ->leftJoin('vote', 'vote.antwort_id', '=', 'antwort.antwort_id', 'left outer')
             ->groupBy('antwort.antwort_id')
             ->orderBy('value', 'desc')
             ->get();
 
         return $data;
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -399,7 +412,21 @@ class ErsatzteilTreffpunktController extends Controller
         $antwort->save();
     }
 
-    public function showAllAntworten(Request $request)
+
+    public function storeVotes(Request $request)
     {
+        $vote = new Vote();
+        $user_id = Auth::id();
+
+        $vote->value = $request->value;
+        $vote->antwort_id = $request->antwort_id;
+        $vote->user_id = $user_id;
+
+        $vote->save();
+
+
+        $response = $this->getAntwortenByVotes($request->antwort_id);
+
+        return response()->json($response);
     }
 }

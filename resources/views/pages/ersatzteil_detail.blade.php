@@ -1,4 +1,5 @@
 @extends('layouts.masterFahrzeug')
+<script src="/js/antworten.js"></script>
 @section('content')
 
     @if ($errors->any())
@@ -33,7 +34,7 @@
             <div class="row answer">
                 <div class="col-md-2 col-sm-2">
                     <div class="detailBtn">
-                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
+                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick = "addVote({!! $antwort->antwort_id !!} , '1');">
                             <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -50,7 +51,7 @@
                         </p>
                     </div>
                     <div class="detailBtn">
-                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
+                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick = "addVote({!! $antwort->antwort_id !!} , '-1');">
                             <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         </button>
                     </div>

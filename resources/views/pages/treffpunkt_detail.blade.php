@@ -1,10 +1,11 @@
 @extends('layouts.masterFahrzeug')
-
+<script src="/js/antworten.js"></script>
 @section('content')
+
     @if ($errors->any())
         <div class="alert alert-warning">
             <p>
-                <strong>Speichern der Antwort war leider nicht erfolgreich! Bitte schreiben Sie die Antwort in das
+                <strong> Speichern der Antwort war leider nicht erfolgreich! Bitte schreiben Sie die Antwort in das
                     Textfeld. </strong>
             </p>
         </div>
@@ -16,27 +17,13 @@
         </div>
     </div>
     <section class="detailAntworten">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <h2 class="answer"> {!!$countAnswers!!}
-                    <?php if($countAnswers == 1 ){
-                    ?>
-                    Antwort
-                    <?php }
-                    else{ ?>
-                    Antworten
-                    <?php } ?>
-                </h2>
-            </div>
-        </div>
         <div id="antworten">
+            {{csrf_field()}}
             @foreach( $antworten as $antwort)
-
-                <div class="row answer">
-                    <div class="col-md-2 col-sm-2">
+                <div class="row answer" >
+                    <div class="col-md-2 col-sm-2 vote">
                         <div class="detailBtn">
-                            <button type="button" class="btn btn-custom" aria-label="Left Align" href=""
-                                    onclick="upvote($antwort)">
+                            <button type="button" class="btn btn-custom upvote" aria-label="Left Align" href=""  onclick = "addVote({!! $antwort->antwort_id !!} , '1')">
                                 <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                             </button>
                         </div>
@@ -49,11 +36,11 @@
                                 else{
                                 ?>
                                 {!!$antwort->value!!}
-                                    <?php } ?>
+                                <?php } ?>
                             </p>
                         </div>
                         <div class="detailBtn">
-                            <button type="button" class="btn btn-custom" aria-label="Left Align" href="">
+                            <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick="addVote({!! $antwort->antwort_id !!} , '-1')">
                                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                             </button>
                         </div>
@@ -66,8 +53,69 @@
                     </div>
                 </div>
             @endforeach
+            <!--
+            <script>
+                /*
+                 $(document).ready(function () {
 
 
+                 $('.upvote').click(function (event) {
+                 //get data from blade= antwort_id
+
+
+                 //send upvote to ErsatzteilTreffpunktController @ storeVote
+
+                 //store antwort_id, user_id, value = 1
+                 var text = $(this).text();
+                 console.log(text);
+
+                 })
+
+                 // für ajax load
+                 // $('.upvote').click(function (event) {
+                 //var path = window.location;
+                 //console.log(path);
+                 })
+                 });
+                 */
+                /*
+                 //gibt mir text: antwort->votes, antwort->text
+                 $(document).ready(function () {
+                 $('.answer').each(function () {
+                 $(this).click(function (event) {
+                 var text = $(this);
+
+                 console.log(text);
+
+                 })
+                 })
+                 });
+                 */
+
+                //gibt mir text: antwort->votes, antwort->text
+                $(document).ready(function () {
+                    $('.answer').click(function (event) {
+                        var text = $(this);
+                        console.log(text);
+
+                    })
+                });
+
+                </script>
+            -->
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h2 class="answer"> {!!$countAnswers!!}
+                    <?php if($countAnswers == 1 ){
+                    ?>
+                    Antwort
+                    <?php }
+                    else{ ?>
+                    Antworten
+                    <?php } ?>
+                </h2>
+            </div>
         </div>
         <br>
 
@@ -87,6 +135,7 @@
         </form>
     </section>
 @endsection
+
 
 @section('content2')
     <a class="btn btn-default" href="/treffpunkt/remove">Fahrzeug wechseln</a>
