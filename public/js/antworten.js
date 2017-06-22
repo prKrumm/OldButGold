@@ -6,7 +6,8 @@ function addVote($antwort_id, $upOrDown, $frage_id) {
 
     /*
      TODO
-     Autorisierung: Hinweis, wenn User nicht eingeloggt!
+     - Autorisierung: Hinweis, wenn User nicht eingeloggt!
+     - Autorisierung: User darf nur einmal pro Frage voten!
      */
     $.ajax({
             url: '/storeVotes',
@@ -19,15 +20,20 @@ function addVote($antwort_id, $upOrDown, $frage_id) {
                 'frage_id': $frage_id,
             },
             success: function (data) {
+                $.each($('.col-md-10 p'), function (index) {
+                    $(this).replaceWith('<p>' + data[index].text + '</p>');
+                });
+
                 $.each($('.detailAntwortenCount p'), function (index) {
                     if (data[index].value === null) {
                     }
                     else {
                         $(this).replaceWith('<p>' + data[index].value + '</p>')
                     }
-                    ;
-                    console.log(index, data[index].value)
+
                 });
+            },
+            error: function () {
             }
         }
     )

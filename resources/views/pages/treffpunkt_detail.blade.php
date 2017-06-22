@@ -33,43 +33,41 @@
                     </h2>
                 </div>
             </div>
-            <div id="neueAntwort">
-                @foreach( $antworten as $antwort)
-                    <div class="row answer">
-                        <div class="col-md-2 col-sm-2 vote">
-                            <div class="detailBtn">
-                                <button type="button" class="btn btn-custom upvote" aria-label="Left Align" href=""
-                                        onclick="addVote({!! $antwort->antwort_id !!} , '1', {!! $antwort->frage_id !!})">
-                                    <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="detailAntwortenCount">
-                                <p>
-                                    <?php
-                                    if($antwort->value == null) { ?>
-                                    0
-                                    <?php }
-                                    else{
-                                    ?>
-                                    {!!$antwort->value!!}
-                                    <?php } ?>
-                                </p>
-                            </div>
-                            <div class="detailBtn">
-                                <button type="button" class="btn btn-custom" aria-label="Left Align" href=""
-                                        onclick="addVote({!! $antwort->antwort_id !!} , '-1', {!! $antwort->frage_id !!})">
-                                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                                </button>
-                            </div>
+            @foreach( $antworten as $antwort)
+                <div class="row answer">
+                    <div class="col-md-2 col-sm-2 vote">
+                        <div class="detailBtn">
+                            <button type="button" class="btn btn-custom upvote" aria-label="Left Align" href=""
+                                    onclick="addVote({!! $antwort->antwort_id !!} , '1', {!! $antwort->frage_id !!})">
+                                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                            </button>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="detailAntwortenCount">
                             <p>
-                                {!!$antwort->text!!}
+                                <?php
+                                if($antwort->value == null) { ?>
+                                0
+                                <?php }
+                                else{
+                                ?>
+                                {!!$antwort->value!!}
+                                <?php } ?>
                             </p>
                         </div>
+                        <div class="detailBtn">
+                            <button type="button" class="btn btn-custom" aria-label="Left Align" href=""
+                                    onclick="addVote({!! $antwort->antwort_id !!} , '-1', {!! $antwort->frage_id !!})">
+                                <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div>
-                @endforeach
-            </div>
+                    <div class="col-md-10 col-sm-10">
+                        <p>
+                            {!!$antwort->text!!}
+                        </p>
+                    </div>
+                </div>
+            @endforeach
         </div>
         <br>
 

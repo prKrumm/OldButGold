@@ -425,23 +425,11 @@ class ErsatzteilTreffpunktController extends Controller
 
         $vote->save();
 
-        /*
-         * getFrage_id
-         * ->get Array von detailAnswerCount
-         * ->send to ajax
-         */
-
         $tmpAnt = new Antwort();
         $tmpAnt->frage_id = $request->frage_id;
 
         $tmpAntworten = $this->getAntwortenByVotes((int)($tmpAnt->frage_id));
 
         return  $tmpAntworten;
-
-
-        /*return [
-            'antworten' => $tmpAntworten,
-        ];
-        */
     }
 }
