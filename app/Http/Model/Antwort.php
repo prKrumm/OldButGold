@@ -41,7 +41,7 @@ class Antwort extends Model
      */
     public function frage()
     {
-        return $this->belongsTo('app\Http\Model\Frage', 'frage_id', 'frage_id');
+        return $this->belongsTo('App\Http\Model\Frage', 'frage_id', 'frage_id');
     }
 
     /**
@@ -49,7 +49,7 @@ class Antwort extends Model
      */
     public function user()
     {
-        return $this->belongsTo('app\Http\User','user_id','user_id');
+        return $this->belongsTo('App\Http\User','user_id','user_id');
     }
 
     /**
@@ -69,9 +69,6 @@ class Antwort extends Model
 
     public static function getAllAntwortenForFrage($frage_id)
     {
-        $tmpAntworten = Antwort::all()
-            ->where('frage_id', '=', $frage_id);
-        //self::sortAntwortenByVote($tmpAntworten);
         return Antwort::all()->where('frage_id', '=', $frage_id);
     }
 
@@ -80,5 +77,4 @@ class Antwort extends Model
     {
 
     }
-
 }

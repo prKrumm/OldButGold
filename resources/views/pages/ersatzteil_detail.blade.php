@@ -5,7 +5,8 @@
     @if ($errors->any())
         <div class="alert alert-warning">
             <p>
-            <strong>Speichern der Antwort war leider nicht erfolgreich! Bitte schreiben Sie die Antwort in das Textfeld. </strong>
+            <strong>Speichern der Antwort war leider nicht erfolgreich! Bitte schreiben Sie die Antwort in das
+                Textfeld. </strong>
             </p>
         </div>
     @endif
@@ -34,7 +35,7 @@
             <div class="row answer">
                 <div class="col-md-2 col-sm-2">
                     <div class="detailBtn">
-                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick = "addVote({!! $antwort->antwort_id !!} , '1');">
+                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick = "addVote({!! $antwort->antwort_id !!} , '1', {!! $antwort->frage_id !!})">
                             <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -51,7 +52,7 @@
                         </p>
                     </div>
                     <div class="detailBtn">
-                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick = "addVote({!! $antwort->antwort_id !!} , '-1');">
+                        <button type="button" class="btn btn-custom" aria-label="Left Align" href="" onclick = "addVote({!! $antwort->antwort_id !!} , '-1', {!! $antwort->frage_id !!})">
                             <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                         </button>
                     </div>

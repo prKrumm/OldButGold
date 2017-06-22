@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Http\Model;
+namespace App\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Integer;
@@ -37,13 +37,12 @@ class Vote extends Model
         'value',
     ];
 
-
     /**
      * Get the antwort that owns the vote.
      */
     public function antwort()
     {
-        return $this->belongsTo('app\Http\Model\Antwort','antwort_id', 'antwort_id');
+        return $this->belongsTo('app\Http\Model\Antwort', 'antwort_id', 'antwort_id');
     }
 
     /**
@@ -51,6 +50,7 @@ class Vote extends Model
      */
     public function user()
     {
-        return $this->belongsTo('app\Http\Model\User','user_id','user_id');
+        return $this->belongsTo('app\Http\Model\User', 'user_id', 'user_id');
     }
+
 }

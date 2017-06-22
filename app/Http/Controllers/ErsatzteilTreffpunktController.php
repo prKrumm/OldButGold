@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateQuestionRequest;
 
+
 class ErsatzteilTreffpunktController extends Controller
 {
     /**
@@ -380,11 +381,11 @@ class ErsatzteilTreffpunktController extends Controller
      * @return JSON
      * @param Antwort .frage_id
      */
-    public function getAntwortenByVotes($id)
+    public function getAntwortenByVotes($frage_id)
     {
         $data = DB::table('antwort')
             ->select(DB::raw('frage_id, text, sum(vote.value) as value, antwort.antwort_id, vote.user_id'))
-            ->where('antwort.frage_id', '=', $id)
+            ->where('antwort.frage_id', '=', $frage_id)
             ->leftJoin('vote', 'vote.antwort_id', '=', 'antwort.antwort_id', 'left outer')
             ->groupBy('antwort.antwort_id')
             ->orderBy('value', 'desc')
@@ -424,9 +425,23 @@ class ErsatzteilTreffpunktController extends Controller
 
         $vote->save();
 
+        /*
+         * getFrage_id
+         * ->get Array von detailAnswerCount
+         * ->send to ajax
+         */
 
-        $response = $this->getAntwortenByVotes($request->antwort_id);
+        $tmpAnt = new Antwort();
+        $tmpAnt->frage_id = $request->frage_id;
 
-        return response()->json($response);
+        $tmpAntworten = $this->getAntwortenByVotes((int)($tmpAnt->frage_id));
+
+        return  $tmpAntworten;
+
+
+        /*return [
+            'antworten' => $tmpAntworten,
+        ];
+        */
     }
 }
