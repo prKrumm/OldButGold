@@ -10,7 +10,7 @@
 
 <!--SEO -SERP-->
 <meta name="description"
-      content="Faszination Oldtimer – Das Oldtimer Portal Old-But-Gold bringt Oldtimer-Liebhaber, Experten, Restaurateure und Händler zusammen. Experten,...">
+      content="Faszination Oldtimer – Das Oldtimer Portal Old-But-Gold bringt Oldtimer-Liebhaber, Experten, Restaurateure und Händler zusammen. Ersatzteile,...">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
