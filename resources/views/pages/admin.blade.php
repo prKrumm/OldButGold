@@ -28,53 +28,38 @@
         </div>
 
         <div class="row border-between">
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-6">
                 <h2>Alle Fragen</h2>
-                <!--TODO: Add functionality-->
-                <div class="row">
-                    <div class="col-md-8">
-                        <!--Link zur ursprünglichen Gesuche-Seite-->
-                        <a> Suche Informationen für eine Motobecane n140t  </a>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <!--Link zur ursprünglichen Gesuche-Seite-->
-                        <a> Wie lese ich die Beschriftung auf meinem Reifen? </a>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </div>
-                </div>
-
+                @foreach($fragen as $frage)
+                    <form class="form-horizontal" method="post" action="{{action('AdminController@edit')}}">
+                        <div>
+                            <input type="hidden" name="frage_id" value="{{ $frage->frage_id  }}">
+                            {!! csrf_field() !!}
+                            <button type="submit" class="btn">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <a href="/treffpunkt/id/{!! $frage->frage_id !!}"class="question-hyperlink" value="{{$frage->titel}}">{{$frage->titel}}</a>
+                        </div>
+                    </form>
+                @endforeach
+                <?php echo $fragen->render(); ?>
             </div>
-            <div class="col-md-6">
+
+            <div class="col-md-6 col-lg-6">
                 <h2>Alle Gesuche</h2>
-                <!--TODO: Add functionality-->
-                <div class="row">
-                    <div class="col-md-8">
-                        <!--Link zur ursprünglichen Gesuche-Seite-->
-                        <a> Ich suche einen Krümmer für Modell A </a>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <!--Link zur ursprünglichen Gesuche-Seite-->
-                        <a> Ich suche einen Krümmer für Modell B</a>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </div>
-                </div>
-
+                @foreach($gesuche as $gesuch)
+                    <form class="form-horizontal" method="post" action="{{action('AdminController@edit')}}">
+                        <div>
+                            <input type="hidden" name="frage_id" value="{{ $gesuch->frage_id  }}">
+                            {!! csrf_field() !!}
+                                <button type="submit" class="btn">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            <a href="/treffpunkt/id/{!! $gesuch->frage_id !!}"class="question-hyperlink" value="{{$gesuch->titel}}">{{$gesuch->titel}}</a>
+                        </div>
+                    </form>
+                @endforeach
+                <?php echo $gesuche->render(); ?>
             </div>
         </div>
     </div>

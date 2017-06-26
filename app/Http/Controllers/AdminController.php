@@ -15,8 +15,12 @@ class AdminController extends Controller
     public function index()
     {
         $emails = DB::table('Kontaktanfrage')->orderBy('kontaktanfrage_id', 'desc')->paginate(4);
+        $fragen = DB::table('Frage')->where('rubrik', 'Frage')->paginate(5);
+        $gesuche = DB::table('Frage')->where('rubrik', 'Gesuch')->paginate(5);
         return view('pages.admin', [
-            'emails' => $emails
+            'emails' => $emails,
+            'fragen' => $fragen,
+            'gesuche' => $gesuche
         ]);
     }
 
@@ -55,12 +59,16 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $id = $request->frage_id;
+        $frage = DB::table('Frage')->where('frage_id', $id)->delete();
+
+        return redirect()->action('AdminController@index');
+
     }
 
     /**
