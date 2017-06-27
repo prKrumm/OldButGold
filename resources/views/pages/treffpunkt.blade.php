@@ -80,6 +80,15 @@
 
 
 @section('content3')
+    <span>
+        <form action="/treffpunkt/fragen" method="post" >
+             {{ csrf_field() }}
+            <input id="Search" name="Search" type="search" placeholder="Search" value="{{session('search')}}"/>
+        <button type="submit">Suchen</button>
+        </form>
+    </span>
+
+    <h4 id="h-related-tags">Themen</h4>
     @isset($themen)
         @foreach($themen as $thema)
             <div>

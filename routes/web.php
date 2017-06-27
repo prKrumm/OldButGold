@@ -68,6 +68,8 @@ Route::get('/impressum', 'StaticController@impressum');
 Route::get('/modelle', 'ErsatzteilTreffpunktController@modelle');
 Route::get('/treffpunkt/fragen', 'TreffpunktController@fragen');
 Route::get('/ersatzteil/fragen', 'ErsatzteilController@fragen');
+Route::post('/treffpunkt/fragen', 'TreffpunktController@fragen');
+Route::post('/ersatzteil/fragen', 'ErsatzteilController@fragen');
 Route::get('/autocomplete', array('as' => 'autocomplete', 'uses' => 'ErsatzteilTreffpunktController@autocomplete'));
 Route::get('/showAllThemes', array('as' => 'showAllThemes', 'uses' => 'ErsatzteilTreffpunktController@showAllThemes'));
 Route::post('/storeVotes', array('as' => 'showAllThemes', 'uses' => 'ErsatzteilTreffpunktController@storeVotes'));

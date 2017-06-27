@@ -23,13 +23,14 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     public function index()
     {
         $thema = session()->get('thema');
+        session()->forget('search');
         //check if fzg in session
         if (session('fzg', false) == true) {
             $fzg_id = session('fzgId', 'default');
             $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema);
         } else {
             //show all questions
-            $fragen = $this->queryFragenGesuche(null, 'Frage', $thema);
+            $fragen = $this->queryFragenGesuche(null, 'Frage', $thema,null);
         }
         //hole alle Fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
@@ -73,6 +74,12 @@ class TreffpunktController extends ErsatzteilTreffpunktController
         } else {
             $thema = $request->session()->get('thema');
         }
+        if(isset($request->Search)){
+            $searchString=$request->Search;
+            $request->session()->put('search', $searchString);
+        } else {
+            $searchString=$request->session()->get('search');
+        }
 
         if ($fzg_id !== '' && $fzg_id !== null) {
             $currentModell = FzgModell::getFzgById($fzg_id);
@@ -82,10 +89,10 @@ class TreffpunktController extends ErsatzteilTreffpunktController
             $request->session()->put('fzgName', $currentFahrzeug->marke);
             $request->session()->put('fzgModell', $currentModell->modell);
 
-            $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema);
+            $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema,$searchString);
 
         } else {
-            $fragen = $this->queryFragenGesuche(null, 'Frage', $thema);
+            $fragen = $this->queryFragenGesuche(null, 'Frage', $thema,$searchString);
         }
         //hole alle Fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();

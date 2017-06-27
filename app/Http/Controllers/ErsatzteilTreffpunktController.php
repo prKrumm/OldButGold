@@ -222,7 +222,7 @@ class ErsatzteilTreffpunktController extends Controller
     }
 
 
-    protected function queryFragenGesuche($fzg_Modell_id, $type, $thema)
+    protected function queryFragenGesuche($fzg_Modell_id, $type, $thema,$search)
     {
         $paginateCount = 3;
         $whereExtension = array(['test.rubrik', '=', $type]);
@@ -238,6 +238,11 @@ class ErsatzteilTreffpunktController extends Controller
 
         } else {
             array_push($whereExtension, ['test.fzg_modell_id', '=', $fzg_Modell_id]);
+        }
+        if($search==null&&empty($search)){
+
+        } else{
+            array_push($whereExtension, ['test.text', 'LIKE', "%$search%"]);
         }
 
         $themen = DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");

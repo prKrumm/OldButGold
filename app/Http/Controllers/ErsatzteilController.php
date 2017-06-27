@@ -26,13 +26,15 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
     public function index()
     {
         $thema=session()->get('thema');
+        session()->forget('search');
+
         //check if fzg in session
         if(session('fzg', false)==true||$thema!=null){
             $fzg_id=session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id,'Gesuch',$thema);
+            $fragen = $this->queryFragenGesuche($fzg_id,'Gesuch',$thema,null);
         } else{
             //show all questions
-            $fragen =$this->queryFragenGesuche(null,'Gesuch',$thema);
+            $fragen =$this->queryFragenGesuche(null,'Gesuch',$thema,null);
         }
         //hole alle fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
@@ -76,6 +78,13 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
         } else {
             $thema=$request->session()->get('thema');
         }
+        if(isset($request->Search)){
+            $searchString=$request->Search;
+            $request->session()->put('search', $searchString);
+        } else {
+            $searchString=$request->session()->get('search');
+        }
+
         if ($fzg_id !== ''&&$fzg_id !==null) {
             $currentModell = FzgModell::getFzgById($fzg_id);
             $currentFahrzeug = Hersteller::getFzgById($currentModell->hersteller_id);
@@ -85,10 +94,10 @@ class ErsatzteilController extends ErsatzteilTreffpunktController
             $request->session()->put('fzgName',$currentFahrzeug->marke);
             $request->session()->put('fzgModell',$currentModell->modell);
 
-            $fragen =$this->queryFragenGesuche($fzg_id,'Gesuch',$thema);
+            $fragen =$this->queryFragenGesuche($fzg_id,'Gesuch',$thema,$searchString);
 
         } else{
-            $fragen = $this->queryFragenGesuche(null, 'Gesuch', $thema);
+            $fragen = $this->queryFragenGesuche(null, 'Gesuch', $thema,$searchString);
         }
         //hole alle Fahrzeuge
         $fahrzeugeTop = $this->getFahrzeugListTop();
