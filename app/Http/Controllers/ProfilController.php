@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Model\Adresse;
+use App\Http\Model\Antwort;
+use App\Http\Model\Frage;
+use App\Http\Model\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Model\User;
+use Illuminate\Support\Facades\DB;
 
 class ProfilController extends Controller
 {
@@ -13,7 +20,46 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('pages.profil');
+        $user = Auth::user();
+
+        //Adresse
+        $addresse = Adresse::all()->where('user_id', '==', $user->user_id)->first();
+
+        //kummulierte Votes je User ermitteln
+        $sumVotes = Vote::query()
+            ->select(DB::raw('sum(vote.value) AS totalVotes, vote.antwort_id, antwort.user_id'))
+            ->join('antwort', 'vote.antwort_id', '=', 'antwort.antwort_id')
+            ->where('antwort.user_id', '=', $user->user_id)
+            ->groupBy('antwort.user_id')
+            ->get()
+            ->first()
+       ;
+
+        //Gesuche holen
+        $gesuche = Frage::all()
+            ->where('user_id','=',$user->user_id)
+            ->where('rubrik','=','Gesuch')
+        ;
+
+        $fragen = Frage::all()
+            ->where('user_id','=',$user->user_id)
+            ->where('rubrik','=','Frage')
+        ;
+
+
+        //Anzahl Fragen/Antworten
+        $countFragen = Frage::all()->where('user_id', '==', $user->user_id)->count();
+        $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
+
+        return view('pages.profil', [
+            'user' => $user,
+            'adresse' => $addresse,
+            'countFrag' => $countFragen,
+            'countAntwort' => $countAntwort,
+            'ranking' => $sumVotes,
+            'gesuche' =>$gesuche,
+            'fragen' => $fragen,
+        ]);
     }
 
     /**
@@ -29,7 +75,7 @@ class ProfilController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -40,7 +86,7 @@ class ProfilController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -51,7 +97,7 @@ class ProfilController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -62,8 +108,8 @@ class ProfilController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -74,7 +120,7 @@ class ProfilController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

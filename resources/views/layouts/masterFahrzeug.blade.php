@@ -10,8 +10,12 @@
 
 @include('includes.header')
 
-
+@if(session('fzg')==true)
+    @include('includes.fahrzGewaehlt')
+@else
 @include('includes.fahrzeug')
+@endif
+
 
 <div class="container">
     <div class="row">

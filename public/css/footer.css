@@ -19,6 +19,11 @@ footer a {
     font-size: 10px;
 }
 
+footer p {
+    color: white;
+    font-size: 10px;
+}
+
 footer a:hover,
 footer a:active,
 footer a:focus {

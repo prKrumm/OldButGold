@@ -1,33 +1,50 @@
 @extends('layouts.masterFahrzeugFrage')
 @section('content')
     <div class="container">
+
+        @if ($errors->any())
+            <div class="alert alert-warning">
+                <ul>
+                    @foreach ($errors-> all() as $error)
+                        <li><strong>Info!</strong> {{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <h2 class="left">Frage stellen</h2>
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="post" action="{{action('TreffpunktController@store')}}">
+            {{ csrf_field() }}
+            <input type="hidden" name="bild_url" value="keinBild">
+            <input type="hidden" name="rubrik" value="Frage">
             <div class="col-md-9 col-sm-12">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Betreff</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text"
+                <div class="form-group{{ $errors->has('titel') ? ' has-error' : '' }}">
+                    <label class="col-md-3 col-sm-3 control-label">Betreff</label>
+                    <div class="col-md-9 col-sm-9">
+                        <input class="form-control" type="text" name="titel"
                                placeholder="Bitte geben Sie hier Ihren Betreff ein">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Beschreibung</label>
-                    <div class="col-sm-10">
-                        <input class="form-control inputHeight" type="text"
-                               placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich">
+                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                    <label class="col-md-3 col-sm-3 control-label">Beschreibung</label>
+                    <div class="col-md-9 col-sm-9">
+                        <textarea class="form-control" type="text" name="text" rows="6"
+                                  placeholder="Bitte beschreiben Sie Ihre Frage so genau wie möglich"></textarea>
+                    </div>
+                </div>
+                <div class="form-group{{ $errors->has('thema') ? ' has-error' : '' }}">
+                    <label class="col-md-3 col-sm-3 control-label">Themen</label>
+                    <div class="col-md-9 col-sm-9">
+                        @foreach ($themen as $thema)
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="ThemenListe" name="thema[]" value="{{$thema->bezeichnung}}">{{$thema->bezeichnung}}
+                            </label>
+                        @endforeach
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Themen</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" type="text"
-                               placeholder="Wählen Sie hier die relevanten Themengebiete">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2"></label>
-                    <div class="col-sm-10">
+                    <label class="col-md-3 col-sm-3"></label>
+                    <div class="col-md-9 col-sm-9">
                         <button type="submit" class="btn btn-default">Frage senden</button>
                     </div>
                 </div>
@@ -39,4 +56,8 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('content2')
+    <a class="btn btn-default" href="/treffpunkt/remove">Fahrzeug wechseln</a>
 @endsection

@@ -9,14 +9,43 @@
     background-color: whitesmoke;
     border-bottom: 2px solid #48474F;
 }
+.rahmenText {
+    align-items: center;
+    align-self: stretch;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: 6px 10px;
+    overflow: hidden;
+    padding: 6px 12px;
+    text-overflow: ellipsis;
+    width: 100%;
+}
 
 #ausgewFahrzeug {
     padding-top: 30px;
 }
 
 #strongText {
-    font-weight: bold;
+    font-weight: 700;
     font-size: 15px;
     text-align: center;
     padding-top: 12px;
+    align-items: center;
+    align-self: stretch;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    display: flex;
 }
+
+#selectedCar{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 6px 10px;
+    overflow: hidden;
+    padding: 6px 12px;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+

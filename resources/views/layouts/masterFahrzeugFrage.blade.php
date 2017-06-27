@@ -11,7 +11,7 @@
 @include('includes.header')
 
 
-@include('includes.fahrzGewählt')
+@include('includes.fahrzGewaehlt')
 
 
 @yield('content')

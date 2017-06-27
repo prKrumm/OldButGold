@@ -1,4 +1,11 @@
 /* die ganze Nav-Bar */
+.active {
+    color: #B45347;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-size: 18px;
+}
+
 .navbar-default {
     font-family: "Open Sans", "Geneva";
     font-size: 15px;
@@ -22,6 +29,14 @@
 /* Der Text innerhalb der Nav-Bar */
 .navbar-default .navbar-nav > li > a {
     color: black;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-size: 18px;
+}
+
+/* Der Text innerhalb der Nav-Bar mit Aktivem Element in Farbe nach Wahl */
+.navbar-default .navbar-nav > li > a.active {
+    color: #B45347;
     padding-top: 25px !important;
     padding-bottom: 25px !important;
     font-size: 18px;
@@ -100,3 +115,9 @@ div#myNavbar.navbar-collapse.collapse.in > ul > li > a{
     font-weight: normal;
     text-align: center;
 }
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: white;
+    color: black;
+}
+

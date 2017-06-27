@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.admin');
+        $emails = DB::table('Kontaktanfrage')->orderBy('kontaktanfrage_id', 'desc')->paginate(4);
+        $fragen = DB::table('Frage')->where('rubrik', 'Frage')->paginate(5);
+        $gesuche = DB::table('Frage')->where('rubrik', 'Gesuch')->paginate(5);
+        return view('pages.admin', [
+            'emails' => $emails,
+            'fragen' => $fragen,
+            'gesuche' => $gesuche
+        ]);
     }
 
     /**
@@ -51,12 +59,16 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        $id = $request->frage_id;
+        $frage = DB::table('Frage')->where('frage_id', $id)->delete();
+
+        return redirect()->action('AdminController@index');
+
     }
 
     /**
@@ -80,5 +92,14 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function emailInhalt (Request $request) {
+        $emailId = $request->emailId;
+
+        $emails = DB::table('Kontaktanfrage')->where('kontaktanfrage_id', '=' , $emailId)->get();
+
+        return $emails;
+
     }
 }
