@@ -22,9 +22,11 @@
                 </div>
                 <div class="row">
                     <div class=col-md-6>
-                        <a href="profil_aendern" color="white"> <button class="btn btn-default">
-                         Profil ändern
-                        </button></a>
+                        <a href="profil_aendern" color="white">
+                            <button class="btn btn-default">
+                                Profil ändern
+                            </button>
+                        </a>
                     </div>
                     <div class="col-md-6 saveSettings">
                         <button class="btn btn-default " style="display:none">
@@ -73,7 +75,7 @@
                         <div tooltip="Ihr Rang hängt ab von den Bewertungen anderer Oldtimer-Liebhaber.
                         Diese bewerten die Güte ihrer gegebenen Antworten.
                         Old-But-Gold bietet folgende Ränge: 'Lehrling', 'Geselle' und 'Meister'">
-                            Ranking:
+                            Rang:
                             <strong>
                                 <?php
                                 if ($ranking->totalVotes > 19){

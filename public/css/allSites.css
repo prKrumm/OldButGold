@@ -135,7 +135,7 @@ div {
 /*vertical line*/
 @media (min-width: 992px) {
     .border-between > [class*='col-md']:before {
-        background: #e3e3e3;
+        background: #9a9a9a;
         bottom: 0;
         content: " ";
         left: 0;

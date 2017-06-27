@@ -1,6 +1,4 @@
 @extends('layouts.masterFahrzeug')
-<script src="/js/antworten.js"></script>
-
 
 
 @section('content')

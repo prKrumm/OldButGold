@@ -42,3 +42,4 @@
 <script type="text/javascript" src="{{ asset('js/fzgAuswahl.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/typeahead.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
+<script src="/js/antworten.js"></script>
