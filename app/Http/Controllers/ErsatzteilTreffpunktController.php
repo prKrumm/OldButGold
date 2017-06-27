@@ -36,9 +36,8 @@ class ErsatzteilTreffpunktController extends Controller
 
     /**
      *
-     *
-     * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     * @internal param Request $request
      */
     public function getFahrzeugList()
     {
@@ -430,6 +429,6 @@ class ErsatzteilTreffpunktController extends Controller
 
         $tmpAntworten = $this->getAntwortenByVotes((int)($tmpAnt->frage_id));
 
-        return  $tmpAntworten;
+        return $tmpAntworten;
     }
 }
