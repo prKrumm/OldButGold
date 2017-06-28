@@ -40,6 +40,7 @@ Route::post('/antwortErsatz', 'ErsatzteilController@storeErsatzteilAntwort');
 //PROFIL
 Route::get('/profil', 'ProfilController@index');
 Route::get('/profil_aendern/{id}', 'ProfilController@show');
+Route::put('/profilAendern/update', 'ProfilController@update');
 
 
 //ADMIN

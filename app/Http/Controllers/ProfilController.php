@@ -77,13 +77,43 @@ class ProfilController extends Controller
         $user = $this->showUser();
         $addresse = $this->showAdress($user->user_id);
         return view('pages.profil_aendern', [
-                'user' => $user,
-                'adresse' => $addresse,
-            ]);
+            'user' => $user,
+            'adresse' => $addresse,
+        ]);
     }
 
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
 
+        //validation: Request darf nicht leer sein
+        $this->validate($request, array(
+            'street' => 'required',
+            'plz' => 'required',
+            'ort' => 'required',
+            'email' => 'email|required'
+        ));
+
+        $adress = Adresse::findOrFail($request->user_id);
+        $adress->street = trim($request->street);
+        $adress->plz = trim($request->plz);
+        $adress->ort = trim($request->ort);
+        $adress->plz = trim($request->plz);
+        $adress->save();
+
+        $user = User::findOrFail($request->user_id);
+        $user->email = trim($request->email);
+        $user->save();
+
+        return ProfilController::index();
+    }
 
 
     public function showAdress($id)
@@ -91,6 +121,7 @@ class ProfilController extends Controller
         return Adresse::all()->where('user_id', '==', $id)->first();
 
     }
+
 
     public function showUser()
     {

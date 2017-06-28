@@ -12,20 +12,18 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-                        <!--Straße, HausNr.-->
+                        <form method='POST' action='/profilAendern/update'>
+                            <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="user_id" value="{!! $user->user_id !!}">
+
+                            <!--Straße, HausNr.-->
                             <div class="registerPanel form-group{{ $errors->has('street') ? ' has-error' : '' }}">
                                 <div class="row">
                                     <label for="street" class="col-md-4 control-label">Straße</label>
                                     <div class="col-md-6">
                                         <input id="street" type="text" class="form-control" name="street"
                                                value="{!! $adresse->street !!}">
-                                        @if ($errors->has('street'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('street') }}</strong>
-                                    </span>
-                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -38,11 +36,6 @@
                                         <input id="plz" type="text" class="form-control" name="plz"
                                                value="{{ $adresse->plz }}">
 
-                                        @if ($errors->has('plz'))
-                                            <span class="help-block">
-                                        <strong>{{ $errors->first('plz') }}</strong>
-                                    </span>
-                                        @endif
                                     </div>
                                     <div class="col-md-4">
                                         <input id="ort" type="text" class="form-control" name="ort"
@@ -74,22 +67,22 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="row col-md-7">
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-default">
-                            Profil ändern
-                        </button>
-                    </div>
+                            <div class="row col-md-10">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-default">
+                                        Profil ändern
+                                    </button>
+                                </div>
 
-                    <div class="col-md-6">
-                        <a href="/profil">
-                            <button class="btn btn-default">
-                                Zurück
-                            </button>
-                        </a>
+                                <div class="col-md-6">
+                                    <a href="/profil">
+                                        <button class="btn btn-default">
+                                            Zurück
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
