@@ -20,76 +20,51 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $user = $this->showUser();
 
-        if ($user->rolle_id == 3){
-            return redirect()->action('AdminController@index');
-        } else {
+        //Adresse
+        $addresse = $this->showAdress($user->user_id);
 
-            //Adresse
-            $addresse = Adresse::all()->where('user_id', '==', $user->user_id)->first();
+        //kummulierte Votes je User ermitteln
+        $sumVotes = Vote::query()
+            ->select(DB::raw('sum(vote.value) AS totalVotes, vote.antwort_id, antwort.user_id'))
+            ->join('antwort', 'vote.antwort_id', '=', 'antwort.antwort_id')
+            ->where('antwort.user_id', '=', $user->user_id)
+            ->groupBy('antwort.user_id')
+            ->get()
+            ->first();
 
-            //kummulierte Votes je User ermitteln
-            $sumVotes = Vote::query()
-                ->select(DB::raw('sum(vote.value) AS totalVotes, vote.antwort_id, antwort.user_id'))
-                ->join('antwort', 'vote.antwort_id', '=', 'antwort.antwort_id')
-                ->where('antwort.user_id', '=', $user->user_id)
-                ->groupBy('antwort.user_id')
-                ->get()
-                ->first();
-
-            if ($sumVotes == null) {
-                $sumVotes = new Vote();
-                $sumVotes->totalVotes = 0;
-            }
-
-            //Gesuche holen
-            $gesuche = Frage::all()
-                ->where('user_id', '=', $user->user_id)
-                ->where('rubrik', '=', 'Gesuch');
-
-            $fragen = Frage::all()
-                ->where('user_id', '=', $user->user_id)
-                ->where('rubrik', '=', 'Frage');
-
-
-            //Anzahl Fragen/Antworten
-            $countFragen = Frage::all()->where('user_id', '==', $user->user_id)->count();
-            $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
-
-
-            return view('pages.profil', [
-                'user' => $user,
-                'adresse' => $addresse,
-                'countFrag' => $countFragen,
-                'countAntwort' => $countAntwort,
-                'ranking' => $sumVotes,
-                'gesuche' => $gesuche,
-                'fragen' => $fragen,
-            ]);
+        if ($sumVotes == null) {
+            $sumVotes = new Vote();
+            $sumVotes->totalVotes = 0;
         }
+
+        //Gesuche holen
+        $gesuche = Frage::all()
+            ->where('user_id', '=', $user->user_id)
+            ->where('rubrik', '=', 'Gesuch');
+
+        $fragen = Frage::all()
+            ->where('user_id', '=', $user->user_id)
+            ->where('rubrik', '=', 'Frage');
+
+
+        //Anzahl Fragen/Antworten
+        $countFragen = Frage::all()->where('user_id', '==', $user->user_id)->count();
+        $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
+
+
+        return view('pages.profil', [
+            'user' => $user,
+            'adresse' => $addresse,
+            'countFrag' => $countFragen,
+            'countAntwort' => $countAntwort,
+            'ranking' => $sumVotes,
+            'gesuche' => $gesuche,
+            'fragen' => $fragen,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -99,40 +74,26 @@ class ProfilController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = $this->showUser();
+        $addresse = $this->showAdress($user->user_id);
+        return view('pages.profil_aendern', [
+                'user' => $user,
+                'adresse' => $addresse,
+            ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+
+
+
+    public function showAdress($id)
     {
-        //
+        return Adresse::all()->where('user_id', '==', $id)->first();
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function showUser()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return Auth::user();
     }
 }

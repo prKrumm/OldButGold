@@ -59,7 +59,7 @@ class Frage extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Http\User', 'user_id', 'users_id');
+        return $this->belongsTo('App\Http\Model\User', 'user_id', 'user_id');
     }
 
     /**

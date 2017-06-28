@@ -2,27 +2,22 @@
 
 @section('content')
     <div class="container">
-        <h2>Hallo, {{ $user->user_name }}!</h2>
+        <h2>Hallo {{ $user->user_name }}!</h2>
 
         <div class="row border-between">
             <div class="col-md-6">
                 <div>
-                    <div id="changeSettings">
-                        <h3>Profildaten</h3>
-                        <p>
-                            <input size="31" type="text" value='{!! $adresse->street !!}' id="street" disabled/><br>
-                            <input size="31" type="text"
-                                   value='{!! $adresse->plz !!}' id="plz"
-                                   disabled/><br>
-                            <input size="31" type="text" value='{!! $adresse->ort !!}' id="ort"
-                                   disabled/>
-                        </p>
-                        <input size="31" type="text" value='{!! $user->email !!}' id="email" disabled/>
-                    </div>
+                    <h3>Profildaten</h3>
+                    <address>
+                        {!! $adresse->street !!}<br>
+                        {!! $adresse->plz !!}       {!! $adresse->ort !!}<br>
+                        {!! $user->email !!}
+                    </address>
+
                 </div>
                 <div class="row">
                     <div class=col-md-6>
-                        <a href="profil_aendern">
+                        <a href="profil_aendern/$user->user_id">
                             <button class="btn btn-default">
                                 Profil ändern
                             </button>
@@ -35,18 +30,6 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-
-                function changeSettings() {
-                    //Input für adresse jetzt editierbar
-                    //Button heist nun Änderungen speichern + onclick post request to controller
-
-                    $('#changeSettings')
-                    console.log('done')
-                }
-            </script>
-
 
             <div class="col-md-6 ">
                 <h3>Aktivität</h3>

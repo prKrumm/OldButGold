@@ -49,7 +49,7 @@ class Antwort extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\Http\User','user_id','user_id');
+        return $this->belongsTo('App\Http\Model\User','user_id','antwort.user_id');
     }
 
     /**
