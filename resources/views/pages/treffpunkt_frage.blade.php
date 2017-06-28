@@ -3,11 +3,10 @@
     <div class="container">
 
         @if ($errors->any())
+            <br>
             <div class="alert alert-warning">
                 <ul>
-                    @foreach ($errors-> all() as $error)
-                        <li><strong>Info!</strong> {{ $error }}</li>
-                    @endforeach
+                    <li><strong>Info!</strong> Bitte füllen Sie die rot markierten Felder aus.</li>
                 </ul>
             </div>
         @endif

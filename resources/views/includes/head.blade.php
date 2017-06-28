@@ -30,6 +30,6 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('css/allSites.css') }}">
 
 <!-- JS -->
-<script type="text/javascript" src="{{ asset('js/fzgAuswahl.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
-<script type="text/javascript" src="/js/antworten.js"></script>
+<script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
+
+<meta http-equiv="Cache-control" content="public">
