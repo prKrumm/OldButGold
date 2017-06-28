@@ -55,7 +55,7 @@ class StaticController extends Controller
         setlocale(LC_TIME, "de_DE.utf8");
         $date = date("F j, Y, g:i a");
 
-        DB::table('Kontaktanfrage')->insert(
+        DB::table('kontaktanfrage')->insert(
             ['titel' => $titel, 'text' => $text, 'email' => $email, 'gelesen' => false, "created_at" => $date]
         );
 

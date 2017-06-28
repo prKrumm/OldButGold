@@ -14,9 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $emails = DB::table('Kontaktanfrage')->orderBy('kontaktanfrage_id', 'desc')->paginate(4);
-        $fragen = DB::table('Frage')->where('rubrik', 'Frage')->paginate(5);
-        $gesuche = DB::table('Frage')->where('rubrik', 'Gesuch')->paginate(5);
+        $emails = DB::table('kontaktanfrage')->orderBy('kontaktanfrage_id', 'desc')->paginate(4);
+        $fragen = DB::table('frage')->where('rubrik', 'frage')->paginate(5);
+        $gesuche = DB::table('frage')->where('rubrik', 'gesuch')->paginate(5);
         return view('pages.admin', [
             'emails' => $emails,
             'fragen' => $fragen,
@@ -44,7 +44,7 @@ class AdminController extends Controller
     public function edit(Request $request)
     {
         $id = $request->frage_id;
-        $frage = DB::table('Frage')->where('frage_id', $id)->delete();
+        $frage = DB::table('frage')->where('frage_id', $id)->delete();
 
         return redirect()->action('AdminController@index');
 
@@ -54,7 +54,7 @@ class AdminController extends Controller
     public function emailInhalt (Request $request) {
         $emailId = $request->emailId;
 
-        $emails = DB::table('Kontaktanfrage')->where('kontaktanfrage_id', '=' , $emailId)->get();
+        $emails = DB::table('kontaktanfrage')->where('kontaktanfrage_id', '=' , $emailId)->get();
 
         return $emails;
 
