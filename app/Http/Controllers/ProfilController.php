@@ -22,47 +22,52 @@ class ProfilController extends Controller
     {
         $user = Auth::user();
 
-        //Adresse
-        $addresse = Adresse::all()->where('user_id', '==', $user->user_id)->first();
+        if ($user->rolle_id == 3){
+            return redirect()->action('AdminController@index');
+        } else {
 
-        //kummulierte Votes je User ermitteln
-        $sumVotes = Vote::query()
-            ->select(DB::raw('sum(vote.value) AS totalVotes, vote.antwort_id, antwort.user_id'))
-            ->join('antwort', 'vote.antwort_id', '=', 'antwort.antwort_id')
-            ->where('antwort.user_id', '=', $user->user_id)
-            ->groupBy('antwort.user_id')
-            ->get()
-            ->first();
+            //Adresse
+            $addresse = Adresse::all()->where('user_id', '==', $user->user_id)->first();
 
-        if ($sumVotes == null)
-        {$sumVotes = new Vote();
-        $sumVotes->totalVotes = 0;}
+            //kummulierte Votes je User ermitteln
+            $sumVotes = Vote::query()
+                ->select(DB::raw('sum(vote.value) AS totalVotes, vote.antwort_id, antwort.user_id'))
+                ->join('antwort', 'vote.antwort_id', '=', 'antwort.antwort_id')
+                ->where('antwort.user_id', '=', $user->user_id)
+                ->groupBy('antwort.user_id')
+                ->get()
+                ->first();
 
-        //Gesuche holen
-        $gesuche = Frage::all()
-            ->where('user_id', '=', $user->user_id)
-            ->where('rubrik', '=', 'Gesuch');
+            if ($sumVotes == null) {
+                $sumVotes = new Vote();
+                $sumVotes->totalVotes = 0;
+            }
 
-        $fragen = Frage::all()
-            ->where('user_id', '=', $user->user_id)
-            ->where('rubrik', '=', 'Frage');
+            //Gesuche holen
+            $gesuche = Frage::all()
+                ->where('user_id', '=', $user->user_id)
+                ->where('rubrik', '=', 'Gesuch');
 
-
-        //Anzahl Fragen/Antworten
-        $countFragen = Frage::all()->where('user_id', '==', $user->user_id)->count();
-        $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
-
+            $fragen = Frage::all()
+                ->where('user_id', '=', $user->user_id)
+                ->where('rubrik', '=', 'Frage');
 
 
-        return view('pages.profil', [
-            'user' => $user,
-            'adresse' => $addresse,
-            'countFrag' => $countFragen,
-            'countAntwort' => $countAntwort,
-            'ranking' => $sumVotes,
-            'gesuche' => $gesuche,
-            'fragen' => $fragen,
-        ]);
+            //Anzahl Fragen/Antworten
+            $countFragen = Frage::all()->where('user_id', '==', $user->user_id)->count();
+            $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
+
+
+            return view('pages.profil', [
+                'user' => $user,
+                'adresse' => $addresse,
+                'countFrag' => $countFragen,
+                'countAntwort' => $countAntwort,
+                'ranking' => $sumVotes,
+                'gesuche' => $gesuche,
+                'fragen' => $fragen,
+            ]);
+        }
     }
 
     /**

@@ -335,3 +335,280 @@ input[type="search"]::-webkit-search-cancel-button {
     margin-top: -30%;
     margin-left: 20%;
 }
+
+
+#map {
+    width: 100%;
+    height: 400px;
+    alignment: center;
+}
+
+.fahrzeugAuswahlText {
+    text-align: center;
+    border-bottom: 1px solid #48474F;
+    border-top: 1px solid #48474F;
+    padding-top: 45px;
+}
+
+.fahrzeugAuswahl {
+    background-color: whitesmoke;
+    border-bottom: 2px solid #48474F;
+}
+.rahmenText {
+    align-items: center;
+    align-self: stretch;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin: 6px 10px;
+    overflow: hidden;
+    padding: 6px 12px;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+#ausgewFahrzeug {
+    padding-top: 30px;
+}
+
+#strongText {
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 12px;
+    align-items: center;
+    align-self: stretch;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    display: flex;
+}
+
+#selectedCar{
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 6px 10px;
+    overflow: hidden;
+    padding: 6px 12px;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+/* Design des Footers */
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: #48474F;
+    text-align: center;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    max-height: 140px;
+}
+
+footer a {
+    color: white;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    font-size: 10px;
+}
+
+footer p {
+    color: white;
+    font-size: 10px;
+}
+
+footer a:hover,
+footer a:active,
+footer a:focus {
+    color: #B45347;
+    text-decoration: none;
+}
+
+/* die ganze Nav-Bar */
+.active {
+    color: #B45347;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-size: 18px;
+}
+
+.navbar-default {
+    font-family: "Open Sans", "Geneva";
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    margin-bottom: 0;
+    border-bottom: 2px solid #48474F;
+    min-height: 110px;
+}
+
+/* Position des Bildes */
+.navbar-brand > img {
+    max-height: 40px;
+    width: auto;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+}
+
+/* Der Text innerhalb der Nav-Bar */
+.navbar-default .navbar-nav > li > a {
+    color: black;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-size: 18px;
+}
+
+/* Der Text innerhalb der Nav-Bar mit Aktivem Element in Farbe nach Wahl */
+.navbar-default .navbar-nav > li > a.active {
+    color: #B45347;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    font-size: 18px;
+}
+
+/* den Text innerhalb der Nav-Bar beim Mauszeiger ändern */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:active {
+    color: #B45347;
+    text-decoration: none;
+}
+
+.verticalLine {
+    border-right: solid #375D38;
+}
+
+/* Design der anpassenden Nav-Bar */
+nav.navbar.shrink {
+    min-height: 80px;
+    border-bottom: 2px solid #48474F;
+}
+
+nav.navbar.shrink a {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    bottom: 0;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Position des Bildes nach dem Scrollen */
+nav.shrink .navbar-brand > img {
+    max-height: 35px;
+    width: auto;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    padding-bottom: 10px;
+}
+
+div#myNavbar.navbar-collapse.collapsing > ul > li > a{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+div#myNavbar.navbar-collapse.collapse.in > ul > li > a{
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#myNavbar > li > a:active,
+#myNavbar > li > a:hover {
+    color: #B45347;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #48474F;
+}
+
+.topheader {
+    background-color: #48474F;
+    min-height: 25px;
+    font-size: 10px;
+    color: white;
+    font-weight: normal;
+    text-align: center;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Design der Beschriftung des Eingabefeldes */
+.form-horizontal .control-label {
+    padding-top: 0px;
+    text-align: left;
+}
+
+.inputHeight2 {
+    height: 140px;
+}
+
+h2 {
+    padding-bottom: 20px;
+}
+
+img {
+    width: 100%;
+}
+
+div {
+    padding: 5px;
+}
+
+.fa {
+    padding: 5px;
+    font-size: 10px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0px 0px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+
+
+
+
+
+
+

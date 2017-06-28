@@ -16,9 +16,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans"/>
-
 <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css"/>
-<script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.min.js"></script>
 <!--AJAX JQuery-->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -29,17 +27,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <!-- Styles -->
-<!--<link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-<link href="{{ asset('css/footer.css') }}" rel="stylesheet">
-<link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
-<link href="{{ asset('css/allSites.css') }}" rel="stylesheet">
-<link href="{{ asset('css/question.css') }}" rel="stylesheet">
-<link href="{{ asset('css/fahrzeugAuswahl.css') }}" rel="stylesheet">
-<link href="{{ asset('css/experts.css') }}" rel="stylesheet">
-<link href="{{ asset('css/socialMedia.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/allSites.css') }}">
 
 <!-- JS -->
 <script type="text/javascript" src="{{ asset('js/fzgAuswahl.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/typeahead.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/navbar.js') }}"></script>
-<script src="/js/antworten.js"></script>
+<script type="text/javascript" src="/js/antworten.js"></script>
