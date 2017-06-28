@@ -22,6 +22,10 @@ class ProfilController extends Controller
     {
         $user = $this->showUser();
 
+        if($user->rolle_id == 3){
+            return redirect()->action('AdminController@index');
+        } else {
+
         //Adresse
         $addresse = $this->showAdress($user->user_id);
 
@@ -63,6 +67,8 @@ class ProfilController extends Controller
             'gesuche' => $gesuche,
             'fragen' => $fragen,
         ]);
+
+        }
     }
 
 

@@ -158,10 +158,10 @@ class InsertIntoTable extends Migration
                 array(
                     'name' => 'Schreiner',
                     'first_name' => 'Viktoria',
-                    'user_name' => 'ViktoriaS',
-                    'email' => 'Viktoria.Schreiner@konstanz.de',
-                    'password' => 'admin',
-                    'rolle_id' => '2'
+                    'user_name' => 'admin',
+                    'email' => 'admin@oldbutgold.de',
+                    'password' => '$2y$10$lTnzMxLRlSJ4dXnoj3AIGO2xtH5E.QLV3IDJMnczQFG6g6Rwn6D92',
+                    'rolle_id' => '3'
                 )
             )
         );
@@ -509,6 +509,8 @@ Man kann hier sicher sagen, dass die Besitzer solcher Bastelbuden schuld daran w
                 )
             )
         );
+
+
 
         //Brauchen wir nicht, oder?
         //User_wählt_Modell
