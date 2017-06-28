@@ -20,10 +20,14 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
+        $user = $this->showUser();
+
+        if($user->rolle_id == 3){
+            return redirect()->action('AdminController@index');
+        } else {
 
         //Adresse
-        $addresse = Adresse::all()->where('user_id', '==', $user->user_id)->first();
+        $addresse = $this->showAdress($user->user_id);
 
         //kummulierte Votes je User ermitteln
         $sumVotes = Vote::query()
@@ -34,9 +38,10 @@ class ProfilController extends Controller
             ->get()
             ->first();
 
-        if ($sumVotes == null)
-        {$sumVotes = new Vote();
-        $sumVotes->totalVotes = 0;}
+        if ($sumVotes == null) {
+            $sumVotes = new Vote();
+            $sumVotes->totalVotes = 0;
+        }
 
         //Gesuche holen
         $gesuche = Frage::all()
@@ -53,7 +58,6 @@ class ProfilController extends Controller
         $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
 
 
-
         return view('pages.profil', [
             'user' => $user,
             'adresse' => $addresse,
@@ -63,28 +67,10 @@ class ProfilController extends Controller
             'gesuche' => $gesuche,
             'fragen' => $fragen,
         ]);
+
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -94,19 +80,14 @@ class ProfilController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = $this->showUser();
+        $addresse = $this->showAdress($user->user_id);
+        return view('pages.profil_aendern', [
+            'user' => $user,
+            'adresse' => $addresse,
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -115,19 +96,41 @@ class ProfilController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+
+        //validation: Request darf nicht leer sein
+        $this->validate($request, array(
+            'street' => 'required',
+            'plz' => 'required',
+            'ort' => 'required',
+            'email' => 'email|required'
+        ));
+
+        $adress = Adresse::findOrFail($request->user_id);
+        $adress->street = trim($request->street);
+        $adress->plz = trim($request->plz);
+        $adress->ort = trim($request->ort);
+        $adress->plz = trim($request->plz);
+        $adress->save();
+
+        $user = User::findOrFail($request->user_id);
+        $user->email = trim($request->email);
+        $user->save();
+
+        return ProfilController::index();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function showAdress($id)
     {
-        //
+        return Adresse::all()->where('user_id', '==', $id)->first();
+
+    }
+
+
+    public function showUser()
+    {
+        return Auth::user();
     }
 }
