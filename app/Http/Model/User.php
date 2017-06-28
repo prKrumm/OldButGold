@@ -3,6 +3,7 @@
 namespace app\Http\Model;
 
 use Illuminate\Notifications\Notifiable;
+use app\Http\Model\Adresse;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -45,7 +46,7 @@ class User extends Authenticatable
      */
     public function adresse()
     {
-        return $this->hasOne('App\Adresse');
+        return $this->hasOne('app\Http\Model\Adresse');
     }
 
     /**

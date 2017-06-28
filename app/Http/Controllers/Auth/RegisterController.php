@@ -9,6 +9,8 @@ use App\Http\Model\Adresse;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -79,9 +81,27 @@ class RegisterController extends Controller
         $user = new User($data);
 
         $user->save();
-        //save Adresse
-        //$address = new Adresse($data);
-        //$address->save();
+        $userId=$user->getAttributeValue("user_id");
+        //save Adresse $array[$key] = $value;
+        $data["user_id"]=$userId;
+        $adressDate["street"]=$data["street"];
+        $adressDate["plz"]=$data["plz"];
+        $adressDate["ort"]=$data["ort"];
+        $adressDate["user_id"]=$userId;
+
+        $adresse=new Adresse();
+        $adresse->user_id=$userId;
+        $adresse->street=$data["street"];
+        $adresse->plz=$data["plz"];
+        $adresse->ort=$data["ort"];
+        $adresse->save();
+
+
+
+        //DB::table('adresse')->insert(
+        //  $adressDate
+        //);
+
 
 
 

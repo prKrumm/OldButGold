@@ -24,6 +24,7 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     {
         $thema = session()->get('thema');
         session()->forget('search');
+
         //check if fzg in session
         if (session('fzg', false) == true) {
             $fzg_id = session('fzgId', 'default');
