@@ -502,10 +502,6 @@ Man kann hier sicher sagen, dass die Besitzer solcher Bastelbuden schuld daran w
                 array(
                     'thema_id' => '1',
                     'user_id' => '7'
-                ),
-                array(
-                    'thema_id' => '1',
-                    'user_id' => '8'
                 )
             )
         );
