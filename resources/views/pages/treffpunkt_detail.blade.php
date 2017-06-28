@@ -2,9 +2,7 @@
 @extends('layouts.masterFahrzeug')
 
 
-
 @section('content')
-
     @if ($errors->any())
         <div class="alert alert-warning">
             <p>
@@ -18,6 +16,13 @@
         <div class="col-md-12 col-sm-12">
             <h2 class="left">{!!$frage->titel!!}</h2>
             <p>{!! $frage->text !!}</p>
+            <div class="tags">
+                <p>Themen: </p><a>
+                    @foreach($releventThema as $thema)
+                        <span> {!! $thema->bezeichnung !!}</span>
+                    @endforeach</a>
+                <p>Erstellt von: </p> <a>{!! $frage->user()->first()->user_name!!}</a>
+            </div>
         </div>
     </div>
 

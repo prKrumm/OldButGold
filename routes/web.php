@@ -39,6 +39,7 @@ Route::post('/antwortErsatz', 'ErsatzteilController@storeErsatzteilAntwort');
 
 //PROFIL
 Route::get('/profil', 'ProfilController@index');
+Route::get('/profil_aendern/{id}', 'ProfilController@show');
 
 
 //ADMIN
@@ -53,9 +54,7 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 
 //STATISCH
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 Route::get('/tour', 'StaticController@tour');
 Route::get('/kontakt', 'StaticController@kontakt');
 Route::post('/kontakt/kontaktformular', 'StaticController@kontaktformular');
@@ -73,5 +72,3 @@ Route::post('/ersatzteil/fragen', 'ErsatzteilController@fragen');
 Route::get('/autocomplete', array('as' => 'autocomplete', 'uses' => 'ErsatzteilTreffpunktController@autocomplete'));
 Route::get('/showAllThemes', array('as' => 'showAllThemes', 'uses' => 'ErsatzteilTreffpunktController@showAllThemes'));
 Route::post('/storeVotes', array('as' => 'showAllThemes', 'uses' => 'ErsatzteilTreffpunktController@storeVotes'));
-
-

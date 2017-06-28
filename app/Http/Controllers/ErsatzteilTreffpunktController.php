@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreateQuestionRequest;
+use Symfony\Component\Yaml\Tests\A;
 
 
 class ErsatzteilTreffpunktController extends Controller
@@ -105,31 +106,8 @@ class ErsatzteilTreffpunktController extends Controller
      */
     public function showAllQuestions($type)
     {
-        return $this->queryFragenGesuche(null, $type, null);
+        return $this->queryFragenGesuche(null, $type, null, null);
 
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(CreateQuestionRequest $request)
-    {
-        //
     }
 
 
@@ -153,32 +131,7 @@ class ErsatzteilTreffpunktController extends Controller
      */
     public function fragen(Request $request)
     {
-        return $this->queryFragenGesuche(null, $type);
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return $this->queryFragenGesuche(null, $type, null, null);
     }
 
 
@@ -222,7 +175,7 @@ class ErsatzteilTreffpunktController extends Controller
     }
 
 
-    protected function queryFragenGesuche($fzg_Modell_id, $type, $thema,$search)
+    protected function queryFragenGesuche($fzg_Modell_id, $type, $thema, $search)
     {
         $paginateCount = 3;
         $whereExtension = array(['test.rubrik', '=', $type]);
@@ -239,9 +192,9 @@ class ErsatzteilTreffpunktController extends Controller
         } else {
             array_push($whereExtension, ['test.fzg_modell_id', '=', $fzg_Modell_id]);
         }
-        if($search==null&&empty($search)){
+        if ($search == null && empty($search)) {
 
-        } else{
+        } else {
             array_push($whereExtension, ['test.text', 'LIKE', "%$search%"]);
         }
 
@@ -369,6 +322,16 @@ class ErsatzteilTreffpunktController extends Controller
         //hole alle Themen
         $themen = $this->getThemenListWithCount();
 
+        //hole nur die relevanten Themen
+        $tmpThema = DB::table('frage_gehoert_thema')->where('frage_id', '=', $id)->get();
+        $releventThema = DB::table('thema')->where('thema_id','=',$tmpThema->first()->thema_id)->get();
+
+        //hole User für Frage
+        
+
+        //hole User für Antwort
+
+
         //Übergabe der Daten
         return [
             'fzgTop' => $fahrzeugeTop,
@@ -376,7 +339,8 @@ class ErsatzteilTreffpunktController extends Controller
             'frage' => $tmpFrage,
             'countAnswers' => $tmpCountAnsw,
             'antworten' => $tmpAntworten,
-            'themen' => $themen
+            'themen' => $themen,
+            'releventThema' => $releventThema,
         ];
     }
 
