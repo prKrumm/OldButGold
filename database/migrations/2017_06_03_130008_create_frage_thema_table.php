@@ -14,8 +14,8 @@ class CreateFrageThemaTable extends Migration
     public function up()
     {
         Schema::create('frage_gehoert_thema', function (Blueprint $table) {
-            $table->integer('thema_id')->unsigned()->default('');
-            $table->integer('frage_id')->unsigned()->default('');
+            $table->integer('thema_id')->unsigned();
+            $table->integer('frage_id')->unsigned();
 
             $table->foreign('thema_id')->references('thema_id')->on('thema');
             $table->foreign('frage_id')->references('frage_id')->on('frage');

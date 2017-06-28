@@ -18,7 +18,7 @@ class CreateFzgModellTable extends Migration
         Schema::create('fzg_modell', function (Blueprint $table) {
             $table->increments('fzg_modell_id');
             $table->string('modell');
-            $table->integer('hersteller_id')->unsigned()->default('');
+            $table->integer('hersteller_id')->unsigned();
 
             $table->foreign('hersteller_id')->references('hersteller_id')->on('hersteller');
             $table->timestamps();

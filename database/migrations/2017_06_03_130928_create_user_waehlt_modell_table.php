@@ -14,8 +14,8 @@ class CreateUserWaehltModellTable extends Migration
     public function up()
     {
         Schema::create('user_waehlt_modell', function (Blueprint $table) {
-            $table->integer('fzg_modell_id')->unsigned()->default('');
-            $table->integer('user_id')->unsigned()->default('');
+            $table->integer('fzg_modell_id')->unsigned();
+            $table->integer('user_id')->unsigned();
 
             $table->foreign('fzg_modell_id')->references('fzg_modell_id')->on('fzg_modell');
             $table->foreign('user_id')->references('user_id')->on('users');

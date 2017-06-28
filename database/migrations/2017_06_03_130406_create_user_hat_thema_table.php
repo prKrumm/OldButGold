@@ -14,8 +14,8 @@ class CreateUserHatThemaTable extends Migration
     public function up()
     {
         Schema::create('user_hat_thema', function (Blueprint $table) {
-            $table->integer('thema_id')->unsigned()->default('');
-            $table->integer('user_id')->unsigned()->default('');
+            $table->integer('thema_id')->unsigned();
+            $table->integer('user_id')->unsigned();
 
             $table->foreign('thema_id')->references('thema_id')->on('thema');
             $table->foreign('user_id')->references('user_id')->on('users');

@@ -18,7 +18,7 @@ class CreateAddresseTable extends Migration
             $table->string('street');
             $table->string('plz');
             $table->string('ort');
-            $table->integer('user_id')->unsigned()->default('')-> unique();
+            $table->integer('user_id')->unsigned()-> unique();
 
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();

@@ -16,8 +16,8 @@ class CreateAntwortTable extends Migration
         Schema::create('antwort', function (Blueprint $table) {
             $table->increments('antwort_id')->unique();
             $table->string('text',1000);
-            $table->integer('frage_id')->unsigned()->default('');
-            $table->integer('user_id')->unsigned()->default('');
+            $table->integer('frage_id')->unsigned();
+            $table->integer('user_id')->unsigned();
 
             $table->foreign('frage_id')->references('frage_id')->on('frage');
             $table->foreign('user_id')->references('user_id')->on('users');

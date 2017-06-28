@@ -14,7 +14,7 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('rolle_id')->unsigned()->after('bild_url')->default('');
+            $table->integer('rolle_id')->unsigned()->after('bild_url');
 
             $table->foreign('rolle_id')->references('rolle_id')->on('rolle');
         });
