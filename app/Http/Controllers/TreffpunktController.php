@@ -24,10 +24,11 @@ class TreffpunktController extends ErsatzteilTreffpunktController
     {
         $thema = session()->get('thema');
         session()->forget('search');
+
         //check if fzg in session
         if (session('fzg', false) == true) {
             $fzg_id = session('fzgId', 'default');
-            $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema);
+            $fragen = $this->queryFragenGesuche($fzg_id, 'Frage', $thema,null);
         } else {
             //show all questions
             $fragen = $this->queryFragenGesuche(null, 'Frage', $thema,null);
