@@ -198,7 +198,7 @@ class ErsatzteilTreffpunktController extends Controller
             array_push($whereExtension, ['test.text', 'LIKE', "%$search%"]);
         }
 
-        $themen = DB::raw("(Select *, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
+        $themen = DB::raw("(Select f.*,thema.thema_id,thema.bezeichnung, Group_CONCAT(DISTINCT thema.bezeichnung) as themen FROM ((frage f Left outer join frage_gehoert_thema t on f.frage_id = t.frage_id) left outer join thema on thema.thema_id = t.thema_id ) group by f.frage_id ) as test");
 
 
 //                $fragen=DB::table($themen)
