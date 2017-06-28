@@ -31,8 +31,9 @@ class UpdateUsersTable extends Migration
 public
 function down()
 {
-    Schema::table('users', function ($table) {
-        $table->dropForeign('rolle_id');
-    });
+    //Schema::table('users', function ($table) {
+   //     $table->dropForeign('rolle_id');
+   // });
+    Schema::dropIfExists('users');
 }
 }
