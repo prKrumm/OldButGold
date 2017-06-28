@@ -22,7 +22,7 @@
                 </div>
                 <div class="row">
                     <div class=col-md-6>
-                        <a href="profil_aendern" color="white">
+                        <a href="profil_aendern">
                             <button class="btn btn-default">
                                 Profil ändern
                             </button>

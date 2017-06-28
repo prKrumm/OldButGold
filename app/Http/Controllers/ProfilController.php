@@ -32,24 +32,27 @@ class ProfilController extends Controller
             ->where('antwort.user_id', '=', $user->user_id)
             ->groupBy('antwort.user_id')
             ->get()
-            ->first()
-       ;
+            ->first();
+
+        if ($sumVotes == null)
+        {$sumVotes = new Vote();
+        $sumVotes->totalVotes = 0;}
 
         //Gesuche holen
         $gesuche = Frage::all()
-            ->where('user_id','=',$user->user_id)
-            ->where('rubrik','=','Gesuch')
-        ;
+            ->where('user_id', '=', $user->user_id)
+            ->where('rubrik', '=', 'Gesuch');
 
         $fragen = Frage::all()
-            ->where('user_id','=',$user->user_id)
-            ->where('rubrik','=','Frage')
-        ;
+            ->where('user_id', '=', $user->user_id)
+            ->where('rubrik', '=', 'Frage');
 
 
         //Anzahl Fragen/Antworten
         $countFragen = Frage::all()->where('user_id', '==', $user->user_id)->count();
         $countAntwort = Antwort::all()->where('user_id', '==', $user->user_id)->count();
+
+
 
         return view('pages.profil', [
             'user' => $user,
@@ -57,7 +60,7 @@ class ProfilController extends Controller
             'countFrag' => $countFragen,
             'countAntwort' => $countAntwort,
             'ranking' => $sumVotes,
-            'gesuche' =>$gesuche,
+            'gesuche' => $gesuche,
             'fragen' => $fragen,
         ]);
     }
