@@ -50,7 +50,7 @@
                                 <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                             </button>
                         </div>
-                        <div class="detailAntwortenCount" tooltip="Sind Sie eingeloggt und haben diese Antwort noch nicht bewertet?">
+                        <div class="detailAntwortenCount">
                             <p>
                                 <?php
                                 if($antwort->value == null) { ?>
