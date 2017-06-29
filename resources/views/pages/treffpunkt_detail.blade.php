@@ -30,7 +30,7 @@
         <div class="row">
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <h2 class="answer"> {!!$countAnswers!!}
+                    <h2 class="answer" id="vote"> {!!$countAnswers!!}
                         <?php if($countAnswers == 1 ){
                         ?>
                         Antwort
@@ -45,12 +45,12 @@
                 <div class="row answer">
                     <div class="col-md-2 col-sm-2 vote">
                         <div class="detailBtn">
-                            <button type="button" class="btn btn-custom upvote" aria-label="Left Align" href=""
+                            <button type="button" class="btn btn-custom vote " aria-label="Left Align" href=""
                                     onclick="addVote({!! $antwort->antwort_id !!} , '1', {!! $antwort->frage_id !!})">
                                 <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                             </button>
                         </div>
-                        <div class="detailAntwortenCount">
+                        <div class="detailAntwortenCount" tooltip="Sind Sie eingeloggt und haben diese Antwort noch nicht bewertet?">
                             <p>
                                 <?php
                                 if($antwort->value == null) { ?>
@@ -63,7 +63,7 @@
                             </p>
                         </div>
                         <div class="detailBtn">
-                            <button type="button" class="btn btn-custom" aria-label="Left Align" href=""
+                            <button type="button" class="btn btn-custom vote " aria-label="Left Align" href=""
                                     onclick="addVote({!! $antwort->antwort_id !!} , '-1', {!! $antwort->frage_id !!})">
                                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
                             </button>
