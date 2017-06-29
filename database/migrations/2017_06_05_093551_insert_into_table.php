@@ -543,42 +543,42 @@ Man kann hier sicher sagen, dass die Besitzer solcher Bastelbuden schuld daran w
                 array(
                     'value' => '1',
                     'antwort_id' => '4',
-                    'user_id' => '1'
+                    'user_id' => '2'
                 ),
                 array(
                     'value' => '1',
                     'antwort_id' => '4',
-                    'user_id' => '1'
+                    'user_id' => '3'
                 ),
                 array(
                     'value' => '1',
                     'antwort_id' => '4',
-                    'user_id' => '1'
+                    'user_id' => '4'
                 ),
                 array(
                     'value' => '1',
                     'antwort_id' => '4',
-                    'user_id' => '1'
+                    'user_id' => '5'
                 ),
                 array(
                     'value' => '1',
                     'antwort_id' => '4',
-                    'user_id' => '1'
+                    'user_id' => '6'
                 ),
                 array(
                     'value' => '1',
                     'antwort_id' => '4',
+                    'user_id' => '7'
+                ),
+                array(
+                    'value' => '1',
+                    'antwort_id' => '1',
                     'user_id' => '1'
                 ),
                 array(
                     'value' => '1',
-                    'antwort_id' => '4',
-                    'user_id' => '1'
-                ),
-                array(
-                    'value' => '1',
-                    'antwort_id' => '4',
-                    'user_id' => '1'
+                    'antwort_id' => '1',
+                    'user_id' => '2'
                 ),
                 array(
                     'value' => '1',
@@ -588,12 +588,12 @@ Man kann hier sicher sagen, dass die Besitzer solcher Bastelbuden schuld daran w
                 array(
                     'value' => '1',
                     'antwort_id' => '5',
-                    'user_id' => '1'
+                    'user_id' => '2'
                 ),
                 array(
                     'value' => '1',
                     'antwort_id' => '5',
-                    'user_id' => '1'
+                    'user_id' => '3'
                 ),
                 array(
                     'value' => '-1',
@@ -603,7 +603,7 @@ Man kann hier sicher sagen, dass die Besitzer solcher Bastelbuden schuld daran w
                 array(
                     'value' => '1',
                     'antwort_id' => '6',
-                    'user_id' => '1'
+                    'user_id' => '2'
                 )
             )
         );
