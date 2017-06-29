@@ -44,6 +44,12 @@ class AdminController extends Controller
     public function edit(Request $request)
     {
         $id = $request->frage_id;
+
+        $antwort=DB::table('antwort')->where('frage_id', $id)->get()->first();
+
+        DB::table('vote')->where('antwort_id', $antwort->antwort_id)->delete();
+        DB::table('antwort')->where('frage_id', $id)->delete();
+        DB::table('frage_gehoert_thema')->where('frage_id', $id)->delete();
         $frage = DB::table('frage')->where('frage_id', $id)->delete();
 
         return redirect()->action('AdminController@index');
