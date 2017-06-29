@@ -31,5 +31,7 @@
 
 <!-- JS -->
 <script type="text/javascript" src="{{ asset('js/functions.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/experten.js') }}"></script>
+
 
 <meta http-equiv="Cache-control" content="public">
