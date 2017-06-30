@@ -46,9 +46,11 @@ class AdminController extends Controller
         $id = $request->frage_id;
 
         $antwort=DB::table('antwort')->where('frage_id', $id)->get()->first();
+        if(!is_null($antwort)){
+            DB::table('vote')->where('antwort_id', $antwort->antwort_id)->delete();
+            DB::table('antwort')->where('frage_id', $id)->delete();
+        }
 
-        DB::table('vote')->where('antwort_id', $antwort->antwort_id)->delete();
-        DB::table('antwort')->where('frage_id', $id)->delete();
         DB::table('frage_gehoert_thema')->where('frage_id', $id)->delete();
         $frage = DB::table('frage')->where('frage_id', $id)->delete();
 
